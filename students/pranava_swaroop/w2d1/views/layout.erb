@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+	<head>
+		<title>Subway System</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <!-- Bootstrap -->
+	    <link href="/css/bootstrap.css" rel="stylesheet">
+
+	    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	    <![endif]-->
+
+	    <style>
+	    	.form-control{
+	    		width:50%;
+	    	}
+
+	    	.container{
+	    		background-image:url('/img/nice_snow.png');
+			}
+	    </style>
+	</head>
+	<body>
+		<div class="container well">
+		    <h2>SUBWAY SYSTEM</h2>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7">
+				<%= yield %>
+				</div>
+				<div class="col-md-5">
+					<div class="well">Result: <%=@result %> </div>
+				</div>
+			</div>
+		</div>
+		
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="/js/bootstrap.js"></script>
+	    <script type="text/javascript">
+	    	var narray = ['TimeSquare','34th','28th','23rd','UnionSquare','8th'];
+			var larray = ['8th','6th','UnionSquare','3rd','1st'];
+			var larray2= ['GrandCentral','33rd','28th','23rd','UnionSquare','Astorplace'];
+
+	        $(document).ready(function(){
+
+	           $('#srcline').on('change',function(){
+	           		srcline = $('#srcline').val();
+		           	if(srcline == 'N'){
+		           		$("#srcstop").empty();
+		           	 	for(i in narray){
+		           	 		$("#srcstop").append("<option>"+narray[i]+"</option>");
+		           	 	}
+		           }else if(srcline == 'L'){
+		           		$("#srcstop").empty();
+		           		for(i in larray){
+		           	 		$("#srcstop").append("<option>"+larray[i]+"</option>");
+		           	 	}
+		           }else{
+		           		$("#srcstop").empty();
+		           		for(i in larray2){
+		           	 		$("#srcstop").append("<option>"+larray2[i]+"</option>");
+		           	 	}
+		           }
+	           	});
+
+
+	           $('#destline').on('change',function(){
+	           		destline = $('#destline').val();
+		           	if(destline == 'N'){
+		           		$("#deststop").empty();
+		           	 	for(i in narray){
+		           	 		$("#deststop").append("<option>"+narray[i]+"</option>");
+		           	 	}
+		           }else if(destline == 'L'){
+		           		$("#deststop").empty();
+		           		for(i in larray){
+		           	 		$("#deststop").append("<option>"+larray[i]+"</option>");
+		           	 	}
+		           }else{
+		           		$("#deststop").empty();
+		           		for(i in larray2){
+		           	 		$("#deststop").append("<option>"+larray2[i]+"</option>");
+		           	 	}
+		           }
+	           	});
+	           
+	           
+	        });
+
+	        $(window).load(function(){
+	        	srcline = $('#srcline').val();
+	        	if(srcline == 'N'){
+	        		$("#srcstop").empty();
+	           	 	for(i in narray){
+	           	 		$("#srcstop").append("<option>"+narray[i]+"</option>");
+	           	 	}
+	           }else if(srcline == 'L'){
+	           		$("#srcstop").empty();
+	           		for(i in larray){
+	           	 		$("#srcstop").append("<option>"+larray[i]+"</option>");
+	           	 	}
+	           }else{
+	           		$("#srcstop").empty();
+	           		for(i in larray2){
+	           	 		$("#srcstop").append("<option>"+larray2[i]+"</option>");
+	           	 	}
+	           }
+
+	           destline = $('#destline').val();
+		           	if(destline == 'N'){
+		           		$("#deststop").empty();
+		           	 	for(i in narray){
+		           	 		$("#deststop").append("<option>"+narray[i]+"</option>");
+		           	 	}
+		           }else if(destline == 'L'){
+		           		$("#deststop").empty();
+		           		for(i in larray){
+		           	 		$("#deststop").append("<option>"+larray[i]+"</option>");
+		           	 	}
+		           }else{
+		           		$("#deststop").empty();
+		           		for(i in larray2){
+		           	 		$("#deststop").append("<option>"+larray2[i]+"</option>");
+		           	 	}
+		           }
+	        });
+	    </script>
+	</body>
+</html>

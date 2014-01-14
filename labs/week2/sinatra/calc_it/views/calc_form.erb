@@ -1,0 +1,20 @@
+<h1>Calc it!</h1>
+
+<form action="/calc_form" method='get'>
+  <label for="first">First number</label>
+  <input type="text" name="first">
+
+  <select name="operation">
+    <option>sum</option>
+    <option>subtraction</option>
+    <option>product</option>
+    <option>division</option>
+  </select>
+  
+  <label for="second">Second number</label>
+  <input type="text" name="second">
+
+  <button>Calculate!</button>
+</form>
+
+<p>the <%= @operation %> of <%= @first %> and <%= @second %> is <%= @result %></p>
