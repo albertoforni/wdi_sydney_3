@@ -1,7 +1,7 @@
 <div class="row">
   <form action="/" role="form" class="form-horizontal col-lg-offset-3 col-lg-6" method="get">
     <div class="form-group">
-      <label for="start_station" class="col-sm-6 control-label">Select the line you wanna get in</label>
+      <label for="start_station" class="col-sm-6 control-label">Select the station you wanna get in</label>
       <div class="col-sm-6">
         <select name="start_station" class="form-control">
         <% @stations.each do |line, stations| %>
@@ -9,7 +9,7 @@
           <% stations.each do |station| %>
             <option
               value="<%= "#{line}-#{station}";%>"
-              <%= "selected" if params[:start_station] == "#{line}-#{station}" %>><%= station %>
+              <%= "selected='selected'" if params[:start_station] == "#{line}-#{station}" %>><%= station %>
             </option>
           <% end %>
         <% end %>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="form-group">
-      <label for="end_station" class="col-sm-6 control-label">Select the line you wanna get in</label>
+      <label for="end_station" class="col-sm-6 control-label">Select the station you wanna get out</label>
       <div class="col-sm-6">
         <select name="end_station" class="form-control">
         <% @stations.each do |line, stations| %>
