@@ -1,0 +1,76 @@
+h1 {
+  font-family: Georgia, 'Times New Roman', Times;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 62px;
+  line-height: 110%;
+  color: #666;
+  text-transform: uppercase;
+}
+
+body {
+  background-image: url("http://upload.wikimedia.org/wikipedia/commons/d/dc/HMAS_Sydney_at_Circular_Quay.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a {
+  color: #666;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+a:hover {
+  color: #f03;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+.media-title {
+  font-family: Georgia, 'Times New Roman', Times;
+  margin: 0;
+  padding: 19px 0;
+  font-size: 48px;
+  line-height: 110%;
+  color: #666;
+}
+
+.background-contrast {
+  background-color: rgba(255,255,255,0.5);
+}
+
+.margin-top-15 {
+  margin-top: 15px;
+}
+
+.border-separator {
+  border-bottom: 5px solid #666;
+}
+
+/* ++++ list module */
+.list {
+  padding: 20px;
+  list-style: none;
+}
+
+.list-border {
+  border: 3px solid #f03;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.list-element {
+  margin-bottom: 15px;
+}
+/* ---- list module */

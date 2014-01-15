@@ -1,0 +1,35 @@
+.background-contrast
+  %h1.center= @student_name
+  
+  %img.img-thumbnail.center-block{ src: @student[:picture_link] }
+  
+  .row
+    %div.col-xs-offset-2.col-xs-6.margin-top-15= @student[:text]
+  
+  .row
+    %form.col-xs-offset-2.col-xs-6.margin-top-15.form-horizontal{ method: "post", action: "/students/#{@student_name}" }
+      
+      %div.form-group
+        %label.col-sm-4.control-label{ for: "inputEmail3" } Your Email
+        %div.col-sm-8
+          %input#inputEmail3.form-control{ type: "email", name: "email", placeholder: "Email", required: "required" }
+
+      %div.form-group
+        %label.col-sm-4.control-label{ for: "subject" } Subject
+        %div.col-sm-8
+          %input#subject.form-control{ type: "text", name: "subject", placeholder: "Subject", required: "required" }
+  
+      %div.form-group
+        %label.col-sm-4.control-label{ for: "text" } Text
+        %div.col-sm-8
+          %textarea#text.form-control{ name: "email-text", placeholder: "Write your text here", required: "required" }  
+
+      %div.form-group
+        .col-sm-offset-4.col-sm-8
+          %button.btn.btn-default{ type: "submit" } Sign in
+
+  - !@message.nil?
+  .row
+    %p= @message
+    %p= params
+

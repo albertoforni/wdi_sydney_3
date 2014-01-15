@@ -1,0 +1,16 @@
+.row
+  %nav.col-xs-offset-4.col-xs-4.margin-top-15
+    %ul.list.list-border.background-contrast
+      - @students.each do |student_name, student_datails|
+        %li.list-element
+          
+          .media
+            
+            %a.pull-left{ href: "#"}
+              %img.media-object.img-circle.img-thumbnail{ src: @students[student_name][:picture_link] }
+            
+            %div.media-body
+              %h2.media-heading.media-title
+                %a{ href: "/students/#{student_name}" } #{student_name.capitalize}
+
+

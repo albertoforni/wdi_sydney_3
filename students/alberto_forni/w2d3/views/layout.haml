@@ -1,0 +1,21 @@
+!!!
+%html  
+  
+  %head  
+    %title GA WDI Jan 2014 - About us
+    
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    
+    %link{ rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" }
+    %link{ rel: "stylesheet", href: "/css/style.css" }
+  
+  %body
+    
+    %h1.center.background-contrast.border-separator
+      %a{ href: "/" } About us<br />
+      %a{ href: "/about"} GA Students Jan 2014
+    
+    %div.container= yield
+
+    %script{ src: "https://code.jquery.com/jquery.js" }
+    %script{ src: "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" }
