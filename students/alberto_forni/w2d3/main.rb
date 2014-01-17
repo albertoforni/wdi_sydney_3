@@ -2,6 +2,7 @@ require "sinatra"
 require "sinatra/reloader" if development?
 require 'Haml'
 require 'active_support/all'
+require 'pony'
 
 before do
   @students = {
@@ -22,6 +23,12 @@ before do
       picture_link: "http://www.gravatar.com/avatar/dcc98d8ba3e3590c09d5c4a177a548bd.png"
     }
   }
+end
+
+helpers do
+  def validate_presence(field, key)
+    "You need to fill the #{key} field" unless field[key].present?
+  end
 end
 
 get "/" do
@@ -47,6 +54,7 @@ get '/about' do
 end
 
 post '/students/:name' do
+  
   if params[:name].present?
 
     @student_name = params[:name]
@@ -55,9 +63,34 @@ post '/students/:name' do
 
     @student = @students[@student_name.to_sym]
 
-    @errors = params[:email]
+    @errors = {}
+    @errors[:email] = validate_presence(params, :email)
+    @errors[:subject] = validate_presence(params, :subject)
+    @errors[:emailtext] = validate_presence(params, :emailtext)
 
-    @message = "Thanks"
+    if @errors.values.each 
+      
+    end
+
+    options = {
+      :to => 'alberto.forn@gmail.com',
+      :from => 'alberto.forn@gmail.com',
+      :subject => 'Test',
+      :body => 'Test Text',
+      #:html_body => (haml :test),
+      :via => :smtp,
+      :via_options => {
+        :address => 'smtp.gmail.com',
+        :port => 587,
+        :enable_starttls_auto => true,
+        :user_name => 'alberto.forn@gmail.com',
+        :password => 'SARAciao1985',
+        :authentication => :plain,
+        :domain => 'HELO'
+      }
+    }
+
+    Pony.mail(options)
   end
 
   haml :single

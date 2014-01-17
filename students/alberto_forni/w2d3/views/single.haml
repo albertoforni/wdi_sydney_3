@@ -22,14 +22,22 @@
       %div.form-group
         %label.col-sm-4.control-label{ for: "text" } Text
         %div.col-sm-8
-          %textarea#text.form-control{ name: "email-text", placeholder: "Write your text here", required: "required" }  
+          %textarea#text.form-control{ name: "emailtext", placeholder: "Write your text here", required: "required" }  
 
       %div.form-group
         .col-sm-offset-4.col-sm-8
           %button.btn.btn-default{ type: "submit" } Sign in
 
-  - !@message.nil?
-  .row
-    %p= @message
-    %p= params
+  - unless @errors.nil?
+    .row
+      - if @errors.values.all? { |error| error.nil? }
+        .col-sm-offset-4.col-sm-6
+          %p.alert.alert-success Thank you for submitting
+      - else
+        %ul.col-sm-offset-4.col-sm-6
+          - @errors.each do |field, error|
+            - unless error.nil?
+              %li.alert.alert-danger
+                %strong= field
+                =error
 
