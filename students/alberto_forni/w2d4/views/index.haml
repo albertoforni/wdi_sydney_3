@@ -1,0 +1,44 @@
+/ search form
+.row.margin-top-15
+  .col-xs-offset-2.col-xs-8
+    %form.form-horizontal{ action: '/', method: 'get', role: 'form' }
+      %div.form-group
+        %div.col-xs-10
+          %input#search.form-control{ type: 'search', name: 'title', placeholder: 'Search a movie', value: "#{params[:title]}"}
+        
+        %div.col-xs-2
+          %button.btn.btn-default{ type: 'submit' } Search
+
+      %div.form-group
+        %div.col-xs-3
+          %label
+            %input{ type: "checkbox", name: "lucky", value: "t", checked: params[:lucky] == 't' } I feel lucky
+
+/ display list of movies
+- unless @movies.nil?
+  .row.margin-top-15
+    .col-xs-offset-2.col-xs-8
+      %ul.list-group
+        - @movies.each do |movie|
+          %li.list-group-item
+            %a{ href: "/movie/#{movie["Title"]}" }= movie["Title"]
+
+/ display a single movie
+- unless @movie.nil?
+  
+  .row.margin-top-15
+    
+    .col-xs-offset-2.col-xs-6
+      %h2= @movie["Title"]
+      - unless @movie["imdbRating"] == 'N/A'
+        %h3= "Rating: <span class='badge'>#{@movie["imdbRating"]}</span>"
+      %ul.list-group
+        - @movie.each do |key, value|
+          - unless key == "Poster"
+            %li.list-group-item
+              %strong= key
+              =value
+
+    - unless @movie["Poster"] == 'N/A'
+      .col-xs-4
+        %img{ src: @movie["Poster"] }
