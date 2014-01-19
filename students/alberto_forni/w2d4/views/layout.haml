@@ -11,9 +11,27 @@
   
   %body
     
-    %h1.center.background-contrast.border-separator GA movies
+    .row
+      %h1.center.background-contrast.border-separator
+        %a{ href: '/' } GA movies<br/>
+
+    .container
+      / search form
+      .row.margin-top-15
+        .col-xs-offset-2.col-xs-8
+          %form.form-horizontal{ action: '/', method: 'get', role: 'form' }
+            %div.form-group
+              %div.col-xs-10
+                %input#search.form-control{ type: 'search', name: 'title', placeholder: 'Search a movie', value: "#{params[:title]}"}
+              
+              %div.col-xs-2
+                %button.btn.btn-default{ type: 'submit' } Search
+
+            %div.form-group
+              %div.col-xs-12
+                %input{ type: "checkbox", name: "lucky", value: "t", checked: params[:lucky] == 't' } &#32; I feel lucky
     
-    %div.container= yield
+      .row.margin-top-15= yield
 
     %script{ src: "https://code.jquery.com/jquery.js" }
     %script{ src: "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" }

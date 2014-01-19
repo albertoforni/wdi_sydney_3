@@ -55,7 +55,7 @@ a:hover {
 
 /* ++++ list module */
 .list {
-  padding: 20px;
+  padding: 0;
   list-style: none;
 }
 
@@ -67,5 +67,36 @@ a:hover {
 
 .list-element {
   margin-bottom: 15px;
+  border: 1px solid #ccc;
+  padding: 10px 5px;
+  border-radius: 5px;
 }
 /* ---- list module */
+
+/* ++++ thumbnail module */
+.thumbnail-little {
+  height: 100px;
+}
+/* ---- thumbnail module */
+
+/* ++++ mediaObject module */
+.mediaObject:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.mediaObject-img {
+  width: 20%;
+  float: left;
+  text-align: center;
+  min-height: 100px;
+}
+
+.mediaObject-text {
+  width: 80%;
+  float: left;
+}
+/* ---- mediaObject module */
+
+
