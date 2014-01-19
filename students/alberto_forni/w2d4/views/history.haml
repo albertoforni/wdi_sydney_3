@@ -1,0 +1,14 @@
+/ display list of movies
+.col-xs-offset-2.col-xs-8
+  %ul.list
+    - @movies_history.values.reverse.each do |movie|
+      %li.list-element
+        %a.mediaObject{ href: "/movie/#{movie['imdbID']}" }
+          .mediaObject-img
+            - if movie['Poster'] == 'N/A'
+              %div
+                %em Image not available
+            - else
+              %img.thumbnail-little{ src: "#{movie['Poster']}" }
+          .mediaObject-text
+            %h4= movie["Title"]
