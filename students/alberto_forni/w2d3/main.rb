@@ -83,8 +83,8 @@ post '/students/:name' do
         :address => 'smtp.gmail.com',
         :port => 587,
         :enable_starttls_auto => true,
-        :user_name => 'alberto.forn@gmail.com',
-        :password => 'SARAciao1985',
+        :user_name => '#',
+        :password => '#',
         :authentication => :plain,
         :domain => 'HELO'
       }
