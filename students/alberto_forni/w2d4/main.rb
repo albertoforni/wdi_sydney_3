@@ -56,14 +56,14 @@ get "/" do
     movie_name = URI.escape(params[:title])
     @movies = JSON.parse(HTTParty.get("http://www.omdbapi.com/?s=#{movie_name}"))["Search"] || []
 
+    # if there is just 1 movie or the users checked the "I'm feel lucky option" show the movie
+    if @movies.size == 1 || params[:lucky] == "t"
+      @movie = get_movie(@movies[0]["imdbID"])
+
+      return haml :movie
+    end
+
     return haml :list
-  end
-
-  # if there is just 1 movie or the users checked the "I'm feel lucky option" show the movie
-  if @movies.size == 1 || params[:lucky] == "t"
-    @movie = get_movie(@movies[0]["imdbID"])
-
-    return haml :movie
   end
 
   haml :history

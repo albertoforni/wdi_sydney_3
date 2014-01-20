@@ -1,13 +1,13 @@
 / display a single movie  
 .row.margin-top-15
-  
+  - skip = %w(Poster Type Response imdbID)
   .col-xs-offset-2.col-xs-6
     %h2= @movie["Title"]
     - unless @movie["imdbRating"] == 'N/A'
       %h3= "Rating: <span class='badge'>#{@movie["imdbRating"]}</span>"
     %ul.list-group
       - @movie.each do |key, value|
-        - unless key == "Poster"
+        - unless skip.include?(key)
           %li.list-group-item
             %strong= key
             =value
