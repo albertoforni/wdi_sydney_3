@@ -7,7 +7,7 @@
   <input class='form-input' id="abstract" name="abstract" type="text" value="<%= @post['abstract'] if @post.present? %>">
 
   <label class='form-label' for="body">Post: </label>
-  <textarea class='form-input form-input-text' id="body" name="body" type="text"><%= @post['body'] if @post.present? %></textarea>
+  <textarea class='form-input form-input-text' id="body" name="body" type="text"><%= CGI.unescape(@post['body']) if @post.present? %></textarea>
 
   <label class='form-label' for="author">Author: </label>
   <input class='form-input' id="author" name="author" type="text" value="<%= @post['author'] if @post.present? %>">

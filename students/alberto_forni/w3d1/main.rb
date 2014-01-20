@@ -72,7 +72,7 @@ put '/posts/:id' do
   id = CGI.escapeHTML(params[:id])
   title = CGI.escapeHTML(params[:title])
   abstract = CGI.escapeHTML(params[:abstract])
-  body = CGI.escapeHTML(params[:body])
+  body = CGI.escape(params[:body])
   author = CGI.escapeHTML(params[:author])
   created_at = Time.now
   sql = "UPDATE posts SET title = '#{title}', abstract = '#{abstract}', body = '#{body}', author = '#{author}' WHERE id = #{id}"
