@@ -1,5 +1,7 @@
-<ul>
+<ul class="list">
   <% @posts.each do |post| %>
-    <li><%= post['title']%><a href="/posts/<%= post['id'] %>/edit">edit</a><form method="post" action="/posts/<%= post['id'] %>/delete"><button type="submit">Delete</button></form></li>
+    <li class="list-el">
+      <a class="list-el-link" href="/posts/<%= post['id'] %>"><%= post['title']%></a>
+    </li>
   <% end %>
 </ul>

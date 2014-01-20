@@ -1,0 +1,15 @@
+<article class='post'> 
+  <header>
+    <h2 class='post-title'><%= @post['title']%></h2>
+    <p class='post-abstract'><%= @post['abstract']%></p>
+  </header>
+  <p class="post-body"><%= @post['body']%></p>
+  <footer>
+    <p><em>Author: </em><%= @post['author']%></p>
+    <p><em>Create at: </em><%= @post['created_at']%></p>
+    <ul class="actions">
+      <li class="action"><a class='actions-link' href="/posts/<%= @post['id'] %>/edit">edit</a></li>
+      <li class="action"><form method="delete" action="/posts/<%= @post['id'] %>"><button class='actions-link' type="submit">Delete</button></form></li>
+    </ul>
+  </footer>
+</article>

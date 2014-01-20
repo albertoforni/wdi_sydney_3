@@ -7,13 +7,16 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h1>WDI Blog</h1>
-  <ul class="menu">
-    <li class="menu-el"><a href="/">Home</a></li>
-    <li class="menu-el"><a href="/new">New post</a></li>
-  </ul>
-  
-  <%= yield %>
+  <div class="container">
+    <h1 class="center">WDI Blog</h1>
+
+    <ul class="menu menu-up">
+      <li class="menu-el"><a class='menu-el-link' href="/">Home</a></li>
+      <li class="menu-el"><a class='menu-el-link' href="/new">New post</a></li>
+    </ul>
+    
+    <%= yield %>
+  </div>
 
 </body>
 </html>
