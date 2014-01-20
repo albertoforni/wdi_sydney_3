@@ -11,6 +11,10 @@
 
   <label class='form-label' for="author">Author: </label>
   <input class='form-input' id="author" name="author" type="text" value="<%= @post['author'] if @post.present? %>">
+  
+  <% if @post.present? %>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
 
   <div class="form-buttons">
     <button class='form-button' type="submit">Save</button>

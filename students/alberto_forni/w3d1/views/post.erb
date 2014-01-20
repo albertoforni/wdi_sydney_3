@@ -9,7 +9,7 @@
     <p><em>Create at: </em><%= @post['created_at']%></p>
     <ul class="actions">
       <li class="action"><a class='actions-link' href="/posts/<%= @post['id'] %>/edit">edit</a></li>
-      <li class="action"><form method="delete" action="/posts/<%= @post['id'] %>"><button class='actions-link' type="submit">Delete</button></form></li>
+      <li class="action"><form method="post" action="/posts/<%= @post['id'] %>"><button class='actions-link' type="submit">Delete</button><input type="hidden" name="_method" value="delete"></form></li>
     </ul>
   </footer>
 </article>

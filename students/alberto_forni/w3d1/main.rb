@@ -4,6 +4,8 @@ require 'active_support/all'
 require 'pg'
 require 'CGI'
 
+set :method_override, true
+
 before do
   @conn = PG.connect(:dbname => 'wdi_blog')
 end
@@ -40,7 +42,7 @@ post '/create' do
   redirect to '/'
 end
 
-# get single post
+# display single post
 get '/posts/:id' do
   id = CGI.escapeHTML(params[:id])
 
@@ -66,7 +68,7 @@ get '/posts/:id/edit' do
 end
 
 # edit post submit
-post '/posts/:id' do
+put '/posts/:id' do
   id = CGI.escapeHTML(params[:id])
   title = CGI.escapeHTML(params[:title])
   abstract = CGI.escapeHTML(params[:abstract])
