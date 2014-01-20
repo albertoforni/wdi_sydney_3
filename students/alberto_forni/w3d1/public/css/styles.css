@@ -1,0 +1,30 @@
+/* ++++ GENERAL */
+html, body {
+  font-family: Georgia, 'Times New Roman', Times;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: #666;
+}
+
+a {
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+/* ---- GENERAL */
+
+/* ++++ MODULES */
+
+/* ++++ menu-module */
+.menu {
+  list-style: none;
+}
+
+.menu-el {
+  display: inline-block;
+}
+/* ---- menu-module */
+/* ---- MODULES */

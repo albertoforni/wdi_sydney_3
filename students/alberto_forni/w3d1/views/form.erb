@@ -1,0 +1,19 @@
+<form action="<%= @post.present? ? "/posts/#{@post['id']}" : "/create" %>" method="post">
+  
+  <label for="title">Title: </label>
+  <input id="title" name="title" type="text" value="<%= @post['title'] if @post.present? %>">
+
+  <label for="abstract">Abstract: </label>
+  <input id="abstract" name="abstract" type="text" value="<%= @post['abstract'] if @post.present? %>">
+
+  <label for="body">Post: </label>
+  <textarea id="body" name="body" type="text">
+    <%= @post['body'] if @post.present? %>
+  </textarea>
+
+  <label for="author">Author: </label>
+  <input id="author" name="author" type="text" value="<%= @post['author'] if @post.present? %>">
+
+  <button type="submit">Save</button>
+
+</form>
