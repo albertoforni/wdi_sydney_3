@@ -6,4 +6,17 @@ CREATE TABLE posts
   body text,
   author varchar(255),
   created_at timestamp
-)
+);
+
+
+ALTER TABLE posts
+ADD COLUMN updated_at timestamp;
+
+CREATE TABLE comments
+(
+  id serial8 primary key,
+  text text,
+  author varchar(255),
+  created_at timestamp,
+  post_id integer REFERENCES posts(id)
+);

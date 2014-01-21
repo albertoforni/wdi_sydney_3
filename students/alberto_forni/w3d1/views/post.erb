@@ -12,4 +12,27 @@
       <li class="action"><form method="post" action="/posts/<%= @post['id'] %>"><button class='actions-link' type="submit">Delete</button><input type="hidden" name="_method" value="delete"></form></li>
     </ul>
   </footer>
+  <div class="post-comments">
+    <% @post[:comments].each do |comment| %>
+      <div class="post-comment">
+        <strong><%= comment['author'] %></strong>, <%= comment['created_at'] %><br />
+        <em><%= comment['text'] %></em>
+      </div>
+    <% end %>
+    <h4 class="post-comments-title">Insert you comment</h4>
+    <form class="form" method="post" action="/posts/<%= @post['id'] %>/comments/create">
+
+      <label class='form-label' for="comment_author">Author: </label>
+      <input class='form-input' id="comment_author" name="author" type="text" >
+
+
+      <label class='form-label' for="comment_body">Comment: </label>
+      <textarea class='form-input form-input-text' id="comment_body" name="text"></textarea>
+      
+      <div class="form-buttons">
+        <button class='form-button' type="submit">Comment</button>
+      </div>
+
+    </form>
+  </div>
 </article>

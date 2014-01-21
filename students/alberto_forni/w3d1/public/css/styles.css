@@ -33,6 +33,10 @@ a:hover {
   max-width: 960px;
   margin: 0 auto;
 }
+
+.margin-top-30 {
+  margin-top: 30px;
+}
 /* ---- GENERAL */
 
 /* ++++ MODULES */
@@ -120,7 +124,7 @@ a:hover {
 /* ++++ list module */
 .list {
   list-style: none;
-  text-align: center;
+  text-align: left;
   padding: 0;
 }
 
@@ -136,6 +140,10 @@ a:hover {
 .list-el-link:hover {
   color: #f03;
   background: none;
+}
+
+.link-el-link-small {
+  font-size: 12px;
 }
 /* ---- list module */
 
@@ -157,6 +165,21 @@ a:hover {
 
 .post-body {
   text-align: justify;
+}
+
+.post-comments {
+  padding: 50px;
+  background-color: #eee;
+}
+
+.post-comments-title {
+  margin: 30px 0 10px;
+  text-align: center;
+}
+
+.post-comment {
+  margin-bottom: 20px;
+
 }
 /* ---- post module */
 

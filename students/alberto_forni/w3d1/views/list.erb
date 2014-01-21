@@ -1,7 +1,19 @@
+<ul class="actions margin-top-30">
+  <li class="action"><a class='actions-link' href="/posts?sort=created_at">created at</a></li>
+  <li class="action"><a class='actions-link' href="/posts?sort=updated_at">updated at</a></li>
+  <li class="action"><a class='actions-link' href="/posts?sort=title">title</a></li>
+</ul>
 <ul class="list">
   <% @posts.each do |post| %>
     <li class="list-el">
-      <a class="list-el-link" href="/posts/<%= post['id'] %>"><%= post['title']%></a>
+      <a class="list-el-link" href="/posts/<%= post['id'] %>">
+        <strong><%= post['title']%></strong><br />
+        <span class='link-el-link-small'>
+          <em>created at: <%= post['created_at']%></em>,
+          <em>updated at: <%= post['updated_at']%></em>,
+          created by: <%= post['author']%>
+        </span>
+      </a>
     </li>
   <% end %>
 </ul>

@@ -17,7 +17,16 @@ end
 
 # home => show list
 get '/' do
-  sql = "SELECT * FROM posts ORDER BY id"
+  redirect to '/posts'
+end
+
+# show list
+get '/posts' do
+  order_by = params[:sort] || 'created_at'
+
+  #TODO check if sort parm is a column name
+
+  sql = "SELECT * FROM posts ORDER BY #{order_by} DESC"
   @posts = exec_sql(sql)
 
   erb :list
@@ -53,6 +62,8 @@ get '/posts/:id' do
 
   @post = posts[0]
 
+  @post[:comments] = get_comments(id)
+
   erb :post
 end
 
@@ -74,8 +85,8 @@ put '/posts/:id' do
   abstract = CGI.escapeHTML(params[:abstract])
   body = CGI.escape(params[:body])
   author = CGI.escapeHTML(params[:author])
-  created_at = Time.now
-  sql = "UPDATE posts SET title = '#{title}', abstract = '#{abstract}', body = '#{body}', author = '#{author}' WHERE id = #{id}"
+  updated_at = Time.now
+  sql = "UPDATE posts SET title = '#{title}', abstract = '#{abstract}', body = '#{body}', author = '#{author}', updated_at = '#{updated_at}' WHERE id = #{id}"
   exec_sql(sql)
 
   redirect to '/'
@@ -89,4 +100,23 @@ delete '/posts/:id' do
   exec_sql(sql)
 
   redirect to '/'
+end
+
+# comments
+
+# submit
+post '/posts/:id/comments/create' do
+  post_id = CGI.escapeHTML(params[:id])
+  author = CGI.escapeHTML(params[:author])
+  created_at = Time.now
+  text = CGI.escapeHTML(params[:text])
+  sql = "INSERT INTO comments (author, created_at, text, post_id) VALUES ('#{author}', '#{created_at}', '#{text}' , #{post_id})"
+  exec_sql(sql)
+
+  redirect to "/posts/#{post_id}"
+end
+
+def get_comments(post_id)
+  sql = "SELECT * FROM comments WHERE post_id = #{post_id} ORDER BY id"
+  exec_sql(sql)
 end
