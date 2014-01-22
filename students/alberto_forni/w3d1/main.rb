@@ -1,10 +1,9 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'active_support/all'
-require 'pg'
 require 'CGI'
 
-set :method_override, true
+set :method_override, true # its the default value anyway
 
 before do
   @conn = PG.connect(:dbname => 'wdi_blog')
@@ -33,13 +32,13 @@ get '/posts' do
 end
 
 # new form
-get '/new' do
+get '/posts/new' do
 
   erb :form
 end
 
 # new submit
-post '/create' do
+post '/posts' do
   title = CGI.escapeHTML(params[:title])
   abstract = CGI.escapeHTML(params[:abstract])
   body = CGI.escapeHTML(params[:body])
@@ -96,6 +95,9 @@ end
 delete '/posts/:id' do
   id = CGI.escapeHTML(params[:id])
 
+  sql = "DELETE FROM comments WHERE post_id = #{id}"
+  exec_sql(sql)
+
   sql = "DELETE FROM posts WHERE id = #{id}"
   exec_sql(sql)
 
@@ -105,7 +107,7 @@ end
 # comments
 
 # submit
-post '/posts/:id/comments/create' do
+post '/posts/:id/comments' do
   post_id = CGI.escapeHTML(params[:id])
   author = CGI.escapeHTML(params[:author])
   created_at = Time.now

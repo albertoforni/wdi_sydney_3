@@ -20,7 +20,7 @@
       </div>
     <% end %>
     <h4 class="post-comments-title">Insert you comment</h4>
-    <form class="form" method="post" action="/posts/<%= @post['id'] %>/comments/create">
+    <form class="form" method="post" action="/posts/<%= @post['id'] %>/comments">
 
       <label class='form-label' for="comment_author">Author: </label>
       <input class='form-input' id="comment_author" name="author" type="text" >
