@@ -1,0 +1,43 @@
+<article class='post'> 
+  <header>
+    <h2 class='post-title'><%= @post.title %></h2>
+    <p class='post-abstract'><%= @post.abstract %></p>
+  </header>
+  <p class="post-body"><%= @post.body %></p>
+  <footer>
+    <p><em>Author: </em><%= @post.author %></p>
+    <p><em>Create at: </em><%= @post.created_at %></p>
+    <ul class="actions">
+      <li class="action"><a class='action-link' href="/posts/<%= @post.id %>/edit">edit</a></li>
+      <li class="action"><form method="post" action="/posts/<%= @post.id %>"><button class='action-link' type="submit">Delete</button><input type="hidden" name="_method" value="delete"></form></li>
+    </ul>
+  </footer>
+  <div class="post-comments">
+    <% @comments.each do |comment| %>
+      <div class="post-comment">
+        <strong><%= comment.author %></strong>, <%= comment.created_at %><br />
+        <em><%= comment.text %></em>
+      </div>
+    <% end %>
+    <h4 class="post-comments-title">Insert you comment</h4>
+    <form class="form" method="post" action="/posts/<%= @post.id %>/comments">
+
+      <label class='form-label' for="comment_author">Author: </label>
+      <input class='form-input <%= 'form-input-error' if @errors.present? && @errors[:author] %>' id="comment_author" name="comment[author]" type="text" value="<%= @comment.author if @comment %>">
+      <% if @errors.present? && @errors[:author] %>
+        <p class="form-error-message"><%= @errors[:author].join(", ") %></p>
+      <% end %>
+
+      <label class='form-label' for="comment_body">Comment: </label>
+      <textarea class='form-input form-input-text <%= 'form-input-error' if @errors.present? && @errors[:text] %>' id="comment_body" name="comment[text]"><%= @comment.text if @comment %></textarea>
+      <% if @errors.present? && @errors[:text] %>
+        <p class="form-error-message"><%= @errors[:text].join(", ") %></p>
+      <% end %>
+      
+      <div class="form-buttons">
+        <button class='form-button' type="submit">Comment</button>
+      </div>
+
+    </form>
+  </div>
+</article>

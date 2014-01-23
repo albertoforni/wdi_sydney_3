@@ -1,23 +1,35 @@
-<form class='form' action="<%= @post.present? ? "/posts/#{@post['id']}" : "/posts" %>" method="post">
+<form class='form' action="<%= @post.new_record? ? "/posts" : "/posts/#{@post.id}" %>" method="post">
   
   <label class='form-label' for="title">Title: </label>
-  <input class='form-input' id="title" name="title" type="text" value="<%= @post['title'] if @post.present? %>">
+  <input class='form-input <%= 'form-input-error' if @errors.present? && @errors[:title] %>' id="title" name="post[title]" type="text" value="<%= @post.title %>">
+  <% if @errors.present? && @errors[:title] %>
+    <p class="form-error-message"><%= @errors[:title].join(", ") %></p>
+  <% end %>
 
   <label class='form-label' for="abstract">Abstract: </label>
-  <input class='form-input' id="abstract" name="abstract" type="text" value="<%= @post['abstract'] if @post.present? %>">
+  <input class='form-input <%= 'form-input-error' if @errors.present? && @errors[:abstract] %>' id="abstract" name="post[abstract]" type="text" value="<%= @post.abstract %>">
+  <% if @errors.present? && @errors[:abstract] %>
+    <p class="form-error-message"><%= @errors[:abstract].join(", ") %></p>
+  <% end %>
 
   <label class='form-label' for="body">Post: </label>
-  <textarea class='form-input form-input-text' id="body" name="body"><%= CGI.unescape(@post['body']) if @post.present? %></textarea>
+  <textarea class='form-input form-input-text <%= 'form-input-error' if @errors.present? && @errors[:body] %>' id="body" name="post[body]"><%= @post.body %></textarea>
+  <% if @errors.present? && @errors[:body] %>
+    <p class="form-error-message"><%= @errors[:body].join(", ") %></p>
+  <% end %>
 
   <label class='form-label' for="author">Author: </label>
-  <input class='form-input' id="author" name="author" type="text" value="<%= @post['author'] if @post.present? %>">
+  <input class='form-input <%= 'form-input-error' if @errors.present? && @errors[:author] %>' id="author" name="post[author]" type="text" value="<%= @post.author %>">
+  <% if @errors.present? && @errors[:author] %>
+    <p class="form-error-message"><%= @errors[:author].join(", ") %></p>
+  <% end %>
   
-  <% if @post.present? %>
+  <% unless @post.new_record? %>
     <input type="hidden" name="_method" value="put">
   <% end %>
 
   <div class="form-buttons">
     <button class='form-button' type="submit">Save</button>
   </div>
-  
+
 </form>

@@ -1,18 +1,19 @@
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 require 'active_support/all'
-require 'CGI'
+require 'active_record'
 
-set :method_override, true # its the default value anyway
+require 'pry'
+require 'pry-debugger'
 
-before do
-  @conn = PG.connect(:dbname => 'wdi_blog')
-end
+ActiveRecord::Base.establish_connection(
+  :adapter  => 'postgresql',
+  :username => 'albertoforni',
+  :database => 'wdi_blog'
+)
 
-def exec_sql(sql)
-  res = @conn.exec(sql)
-  res
-end
+require './models/post'
+require './models/comment'
 
 # home => show list
 get '/' do
@@ -21,104 +22,96 @@ end
 
 # show list
 get '/posts' do
-  order_by = params[:sort] || 'created_at'
+  @order_by = {
+    created_at: 'Created At',
+    updated_at: 'Updated At',
+    title: 'Title'
+  }
 
-  #TODO check if sort parm is a column name
+  @current_order = params[:sort] && @order_by[params[:sort].to_sym] ? params[:sort].to_sym : :created_at
+  @direction = params[:dir] == 'asc' ? :asc : :desc
 
-  sql = "SELECT * FROM posts ORDER BY #{order_by} DESC"
-  @posts = exec_sql(sql)
+  @posts = Post.order(@current_order => @direction).all
 
   erb :list
 end
 
 # new form
 get '/posts/new' do
-
+  @post = Post.new 
   erb :form
 end
 
 # new submit
 post '/posts' do
-  title = CGI.escapeHTML(params[:title])
-  abstract = CGI.escapeHTML(params[:abstract])
-  body = CGI.escapeHTML(params[:body])
-  author = CGI.escapeHTML(params[:author])
-  created_at = Time.now
-  sql = "INSERT INTO posts (title, abstract, body, author, created_at) VALUES ('#{title}', '#{abstract}', '#{body}', '#{author}', '#{created_at}')"
-  exec_sql(sql)
+  @post = Post.create(params[:post])
 
-  redirect to '/'
+  if @post.valid?
+    redirect to '/'
+  else
+    @errors = @post.errors.messages
+    erb :form
+  end
 end
 
 # display single post
 get '/posts/:id' do
-  id = CGI.escapeHTML(params[:id])
+  @post = get_post(params[:id])
+  @comments = @post.comments
 
-  sql = "SELECT * FROM posts WHERE id = #{id}"
-  posts = exec_sql(sql)
-
-  redirect to '/' if posts.ntuples == 0
-
-  @post = posts[0]
-
-  @post[:comments] = get_comments(id)
-
-  erb :post
+  erb :show
 end
 
 # edit post form
 get '/posts/:id/edit' do
-  id = CGI.escapeHTML(params[:id])
-  sql = "SELECT * FROM posts WHERE id = #{id}"
-  posts = exec_sql(sql)
-
-  @post = posts[0]
+  @post = get_post(params[:id])
 
   erb :form
 end
 
 # edit post submit
 put '/posts/:id' do
-  id = CGI.escapeHTML(params[:id])
-  title = CGI.escapeHTML(params[:title])
-  abstract = CGI.escapeHTML(params[:abstract])
-  body = CGI.escape(params[:body])
-  author = CGI.escapeHTML(params[:author])
-  updated_at = Time.now
-  sql = "UPDATE posts SET title = '#{title}', abstract = '#{abstract}', body = '#{body}', author = '#{author}', updated_at = '#{updated_at}' WHERE id = #{id}"
-  exec_sql(sql)
+  @post = get_post(params[:id])
 
-  redirect to '/'
+  @post.update_attributes(params[:post].merge(:updated_at => Time.now))
+
+  if @post.valid?
+    redirect to "/posts/#{params[:id]}"
+  else
+    @errors = @post.errors.messages
+    erb :form
+  end
 end
 
 # delete post
 delete '/posts/:id' do
-  id = CGI.escapeHTML(params[:id])
+  @post = get_post(params[:id])
+  @post.comments.destroy_all
 
-  sql = "DELETE FROM comments WHERE post_id = #{id}"
-  exec_sql(sql)
-
-  sql = "DELETE FROM posts WHERE id = #{id}"
-  exec_sql(sql)
+  @post.delete
 
   redirect to '/'
 end
 
+def get_post(id)
+  redirect to '/' unless Post.find_by_id(params[:id])
+  Post.find(params[:id])
+end
+
+# #
 # comments
+# #
 
 # submit
 post '/posts/:id/comments' do
-  post_id = CGI.escapeHTML(params[:id])
-  author = CGI.escapeHTML(params[:author])
-  created_at = Time.now
-  text = CGI.escapeHTML(params[:text])
-  sql = "INSERT INTO comments (author, created_at, text, post_id) VALUES ('#{author}', '#{created_at}', '#{text}' , #{post_id})"
-  exec_sql(sql)
+  @comment = Comment.create(params[:comment].merge(:post_id => params[:id]))
 
-  redirect to "/posts/#{post_id}"
-end
-
-def get_comments(post_id)
-  sql = "SELECT * FROM comments WHERE post_id = #{post_id} ORDER BY id"
-  exec_sql(sql)
+  if @comment.valid?
+    redirect to "/posts/#{params[:id]}"
+  else
+    @post = get_post(params[:id])
+    @comments = @post.comments
+    @errors = @comment.errors.messages
+    erb :show
+  end
 end

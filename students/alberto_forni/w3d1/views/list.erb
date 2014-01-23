@@ -1,7 +1,11 @@
 <ul class="actions margin-top-30">
-  <li class="action"><a class='actions-link' href="/posts?sort=created_at">created at</a></li>
-  <li class="action"><a class='actions-link' href="/posts?sort=updated_at">updated at</a></li>
-  <li class="action"><a class='actions-link' href="/posts?sort=title">title</a></li>
+  <% @order_by.each do |order_param, order_word| %>
+    <li class="action">
+      <a class='action-link <%= 'action-link-current' if order_param == @current_order  %> <%= 'action-link-current-asc' if order_param == @current_order && @direction == :asc %>' href="/posts?sort=<%= order_param %>&dir=<%= order_param == @current_order && @direction == :desc ? 'asc' : 'desc' %>">
+        <%= order_word %>
+      </a>
+    </li>
+  <% end %>
 </ul>
 <ul class="list">
   <% @posts.each do |post| %>
