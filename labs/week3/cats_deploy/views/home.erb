@@ -1,0 +1,8 @@
+<% @cats.each do |cat| %>
+  <p><a href="/cats/<%= cat.id %>"><%= cat.name %></a></p>
+  <p><a href="/cats/<%= cat.id %>/edit">edit</a></p>
+  <p><form action="/cats/<%= cat.id %>" method="post">
+    <input type="hidden" value="delete" name="_method">  
+    <button>delete</button>
+  </form></p>
+<% end %>

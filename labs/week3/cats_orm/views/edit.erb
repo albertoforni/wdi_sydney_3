@@ -1,0 +1,9 @@
+<% unless @cat.valid? %>
+<p><%= @cat.errors.full_messages %></p>
+<% end %>
+
+<form action="/cats/<%= @cat.id %>" method="post">
+  <input type="hidden" value="put" name="_method">
+  <%= erb :form %>
+  <button>update</button>
+</form>

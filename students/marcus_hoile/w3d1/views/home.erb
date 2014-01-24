@@ -1,0 +1,24 @@
+<!-- <form method="get" id="sort_by">
+<label for="dropmenu">Sort by</label>
+  <select id="dropmenu" name="sort_by">
+    <option value="date" selected="selected">Date</option>
+    <option value="title">Title</option>
+    <option value="updated">Most Recently Updated</option>
+  </select>
+  <button>Sort</button>
+</form> -->
+<p id="sort">Sort by:
+<a href="?sort_by=date">Date</a>
+<a href="?sort_by=title">Title</a>
+<a href="?sort_by=updated">Most Recent</a>
+</p>
+<% @rows.each do |row| %>
+<h2><%= CGI.unescape(row['title']) %></h2>
+<p class="author">posted by <span><%= row['author'].capitalize %></span>
+	<% date = Time.parse(row['created_at']) %>
+	<%= date.strftime("%d %b %Y %H:%M") %>
+</p>
+<p><%= CGI.unescape(row["description"]) %></p>
+<a class="button" href="/posts/<%= row['id'] %>">Read more</a><br><br>
+<hr>
+<% end %>

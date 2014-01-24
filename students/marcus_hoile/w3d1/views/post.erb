@@ -1,0 +1,38 @@
+<h1><%= CGI.unescape(@post['title']) %></h1>
+
+<p class="author">posted by <span><%= @post['author'] %></span> at <%= @date.strftime("%d %b %Y %H:%M") %></p>
+
+<div id="edit">
+<form class="edit" action="/posts/<%= @post['id'] %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<button>Delete</button>
+</form>
+<a class="button" href="/posts/<%= @post['id'] %>/edit">Edit</a>
+</div>
+
+<p><%= CGI.unescape(@post['body']) %></p>
+
+<h3>Comments</h3>
+
+<% @results.each do |comment| %>
+<div </div>
+	<p class="comment"><%= CGI.unescape(comment["comment"]) %></p>
+	<p class="author">posted by <span><%= comment["author"] %></span> at <%= @date.strftime("%d %b %Y %H:%M") %></p>
+<hr>
+</div>
+	
+	<% end %>
+
+
+<form action="/posts/<%= @post['id'] %>/comments" method="post">
+	<label for="comment">Post a comment</label><br>
+	<textarea rows="5" name="comment" placeholder="post a comment here"></textarea><br><br>
+	<label for="author">Your name:</label><br>
+	<input type="text" name="author">	
+	<button>Post comment</button>
+</form>
+
+
+
+
+

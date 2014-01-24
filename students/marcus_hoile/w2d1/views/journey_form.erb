@@ -1,0 +1,21 @@
+<h1>Calculate the number of stops in </h1>
+
+<form action="/journey_form" method="get">
+	<label for="line_start">Starting line</label>
+	<input type="text" name="line_start">
+	<label for="station_start">Starting station</label>
+	<input type="text" name="station_start">
+	<label for="line_end">Ending line</label>
+	<input type="text" name="line_end">
+	<label for="station_end">Ending station</label>
+	<input type="text" name="station_end">
+
+<!-- 	<select name="trainline">
+		<option>N line</option>
+		<option>L line</option>
+		<option>6th line</option> -->
+
+	<button>Caclulate</button>
+
+	<p>There are <%= @num_of_stops %> stops in journey  and you will stop at the these stations <%= @print_stops_in_journey %>.</p>
+</form>

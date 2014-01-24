@@ -1,0 +1,136 @@
+/** {
+	border: dotted red 1px;
+}*/
+
+body {
+	margin:0;
+	padding: 0;
+	font-size:16px;
+	font-family: Helvetica;
+	/*color: #343b41;*/
+}
+
+#container {
+	margin: 0 auto 300px auto;
+	max-width:600px;
+	/*border: solid black 1px;*/
+}
+
+.nav {
+	list-style:none;
+}
+
+header {
+	/*background: red;*/
+	height: 100px;
+
+} 
+
+h1 {
+	margin:0;
+	padding: 5px;
+
+}
+
+h2 {
+	padding: 5px;
+		margin: 5px;
+}
+
+.nav > li {
+	display:inline-block;
+	padding: 5px;
+}
+
+#sort {
+	text-align:right;
+	font-size: 12px;
+}
+
+a {
+	color: #343b41;
+	padding:0 5px;
+}
+
+.author {
+	font-style: italic;
+	font-size: 14px;
+	padding: 0 0 10px 0;
+	margin:5px 0 ;
+}
+
+span {
+	color: #e74c3c;
+}
+
+form {
+	display:block;
+	width: 600px;
+	padding: 5px;
+	margin: 5px;
+}
+
+input[type="text"] {
+	width: 300px;
+	height: 20px;
+	font-size: 14px;
+}
+
+.comment {
+	padding: 5px 0;
+	margin:0;
+}
+
+textarea {
+	width:600px;
+	font-size:14px;
+}
+
+hr {
+	border: solid #ecf0f1 1px;
+}
+
+button {
+	height: 25px;
+	width: 100px;
+	margin: 0 5px;
+	background: #ecf0f1;
+	border: #bdc3c7 solid 1px;
+	font-size:12px;
+}
+
+button:hover {
+	background: #ffffff;
+
+}
+
+.button {
+	background: #ecf0f1;
+	border: #bdc3c7 solid 1px;	
+	text-decoration:none;
+	padding: 5px 40px;
+	font-size: 12px;
+}
+
+.button:hover {
+	background: #ffffff;
+}
+
+.edit {
+	width:120px;
+	display:inline-block;
+}
+
+#edit {
+	position:relative;
+	right:-340px;
+}
+
+
+
+
+
+
+
+
+

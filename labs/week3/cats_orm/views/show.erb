@@ -1,0 +1,11 @@
+<p><%= @cat.name %></p> 
+
+<% @toys.each do |toy| %>
+  <p><%= toy.name %></p>
+<% end %>
+
+<form action="/cats/<%= @cat.id %>/toys" method="post">
+  <label for="">name: </label>
+  <input type="text" name="toy[name]" value="<%= @toy.name if @toy %>">
+  <button>create toy</button>
+</form>

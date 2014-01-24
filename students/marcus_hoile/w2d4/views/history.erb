@@ -1,0 +1,18 @@
+	<form action="/" method="get">
+		<input type="text" name="search" id="search" autofocus>
+		<button>Search movie database</button>
+		<input type="checkbox" name="lucky" id="lucky">
+		<label for="lucky">Feeling lucky</label>
+		
+
+	</form>
+
+	
+	   <% @searched.each do |line| %>
+	   <% movie = line.split(', ') %>
+		<div class="clearfix"><img class="listing clearfix" src="<%= movie[3] %>"><a href="/movie/<%= movie[2] %>"><%= movie[0] + " - " + movie[1] %></a></div>
+		<% end %>
+		
+		
+  
+

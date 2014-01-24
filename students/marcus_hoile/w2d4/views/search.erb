@@ -1,0 +1,28 @@
+	<form action="/" method="get">
+		<input type="text" name="search" id="search" value="<%= @search_query %>" placeholder="enter movie title">
+		<button>Search movie database</button>
+		<input type="checkbox" name="lucky" id="lucky">
+		<label for="lucky">Feeling lucky</label>
+		
+
+	</form>
+
+<div class="details clearfix">
+
+<ul><% if @no_result == false %>
+	   <% @titles_arr.each do |title, year, id| %>
+	<li><a href=<%= "/movie/" + id %>><%= title + " - " + year %></a></li>
+		<% end %>
+
+	<% elsif @search_query.nil? %>
+	<p>This is the content to show up when you first visit the page</p>
+
+	<% else %>
+	<h2><%= "I'm sorry, we could not find a movie by that name." %></h2>
+	<% end %>
+</ul>
+</div>
+
+
+  
+

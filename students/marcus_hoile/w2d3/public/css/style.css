@@ -1,0 +1,158 @@
+/** {
+	border: solid black 3px;
+}*/
+
+body {
+	max-width: 700px;
+	margin: 0 auto;
+  background:url('/images/repeat-back.png');
+  /*background:url('/images/matrix-code-wallpaper.jpg');*/
+	font-size: 16px;
+	color: black /*yellow;*/
+}
+
+form {
+	display: block;
+	border: solid black 3px;
+}
+
+header {
+	display:inline-block;
+	height: 80px;
+	width: 100%;
+
+}
+#logo {
+	float: left;
+	height:60px;
+	width: 60px;
+	padding: 10px;
+}
+
+p {
+	padding: 0px 5px 5px 5px;
+	margin: 5px;
+}
+
+p img {
+	float:left;
+	margin: 10px;
+}
+.profile {
+	background: url("/images/silhouette.jpg") no-repeat;
+	height: 200px;
+	width: 200px;
+	display:inline-block;
+	
+	padding: 10px;
+	margin:60px 5px;
+	
+}
+
+#marcus:hover{
+	background-image: url("/images/profilepic.jpg");
+}
+.container {
+
+	background: magenta;
+	min-height:400px;
+	padding: 10px 30px;
+
+}
+h1 {
+	font-size: 60px;
+}
+
+span {
+	font-weight: bold;
+	font-size:18px;
+}
+
+nav {
+	background: purple;
+	position: absolute: ;
+}
+
+
+
+nav li {
+	display: inline-block;
+	background:purple;	
+	padding: 20px;
+}
+
+a {
+	color: red;
+	text-decoration: none;
+
+	margin: 0 auto;
+}
+nav ul ul {
+	display:none;
+	position: absolute;
+	top: 100%;
+	padding:0;
+}
+
+nav ul li:hover > ul {
+	display:block;
+}
+
+
+nav ul li a:hover {
+	color: white;
+}
+
+ul li:hover > ul {
+	display: block;
+	margin: 0 auto;
+	}
+
+/*this is the style of the nav*/
+nav ul {
+	background: purple;
+	position: relative;
+	display: inline-table;
+	list-style:none;
+
+
+}
+
+
+nav ul:after {
+		content: ""; clear: both; display: block;
+	}
+
+nav ul li {
+	float: left;
+
+		nav ul li a {
+		display: block; padding: 25px 40px;
+	}
+}
+	nav ul ul li {
+		float: none; 
+		border-top: 1px solid yellow;
+
+		position: relative;
+	}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+/** {
+	border: red 1px dotted;
+}*/
+
+body {
+	font:Helvetica;
+	background: #EEDD99;
+}
+
+li {
+	display:block;
+}
+/*div {
+	border: solid black 1px;
+}*/
+
+img {
+	float:left;
+	margin: 5px 5px;
+	padding: 5px 5px;
+}
+.listing {
+	height: 80px;
+}
+
+form {
+	background: #BBBB88;
+	padding: 20px;
+	border-radius: 15px;
+}
+input {
+	font-size: 16px;
+	height: 20px;
+	width: 400px;
+	display: inline-block;
+	border:none;
+
+	
+}
+input:focus {
+	border:none;
+
+}
+
+#container {
+	max-width: 700px;
+	margin: 0 auto;
+	background: #EEDD99;
+}
+
+.details {
+	background: white;
+	padding:5px;
+	border-radius: 10px;
+	margin: 5px 0;
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+
+button {
+	height: 40px;
+	width: 200px;
+	display: inline-block;
+	background: #EEAA88;
+	color:white;
+}
+
+a {
+	color: black;
+	line-height: 1.6;
+}
+
