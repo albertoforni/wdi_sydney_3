@@ -10,16 +10,18 @@ end
 
 dev_db_settings = {
   :adapter => 'postgresql',
-  :database => 'cats',
+  :database => 'shelters',
   :encoding => 'utf8'
 }
  
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || dev_db_settings)
+
+require './models/shelters'
 
 get '/' do
   
 end
 
 get '/shelters' do
-  @shelters = 
+  @shelters = Shelder.all
 end

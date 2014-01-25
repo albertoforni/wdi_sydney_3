@@ -28,6 +28,8 @@ GEM
       debugger-ruby_core_source (~> 1.3.1)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.3.1)
+    faker (1.2.0)
+      i18n (~> 0.5)
     i18n (0.6.9)
     method_source (0.8.2)
     minitest (4.7.5)
@@ -69,6 +71,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  faker
   pg
   pry
   pry-debugger
