@@ -1,4 +1,4 @@
-CREATE TABLE shelders
+CREATE TABLE shelters
 (
   id serial primary key,
   name varchar(255)
@@ -10,5 +10,5 @@ CREATE TABLE animals
   name varchar(255),
   breed varchar(255),
   age smallint,
-  shelder_id integer REFERENCES shelders(id)
+  shelter_id integer REFERENCES shelters(id)
 );
