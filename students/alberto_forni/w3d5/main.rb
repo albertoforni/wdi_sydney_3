@@ -31,7 +31,7 @@ end
 get '/shelters' do
   @shelters = Shelter.all
 
-  erb :index
+  erb :"shelters/index"
 end
 
 # display single shelter
@@ -77,7 +77,7 @@ get '/shelters/:id' do
       animals
     end
 
-  erb :show
+  erb :"shelters/show"
 end
 
 def get_shelter(id)
@@ -94,7 +94,7 @@ get '/shelters/:id/animals' do
   @shelter = get_shelter(params[:id])
   @animals = @shelter.adopted_animals
 
-  erb :adopted_animals
+  erb :"animals/adopted"
 end
 
 # donate new animal form
@@ -102,7 +102,7 @@ get '/shelters/:id/animals/new' do
   @shelter = get_shelter(params[:id])
   @animal = @shelter.animals.new()
 
-  erb :new_animal
+  erb :"animals/new"
 end
 
 # donate animal submit
@@ -115,7 +115,7 @@ post '/shelters/:id/animals' do
     @free_shelters = Shelter.free_spots(breed)
     @shelters = Shelter.all
 
-    return erb :index
+    return erb :"shelters/index"
   end
 
   @animal = @shelter.animals.new(params[:animal])
@@ -124,7 +124,7 @@ post '/shelters/:id/animals' do
     redirect to "/shelters/#{ @shelter.id }"
   else
     @errors = @animal.errors.messages
-    erb :new_animal
+    erb :"animals/new"
   end
 end
 
