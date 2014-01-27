@@ -1,0 +1,11 @@
+<h2><%= @shelter.name %></h2>
+<h3>Adopted Animals</h3>
+<section>
+  <ul>
+    <% @animals.each do |animal| %>
+      <li>
+        <%= animal.name %>, <%= animal.breed %>, <%= animal.age %>
+      </li>
+    <% end %>
+  </ul>
+</section>

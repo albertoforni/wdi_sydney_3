@@ -1,0 +1,52 @@
+<h2>
+  <%= @shelter.name %>
+</h2>
+
+<div>
+  <!-- Button trigger modal -->
+  <a href="/shelters/<%= @shelter.id %>/animals/new">
+    Donate for adoption
+  </a>
+</div>
+
+<h3>Sort by: </h3>
+<ul class="actions margin-top-30">
+  <% @order_by.each do |order_param, order_word| %>
+    <li class="action">
+      <a class='action-link <%= 'action-link-current' if order_param == @current_order  %> <%= 'action-link-current-asc' if order_param == @current_order && @direction == :asc %>' href="/shelters/<%= @shelter.id %>?sort=<%= order_param %>&dir=<%= order_param == @current_order && @direction == :desc ? 'asc' : 'desc' %>">
+        <%= order_word %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<h3>Filter by: </h3>
+<form action="/shelters/<%= @shelter.id %>" method='get' >
+  <select name="breed">
+    <% @breeds.each do |breed| %>
+      <option value='<%= breed %>' <%= 'selected' if breed == @filters[:breed] %> ><%= breed %></option>
+    <% end %>
+  </select>
+  <label>Age less than: </label><input type="number" name="age" value="<%= @filters[:age] %>">
+  <button type="submit">Filter</button>
+</form>
+
+
+<section>
+  <p>Pets available for adoption</p>
+  <ul>
+    <% @animals.each do |animal| %>
+      <li>
+        <%= animal.name %>, <%= animal.breed %>, <%= animal.age %>
+        <span>
+          <form action="/shelters/<%= @shelter.id %>/animals/<%= animal.id %>" method='post'>
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit">Adpot</button>
+          </form>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<a href="/shelters/<%= @shelter.id %>/animals?adopted=true">Adopted Animals</a>

@@ -1,0 +1,32 @@
+<% if @message %>
+  <p>
+    <%= @message %>
+  </p>
+<% end %> 
+<% if @free_shelters.present? %>
+  <h3>Free spots in following shelters:</h3>
+  <ul class="list">
+    <% @free_shelters.each do |shelter| %>
+      <li class="list-el">
+        <a class="list-el-link" href="/shelters/<%= shelter.id %>">
+          <strong><%= shelter.name %></strong><br />
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h3>Shelters</h3>
+
+<ul class="list">
+  <% @shelters.each do |shelter| %>
+    <li class="list-el">
+      <a class="list-el-link" href="/shelters/<%= shelter.id %>">
+        <strong><%= shelter.name %></strong><br />
+        <span class='link-el-link-small'>
+          <em>max capacity: <%= shelter.max_capacity %></em>
+        </span>
+      </a>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,26 @@
+<h2>Donate a pet</h2>
+<form class='form' action="/shelters/<%= @shelter.id %>/animals" method="post">
+  
+  <label class='form-label' for="name">Name: </label>
+  <input class='form-input <%= 'form-input-error' if @errors.present? && @errors[:name] %>' id="name" name="animal[name]" type="text" value="<%= @animal.name %>">
+  <% if @errors.present? && @errors[:name] %>
+    <p class="form-error-message"><%= @errors[:name].join(", ") %></p>
+  <% end %>
+
+  <label class='form-label' for="breed">Breed: </label>
+  <input class='form-input <%= 'form-input-error' if @errors.present? && @errors[:breed] %>' id="breed" name="animal[breed]" type="text" value="<%= @animal.breed %>">
+  <% if @errors.present? && @errors[:breed] %>
+    <p class="form-error-message"><%= @errors[:breed].join(", ") %></p>
+  <% end %>
+
+  <label class='form-label' for="age">Age: </label>
+  <input class='form-input <%= 'form-input-error' if @errors.present? && @errors[:age] %>' id="age" name="animal[age]" type="number" value="<%= @animal.age %>">
+  <% if @errors.present? && @errors[:age] %>
+    <p class="form-error-message"><%= @errors[:age].join(", ") %></p>
+  <% end %>
+
+  <div class="form-buttons">
+    <button class='form-button' type="submit">Donate</button>
+  </div>
+
+</form>
