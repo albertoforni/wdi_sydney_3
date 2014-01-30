@@ -1,15 +1,23 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_action :set_artist
+  before_action :title, except: [:create, :update, :destroy]
+
 
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+    @albums = if @artist
+        @artist.albums
+      else
+        Album.all
+      end
   end
 
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @songs = @album.songs
   end
 
   # GET /albums/new
@@ -64,11 +72,27 @@ class AlbumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_album
-      @album = Album.find(params[:id])
+      @album = Album.find_by_id(params[:id])
+      unless @album
+        flash[:alert] = 'Album not present'
+        redirect_to action: 'index' 
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
       params.require(:album).permit(:name, :description, :cover_image, :artist_id)
+    end
+
+    def title
+      @title = 'Albums'
+    end
+
+    def set_artist
+      if params[:artist_id].present?
+        @artist = Artist.find_by_id(params[:artist_id])
+      else
+        @artist = @album.artist if @album
+      end
     end
 end

@@ -17,12 +17,19 @@
 
 <p>
   <strong>Artist:</strong>
-  <%= @song.artist %>
+  <%= link_to @song.artist.name, @song.artist %>
 </p>
 
 <p>
-  <strong>Album:</strong>
-  <%= @song.album %>
+  <strong>Video:</strong>
+  <%= video_tag @song.video, controls: "controls"  %>
+</p>
+
+<p>
+  <% if @song.album.present? %>
+    <strong>Album: <%= @song.album.name %> - </strong>
+    <%= @song.album.description %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_song_path(@song) %> |

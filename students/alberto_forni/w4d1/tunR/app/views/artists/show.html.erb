@@ -11,9 +11,28 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @artist.image %>
+  <%= image_tag @artist.image %>
 </p>
 
+<div>
+  <h3>Albums: </h3>
+  <ul>
+    <% @albums.each do |album| %>
+      <li><%= link_to album.name, album %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <h3>Singles: </h3>
+  <ul>
+    <% @singles.each do |single| %>
+      <li><%= link_to single.name, single %></li>
+    <% end %>
+  </ul>
+</div>
+
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+<%= link_to 'Back', artists_path %> | 
+<%= link_to 'Add New Song', new_artist_song_path(@artist) %>
+<%= link_to 'Add New Album', new_artist_album_path(@artist) %>

@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @playlist.name %>
+</p>
+
+<p>List:</p>
+<ul>
+  <% @songs.each do |song| %>
+    <li><%= link_to song.name, song %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
+<%= link_to 'Back', playlists_path %>

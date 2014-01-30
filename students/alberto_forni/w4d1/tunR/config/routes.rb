@@ -1,9 +1,29 @@
 TunR::Application.routes.draw do
-  resources :songs
+  resources :playlists
 
-  resources :albums
+  get "about_us" => "pages#about_us"
+  get "contact_us" => "pages#contact_us"
+  get "terms_and_conds" => "pages#terms_and_conds"
 
-  resources :artists
+  #get ':action' => 'pages#:action'
+
+  root to: "artists#index"
+
+  resources :artists, shallow: true  do
+    resources :songs
+    resources :albums
+  end
+
+  resources :albums, shallow: true do
+    resources :songs
+  end
+  
+  resources :albums, only: [:index]
+
+  resources :songs, only: [:index]
+  
+
+  #get "*rest" => "artists#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

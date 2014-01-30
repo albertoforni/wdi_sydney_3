@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+  <%= render partial: 'shared/header', locals: {title: @title || 'TunR' } %>
+  
+  <%= render 'shared/nav' %>
 
-<%= yield %>
+  <%= render 'shared/flash' %>
 
+  <%= yield %>
+
+  <%= render 'shared/footer' %>
 </body>
 </html>
