@@ -16,8 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.collection_select :song_ids, @songs, :id, :name, {}, 
-    {:multiple => true} %>
+    <%= f.collection_check_boxes :song_ids, @songs, :id, :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

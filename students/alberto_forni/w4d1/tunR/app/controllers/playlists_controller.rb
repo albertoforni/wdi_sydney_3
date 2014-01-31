@@ -1,7 +1,7 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
-  before_action :set_songs, only: [:new, :edit]
-  before_action :retrive_songs, only: [:create, :update]
+  before_action :set_songs, only: [:new, :edit, :create, :update]
+  before_action :parse_songs, only: [:create, :update]
 
   # GET /playlists
   # GET /playlists.json
@@ -43,8 +43,6 @@ class PlaylistsController < ApplicationController
   # PATCH/PUT /playlists/1
   # PATCH/PUT /playlists/1.json
   def update
-    @playlist.songs.destroy_all
-    @playlist.songs << @songs
     respond_to do |format|
       if @playlist.update(playlist_params)
         format.html { redirect_to @playlist, notice: 'Playlist was successfully updated.' }
@@ -81,8 +79,7 @@ class PlaylistsController < ApplicationController
       @songs = Song.all
     end
 
-    def retrive_songs
-      song_ids = params[:playlist][:song_ids].reject { |c| c.empty? }
-      @songs = Song.find(song_ids) if song_ids
+    def parse_songs
+      params[:playlist][:song_ids].reject { |c| c.empty? }
     end
 end
