@@ -1,7 +1,6 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
   before_action :set_songs, only: [:new, :edit, :create, :update]
-  before_action :parse_songs, only: [:create, :update]
 
   # GET /playlists
   # GET /playlists.json
@@ -77,9 +76,5 @@ class PlaylistsController < ApplicationController
 
     def set_songs
       @songs = Song.all
-    end
-
-    def parse_songs
-      params[:playlist][:song_ids].reject { |c| c.empty? }
     end
 end
