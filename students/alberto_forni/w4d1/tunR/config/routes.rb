@@ -1,4 +1,6 @@
 TunR::Application.routes.draw do
+  resources :genres
+
   resources :playlists
 
   get "about_us" => "pages#about_us"

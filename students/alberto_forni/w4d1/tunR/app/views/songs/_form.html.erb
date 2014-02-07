@@ -27,9 +27,13 @@
     <%= f.label :video %><br>
     <%= f.url_field :video %>
   </div>
-  <div>
+  <div class="field">
     <span>Artist: </span> <%= @artist.name %>
     <%= f.hidden_field :artist_id, value: @artist.id %>
+  </div>
+  <div class="field">
+    <%= f.label :genre_ids %><br>
+    <%= f.collection_check_boxes :genre_ids, @genres, :id, :name %>
   </div>
   <div class="field">
     <%= f.collection_select(:album_id, Album.all, :id, :name, {:include_blank => 'Select an Album'}) %>

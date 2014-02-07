@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
-  before_action :set_songs, only: [:new, :edit, :create, :update]
+  before_action :set_songs, only: [:new, :edit]
 
   # GET /playlists
   # GET /playlists.json

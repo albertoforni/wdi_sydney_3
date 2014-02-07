@@ -3,7 +3,8 @@ class SongsController < ApplicationController
   before_action :set_album
   before_action :set_artist
   before_action :title, except: [:create, :update, :destroy]
-  
+  before_action :retrieve_genres, only: [:new, :edit]
+
   helper_method :sort_column, :sort_direction
 
   # GET /songs
@@ -22,6 +23,7 @@ class SongsController < ApplicationController
   # GET /songs/1
   # GET /songs/1.json
   def show
+    @genres = @song.genres
   end
 
   # GET /songs/new
@@ -87,7 +89,7 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:name, :length, :description, :artist_id, :album_id, :video)
+      params.require(:song).permit(:name, :length, :description, :artist_id, :album_id, :video, genre_ids: [])
     end
 
     def title
@@ -120,5 +122,9 @@ class SongsController < ApplicationController
         elsif @song
           @song.artist
         end
+    end
+
+    def retrieve_genres
+      @genres = Genre.all
     end
 end
