@@ -35,7 +35,6 @@ function toLeft(e){
   },20)
 }
 
-
 // Slides the images to the right or goes back to the last image if it has reached the end
 function toRight(){
   var targetLeft = parseInt(carousel.style.marginLeft) + imgWidth;
