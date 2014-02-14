@@ -1,0 +1,4 @@
+Lab: travel brochure Two models: Destination (eg London or Paris) Attraction (eg London Eye or Eiffel Tower) destinations have many attractions
+Use nested routes: /destinations/1/attractions/42
+Do this using only ordinary rails scaffolds (don't use a nested-scaffold gem even if you found one)
+There should be a full set of CRUD for both kinds of resource. You can use whatever attributes sound most likely for your models.

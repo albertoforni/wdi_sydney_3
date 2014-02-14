@@ -1,0 +1,20 @@
+<div id="container" class="clearfix">
+    <form action="/" method="get" class="form-control">
+        <input type="text" name="movie" autofocus>
+        <button>Get Movie</button>
+    </form>
+
+
+    <% @result.each do |x,y| %>
+        <%if x == "Poster" && y != "N/A"%>
+            <p><%= x %>: <img src="<%= y %>"></img></p>
+        <%else%>
+            <p><%= x %>: <%= y %></p>
+        <%end%>
+
+    <%end%>
+
+</div><!-- container -->
+
+
+ 

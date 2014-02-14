@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+    <div id="container">
+        <div id="left_side">
+            <ul class="nav">
+                <li><a href="/posts?sort=title" id="home_icon">BLOG</a></li>
+                <li><a href="/posts/new" class="menu_item">New Post</a></li>
+                <li><a href="/posts?sort=title" class="menu_item">Sort by title</a></li>
+                <li><a href="/posts?sort=created_at" class="menu_item">Sort by date</a></li>
+                <li><a href="/posts?sort=updated_at" class="menu_item">Sort by last edit</a></li>
+            </ul>
+        </div><!-- lieft_side -->
+        <div id="right_side">
+            <%= yield %>
+        </div><!-- right_side-->
+    </div><!-- container -->
+</body>
+</html>

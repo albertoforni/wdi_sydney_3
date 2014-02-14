@@ -1,0 +1,106 @@
+<!-- SHELTER DETAILS -->
+<section>
+    <ul class="l-grid">
+        <li>NAME - <%= @shelter.name %></li>
+        <li>ADDRESS - <%= @shelter.address %></li>
+        <li>MAX CAPACITY - <%= @shelter.maximum_capacity %></li>
+    </ul>
+</section>
+
+<!-- ADD A PET -->
+<section>
+    <form method='post' action="/shelters/<%= @shelter.id %>/pets">
+        <label for="name">NAME - </label>
+        <input type="text" name="pet[name]">
+
+        <label for="age">AGE - </label>
+        <input type="number" name="pet[age]">
+
+        <label for="species">SPECIES - </label>
+        <input type="text" name="pet[species]">
+
+        <label for="breed">BREED - </label>
+        <input type="text" name="pet[breed]">
+
+        <input type="hidden" name="pet[adopted]" value="FALSE">
+        <input type="hidden" name="pet[donated_at]" value="<%= Time.now %>">
+        <input type="hidden" name="pet[shelter_id]" value="<%= @shelter.id %>">
+
+        <button>DONATE PET</button> 
+    </form>
+    <!-- DISPLAY MESSAGE IS NO MORE CAPACITY -->
+    <div>
+        <% unless @message == "" %>
+            <p> <%= @message %> </p>
+            <% if @shelters_with_capacity.present? %>
+                <% @shelters_with_capacity.each do |shelter| %>
+                        <p><a href="/shelters/<%= shelter.id %>"><%= shelter.name %></a></p>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+</section>
+
+
+<section>
+    <!-- SORT PETS -->
+    <div>
+        <ul class="l-grid">
+            <li>SORT BY - </li>
+            <li><a href="/shelters/<%= @shelter.id %>?sort=name">NAME, </a></li>
+            <li><a href="/shelters/<%= @shelter.id %>?sort=age">AGE, </a></li>
+            <li><a href="/shelters/<%= @shelter.id %>?sort=species">SPECIES, </a></li>
+            <li><a href="/shelters/<%= @shelter.id %>?sort=breed">BREED</a></li>
+        </ul>
+    </div>
+    
+    <!-- FILTER PETS -->
+    <p>FILTER BY -</p>
+    <ul class="l-grid">
+        <% @filter_on_species.each do |pet| %>
+            <li><a href="/shelters/<%= @shelter.id %>?filter=<%= pet.species %>&type=species"><%= pet.species %></a></li>
+        <% end %>
+    </ul>
+    <ul class="l-grid">
+        <% @filter_on_breed.each do |pet| %>
+            <li><a href="/shelters/<%= @shelter.id %>?filter=<%= pet.breed %>&type=breed"><%= pet.breed %></a></li>
+        <% end %>
+    </ul>
+
+    <!-- FILTER PETS BY AGE -->
+    <p>FILTER BY AGE -</p>
+    <div>
+        <form action="/shelters/<%= @shelter.id %>">
+            <label for="min_age">MIN AGE - </label>
+            <input type="number" name="min_age" required>
+
+            <label for="max_age">MAX AGE - </label>
+            <input type="number" name="max_age" required>
+
+            <button>FILTER ON AGE</button>
+        </form>
+    </div>
+
+    <!-- LIST OF UNADOPTED PETS -->
+    <% if @pets.present? %>
+        <% @pets.each do |pet| %>
+        <div>
+            <ul class="l-grid">
+                <li>NAME - <%= pet.name %>, </li>
+                <li>AGE - <%= pet.age %>, </li>
+                <li>SPECIES - <%= pet.breed %>, </li>
+                <li>DONATED AT - <%= pet.donated_at %>, </li>
+                <li>
+                    <form method="post" action="/shelters/<%= @shelter.id %>/adopt">
+                        <input type="hidden" name="_method" value="put">
+                        <input type="hidden" name="pet_id" value="<%= pet.id %>">
+                        <button>ADOPT PET</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <% end %>
+    <% end %>
+</section>
+
+    

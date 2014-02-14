@@ -1,0 +1,11 @@
+<h4>Donate a pet!</h4>
+
+<form action="/shelters/<%= @shelter.id %>/donate" method="post">
+  Name:<input type="text" name="pet.name" value="<%= @pet.name %>">
+  Age:<input type="text" name="pet.age" value="<%= @pet.age %>">
+  Gender:<input type="text" name="pet.gender" value="<%= @pet.gender %>">
+  Species:<input type="text" name="pet.species" value="<%= @pet.species %>">
+  <% @pet.shelter_id = @shelter.id  %>
+
+  <button>Donate your pet!</button>
+</form>

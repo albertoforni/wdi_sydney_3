@@ -1,0 +1,16 @@
+<p><%= @artist.name %></p>
+
+<p><%= link_to 'Delete', @artist, :method => :delete, :confirm => 'do you really want to do this?' %></p>
+
+<p><%= link_to 'Edit', edit_artist_path(@artist) %></p>
+
+<p><%= link_to 'Home', artists_path %></p>
+
+<% @paintings.each do |painting| %>
+    <p><%= link_to painting.title, painting_path(painting), :class => "test" %></p>
+<% end %>
+
+
+<%= content_for :footer do %>
+    <h1>Big Footer</h1>    
+<% end %>

@@ -1,0 +1,8 @@
+<% @single_movie.each do |x,y| %>
+    <%if x == "Poster" && y != "N/A"%>
+        <p><%= x %>: <img src="<%= y %>"></img></p>
+    <%else%>
+        <p><%= x %>: <%= y %></p>
+    <%end%>
+
+<%end%>

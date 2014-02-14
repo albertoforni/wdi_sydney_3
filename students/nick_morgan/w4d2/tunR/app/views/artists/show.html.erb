@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @artist.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @artist.image, width: '250' %>
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Artists', artists_path %><br/><br/>
+
+<h2>Albums</h2>
+
+<% @albums.each do |album| %>
+<p>
+  <strong>Title:</strong>
+
+<%= link_to album.name, artist_albums_path(album.artist) %>
+</p>
+
+
+<p>
+  <strong>Cover:</strong>
+
+  <%= image_tag album.cover_image, width: '350' %>
+
+</p>
+  
+
+<% end %><br/>
+
+<h2>Songs</h2>
+
+<% @songs.each do |song| %>
+  <p>
+    <strong>Title:</strong>
+
+  <%= link_to song.name, artist_songs_path(song.artist) %>
+  </p>
+
+    <% if @album.present? %>
+      <p>
+        <strong>Album:</strong>
+      </p>
+    <% end %>
+
+<% end %><br/>

@@ -1,0 +1,107 @@
+body {
+  background-image:url(http://fc07.deviantart.net/fs70/i/2011/024/5/3/glitter_bokeh_by_falloutgirl9001-d37yabs.jpg);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+a {
+  text-decoration: none;
+}
+header {
+  height:250px;
+  background:-moz-linear-gradient(top,rgba(255,0,0,1) 0%,rgba(0,0,0,0) 100%);
+  /* FF3.6+*/
+  background:-webkit-linear-gradient(top,rgba(255,0,0,1) 0%,rgba(0,0,0,0) 100%);
+  /* Chrome10+,Safari5.1+*/
+}
+footer {
+}
+button {
+  border: none;
+
+}
+a:hover {
+  text-shadow:0 0 0.2em #F00,0 0 0.2em #F00,0 0 0.2em #F00,0 0 0.2em #F00,0 0 0.2em #F00;
+}
+#sortmenu a:hover {
+  text-shadow:0 0 0.2em #0F0,0 0 0.2em #0F0,0 0 0.2em #0F0,0 0 0.2em #0F0,0 0 0.2em #0F0;
+}
+nav ul {
+  list-style:none;
+  text-decoration:none;
+}
+#navul {
+  font-size:40px;
+  margin-bottom:0px;
+  padding-bottom:0px;
+}
+#sortmenu {
+  font-size:20px;
+  color:#cc0000;
+  margin-top:0px;
+  padding-top:0px;
+}
+nav li {
+  display:inline-block;
+  padding:10px;
+  font-family:'Indie Flower',cursive;
+}
+nav li a {
+  color:#FFF;
+}
+header h1 {
+  font-family:'Rock Salt',cursive;
+  text-align:center;
+  margin-bottom:0px;
+  padding-bottom:0px;
+}
+h3 {
+  font-family:'Armata',sans-serif;
+}
+#headerdoge {
+  float:right;
+  height:250px;
+  z-index:-10;
+}
+#wrapper {
+  width:960px;
+  background-color:rgba(0,0,0,0.3);
+  color:#fff;
+  border:2px solid #000;
+  margin:0 auto;
+  padding:20px;
+}
+.content {
+  width:95%;
+  margin:10px;
+  background-color:#5E0000;
+  padding:30px;
+}
+.button {
+  border-top:1px solid #000000;
+  background:#910000;
+  background:-webkit-gradient(linear,left top,left bottom,from(#ff0000),to(#910000));
+  background:-webkit-linear-gradient(top,#ff0000,#910000);
+  background:-moz-linear-gradient(top,#ff0000,#910000);
+  background:-ms-linear-gradient(top,#ff0000,#910000);
+  background:-o-linear-gradient(top,#ff0000,#910000);
+  padding:5.5px 11px;
+  -webkit-border-radius:7px;
+  -moz-border-radius:7px;
+  border-radius:7px;
+  -webkit-box-shadow:rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow:rgba(0,0,0,1) 0 1px 0;
+  box-shadow:rgba(0,0,0,1) 0 1px 0;
+  text-shadow:rgba(0,0,0,.4) 0 1px 0;
+  color:white;
+  font-size:13px;
+  font-family:Georgia,serif;
+  text-decoration:none;
+  vertical-align:middle;
+  width:70px;
+  height:20px;
+}
+.button:hover {
+  border-top-color:#ffffff;
+  background:#ffffff;
+  color: #000000;
+}

@@ -1,0 +1,38 @@
+<% content_for :title, "Show Song"%> 
+
+<p>
+  <strong>Name:</strong>
+  <%= @song.name %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @song.length %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @song.description %>
+</p>
+
+<p>
+    <% if @song.youtube.present? %>
+        <strong>Youtube:</strong>
+        <p><%= link_to @song.youtube, @song.youtube %></p>
+    <% end %>  
+</p>
+
+<p>
+    <% if @album.present? %>
+        <strong>Album:</strong>
+        <p><%= link_to @album.name, album_path(@album) %></p>
+    <% end %>  
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= link_to @song.artist.name, artist_path(@song.artist_id) %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>

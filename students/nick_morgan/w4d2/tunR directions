@@ -1,0 +1,123 @@
+tunR is a last.fm-like website that has songs and albums and playlists etc
+
+We will be building it in pieces over the rest of the week.
+
+
+To begin with we just have three models:
+
+Song - name, length (in sec), description, belongs_to album, belongs_to
+artist
+Album - name, dscription, cover_image, has_many songs
+Artist - name, description, image, has_many songs, albums
+
+You should have a full CRUD app for all of the above models.
+
+a song must belong to an artist, but the album is optional (ie for songs
+released as singles)
+an album must have at least one song
+
+Add some valiations on the most likely fields for the above models (eg name
+is mandatory).
+
+
+When creating a new song, you should be able to choose the artist from a
+drop-down of all available artists.
+
+
+Pick an appropriate root url for the site.
+
+Add a common header - put it in a partial.
+It should have a logo for the site that take syou back to the home page
+Next to it, you should have the title of the page (yes, this should be in
+the common partial and the actual title should be set per page)
+below that, add a horizontal menu that lets you choose the other list-pages
+available (songs/albums/artists)
+
+Add a common footer - also put it in a partial
+In the footer, put placeholders for the standard website pages: about_us, contact_us, privacy, Terms&Conds etc
+
+
+
+On the artist show-page, show a list of the artist's albums (just the name
+and/or image), and a list of singles (songs not in any album). Each should
+link to the appropriate show page for that album/single
+
+On the album show-page, show a list of songs - with the name of the artist as a
+link to the artist's show page.
+
+On the song show-page, also show a brief overview of the album (if any) and artist. Link them as appropriate to show pages.
+
+
+
+Update your controllers to redirect back to the appropriate list-page (with
+an alert) if the user enters an id for something that doesn't exist
+eg if they type the URL '/songs/123' and there is no song with id of 123,
+they should be reidrected back to the songs page with a message like "song
+123 does not exist, please choose another"
+make this work for all the methods that try to fetch out a song.
+Try not to repeat yourself!
+
+Extra credit:
+
+Add a column to the songs table that is the URL to the youtube video for
+that song. if that video link is populated, add the video to the song show
+page using the appropriate view_helper method.
+
+Add an ability to sort the list-pages appropriately
+eg songs could be sorted by name or by artist-then-name or album-then-name
+figure out how to sort by the artist name too
+
+
+the song-page is likely to grow very big.
+Have a go at figuring out how you'd do pagination.
+Don't use a gem to do it for you. try to do it yourself.
+
+
+
+
+
+
+Homework: 
+tunr part 2
+
+
+Add a "pages" controller for static pages.
+Add the pages that you have listed in your footer and put some appropriate
+text in the templates for each.
+use simple routes for thse pages eg: /about_us /contact_us etc
+These should be defined using a single line of code in your routes file to
+match every static page
+
+
+
+Update your app to use shallow nested routes.
+So I should be able to put in these URLs:
+
+/artists/42/songs  => returns the list of songs by this artist
+/artists/42/albums  => returns a list of albums for this artist
+/albums/17/songs    => returns a list of songs on this album
+
+Note that /artists and /albums and /songs should also work and return a list
+of all of the appropriate resource
+You should use the *same* index action to do both!
+
+
+Add a "playlist" model
+
+playlist HABTM songs (and vice versa)
+
+You should be able to create a new playlist and add any number of songs to it
+Add a link to the playlists page to the header
+On the playlist show-page - you should list the songs.
+
+Extra credit:
+
+Add a Genre model.
+songs HABTM genres (and vice versa)
+
+Add to your song-form a list of genres with checkboxes next to them, that
+lets the user select which genres the song belongs to
+Figure out what you need to call these fields - in order to be able to just
+do: @song = Song.create(params[:song])
+ie - you should not need to add a line of code that goes and finds genres to
+add them to the newly created song.

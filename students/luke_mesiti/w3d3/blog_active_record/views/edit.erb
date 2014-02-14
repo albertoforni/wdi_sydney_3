@@ -1,0 +1,22 @@
+<% unless @blog_post.valid? %>
+<% @blog_post.errors.each do |x,y| %>
+        <p><%=x.to_s + " " + y.to_s %></p>
+    <% end %>
+<% end %>
+
+<form method='post' action="/posts/<%= @blog_post["id"] %>">
+    <input type="hidden" name="_method" value="put" />
+    <label>Name:</label>
+    <input type="text" name="post[title]" value="<%= @blog_post["title"] %>">
+
+    <label>Description</label>
+    <textarea name="post[description]"><%= @blog_post["description"] %></textarea>
+
+    <label>Body</label>
+    <textarea name="post[body]"><%= @blog_post["body"] %></textarea>
+
+    <label>Author</label>
+    <input type="text" name="post[author]" value="<%= @blog_post["author"] %>">
+
+    <button>Update Post</button>
+</form>

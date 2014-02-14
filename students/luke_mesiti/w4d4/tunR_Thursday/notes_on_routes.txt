@@ -1,0 +1,85 @@
+Representational state transfer (REST) is an architectural style consisting of a coordinated set of constraints applied to components, connectors, and data elements, within a distributed hypermedia system. REST ignores the details of component implementation and protocol syntax in order to focus on the roles of components, the constraints upon their interaction with other components, and their interpretation of significant data elements.
+
+
+http://guides.rubyonrails.org/routing.html
+
+
+
+ROUTES - take u to a url and then chooses the controller to use
+
+terminal - rake routes
+_url is an absolute path
+_path is a relative path
+
+
+NESTING ROUTES IN RAILS APP
+
+resources :students do
+    resources :projects 
+end
+
+when the routes are nested it combines them so the links will be wrong so use 
+
+resources :students do
+    resources :projects, shallow: true
+end 
+
+
+Then change only the ones that are for a specific student inside the forms, you will need to pass the objects to the paths an changes the names so it it specific
+Then in the controllers at the top 
+    before_action :set_student, only: [:index, :new, :create]
+
+Then at the bottom do 
+
+def set_student 
+    if params[:student_id].present?
+    @studnet = Student.find(params[:student_id])
+    else
+      @studnet = @project.student
+    end
+end
+
+
+REGULAR ROUTES - static pages
+1. create a new controller called pages 
+    rails generate controller Pages about_us contact_us privacy term_and_conditions
+    - this will create pages folder, controller and pages
+
+OR
+2. put pages in public aren’t .erb ==== they aren’t templates they are just STATIC pages
+
+3. change the routes so it looks pretty 
+get “about_use” => “pages#about_us”
+
+get “:action” => “pages#:action” *******THIS NEEDS TO GO AFTER in the routing as a LAST RESORT
+
+4. need to add a 403 error page    
+Shallow Nesting
+
+One way to avoid deep nesting (as recommended above) is to generate the collection actions scoped under the parent, so as to get a sense of the hierarchy, but to not nest the member actions. In other words, to only build routes with the minimal amount of information to uniquely identify the resource, like this:
+
+
+
+
+resources:postsdo
+  resources:comments, only: [:index,:new,:create]
+end
+resources:comments, only: [:show,:edit,:update,:destroy]
+This idea strikes a balance between descriptive routes and deep nesting. There exists shorthand syntax to achieve just that, via the :shallow option:
+
+
+
+
+resources:posts do
+  resources:comments, shallow:true
+end
+This will generate the exact same routes as the first example. You can also specify the :shallowoption in the parent resource, in which case all of the nested resources will be shallow:
+
+
+
+
+resources:posts, shallow:truedo
+  resources:comments
+  resources:quotes
+  resources:drafts
+end

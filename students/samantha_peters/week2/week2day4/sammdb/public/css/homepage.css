@@ -1,0 +1,9 @@
+body {
+  backround: url(../images/tablebokeh.jpg);
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'Spinnaker', sans-serif;
+  font-transform: small-capsl;
+}

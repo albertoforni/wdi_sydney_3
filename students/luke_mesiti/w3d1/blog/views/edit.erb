@@ -1,0 +1,16 @@
+<form method='post' action="/posts/<%= @blog_post["id"] %>">
+    <input type="hidden" name="_method" value="put" />
+    <label>Name:</label>
+    <input type="text" name="title" value="<%= @blog_post["title"] %>">
+
+    <label>Description</label>
+    <textarea name="description" > <%= @blog_post["description"] %> </textarea>
+
+    <label>Body</label>
+    <textarea name="body" > <%= @blog_post["body"] %> </textarea>
+
+    <label>Author</label>
+    <input type="text" name="author" value="<%= @blog_post["author"] %>">
+
+    <button>Update Post</button>
+</form>

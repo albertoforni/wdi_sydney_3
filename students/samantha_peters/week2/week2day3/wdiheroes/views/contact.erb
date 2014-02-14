@@ -1,0 +1,28 @@
+<div class="profile">
+<h2>Send us a message!</h2>
+<p>Fill in the forms below to send us a message. Make sure to fill in those required fields!</p>
+<form method="get" action="/thanks" id="contacform">
+<label for ="name">Your Name:</label>
+<input name="name" id="nameinput" type="text" placeholder="Bob Smith" required/><br /><br />
+
+<label for="email">Your email address:</label>
+<input name="email" id="emailinput" type="email" placeholder="racoon@acorns.com" required /><br /><br />
+
+<label for="person">Who do you want to send a message to?</label>
+<select name="person">
+<option value="all">Everyone!</option>
+<option value="sam">Sam</option>
+<option value="nick">Nick</option>
+<option value="ed">Ed</option>
+<option value="lauren">Lauren</option>
+</select>
+<br /><br />
+
+<label for="message">Write your message:</label><br /><br />
+<textarea name="message" id="messageinput" placeholder="write your message here!"></textarea><br /><br />
+
+
+<button value="submit">Submit!!</button>
+</form>
+
+</div>

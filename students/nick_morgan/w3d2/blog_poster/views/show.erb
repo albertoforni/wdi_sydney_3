@@ -1,0 +1,21 @@
+<% if (@blog['updated_at']).empty? %>
+  <%  time = @blog['created_at']  %>
+  <% else %>
+  <%  time = @blog['updated_at']  %>
+  <% end %>
+
+
+
+<p><%= @blog['id'] %><%= @blog['title'] %><%= @blog['description'] %><%= @blog['body'] %><%= @blog['author'] %><%= time %><a href="/">Home</a>
+
+  <form action="/posts/<%= @blog['id'] %>" method ="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>Delete</button>
+  </form>
+
+</p>
+
+<form method='post' action "/posts/<%= @blog['id']%>/comments">
+  <input type="text" name="comments" >
+  <button>Post comment</button>
+</form>

@@ -1,0 +1,155 @@
+body{
+  background-color: #bd9a79;
+}
+
+nav{
+  margin: 0 auto;
+  padding: 15px;
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  text-shadow: 0 0 10px #c61a1a;
+}
+
+h1{
+  font-family: 'Rock Salt', cursive;
+}
+
+
+nav{
+  margin: 0 auto;
+  padding: 15px;
+  text-align: center;
+}
+
+nav ul{
+  list-style: none;
+  font-family: 'Lekton', sans-serif;
+  font-size: 30px;
+}
+
+nav li{
+  display: inline-block;
+  margin: 5px 15px;
+}
+
+#sortmenu ul{
+  list-style: none;
+  font-family: 'Lekton', sans-serif;
+  font-size: 30px;
+}
+
+#sortmenu li{
+  display: inline-block;
+  margin: 5px 15px;
+}
+
+aside{
+  width: 20%;
+  margin: 10px;
+  padding: 20px;
+  float: right;
+  background-color: #FFF;
+}
+
+footer {
+  margin: 10px 0px;
+  text-align: center;
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+#container{
+  width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+}
+
+#content{
+  width: 70%;
+}
+
+.post{
+  background-color: #FFF;
+  padding: 20px;
+
+}
+
+.controls{
+  margin-top: 15px;
+
+}
+
+.controls a{
+  background-color: #564f52;
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #fff;
+  font-family: arial, serif;
+  font-size: 12px;
+}
+
+.controls form{
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+}
+
+.controls button{
+  background: none; 
+  border: none; 
+  background-color: #564f52;
+  margin-left: 15px;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-family: arial, serif;
+  font-size: 12px;
+
+
+}
+
+.postlist{
+  background-color: #FFF;
+  padding: 15px;
+  margin: 15px 0px;
+  border-bottom: 1px dotted black;
+}
+
+.postlist ul{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.postlist li{
+  display: inline-block;
+}
+
+.timestamps{
+  padding:0px;
+  border-top: 1px dotted black;
+  margin: 0 auto;
+
+}
+
+.timestamps ul{
+  list-style: none;
+  margin: 0px;
+
+}
+
+.timestamps li{
+  display: inline-block;
+  margin: 5px 30px;
+}

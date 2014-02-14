@@ -1,0 +1,14 @@
+<form method="post" action="/posts/<%= @post['id'] %>">
+  <label for="">Title:</label>
+    <input type="text" name="title" value="<%= @post["title"] %>">
+  <label for="">Description:</label>
+    <input type="text" name="description" value="<%= @post["description"] %>">
+  <label for="">Body Text:</label>
+    <input type="text" name="body_text" value="<%= @post["body_text"] %>">
+  <label for="">Author:</label>
+    <input type="text" name="author" value="<%= @post["author"] %>">
+  <button>Update Post</button>
+</form>
+
+
+

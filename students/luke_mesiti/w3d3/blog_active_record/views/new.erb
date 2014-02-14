@@ -1,0 +1,20 @@
+<% if @new_post != nil %>
+    <% @new_post.errors.each do |x,y| %>
+        <p><%=x.to_s + " " + y.to_s %></p>
+    <% end %>
+<% end %>
+
+<form method='post' action="/posts">
+    <label>Title:</label>
+    <input type="text" name="post[title]">
+
+    <label>Description</label>
+    <textarea name="post[description]"><%= @new_post.description %></textarea>
+
+    <label>Body</label>
+    <textarea name="post[body]"><%= @new_post.body %></textarea>
+
+    <label>Author</label>
+    <input type="text" name="post[author]" value="<%= @new_post.author %>">
+    <button>New Post</button>
+</form>

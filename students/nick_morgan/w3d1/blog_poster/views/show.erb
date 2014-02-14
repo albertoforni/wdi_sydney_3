@@ -1,0 +1,6 @@
+<p><%= @blog['id'] %><%= @blog['title'] %><%= @blog['description'] %><%= @blog['body'] %><%= @blog['author'] %><%= row['created_at'] %><a href="/">Home</a>
+
+  <form action="/blog/<%= @blog['id'] %>/delete" method ="post">
+    <button>Delete</button></form>
+
+  </p>

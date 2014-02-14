@@ -1,0 +1,8 @@
+<p><%= @painting.title %></p>
+
+<p><%= link_to 'Delete', @painting, :method => :delete, :confirm => 'do you really want to do this?' %></p>
+
+<p><%= link_to 'Edit', edit_painting_path(@painting) %></p>
+
+<p><%= link_to 'Home', paintings_path %></p>
+

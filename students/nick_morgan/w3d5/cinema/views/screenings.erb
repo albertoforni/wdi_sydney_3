@@ -1,0 +1,15 @@
+<% @screenings.each do |screening| %>
+  
+  <p>Screening:<%= screening.date_time %></p>
+  <p>Theater Number:<%= screening.theatre_id %></p>
+  <p>Movie id:<%= screening.movie_id %></p> 
+  
+  <form action="/movies/<%= @movie.id %>/screenings/<%= screening.id %>/tickets" method="post">
+      <label for="ticket">Price: $10.00</label></br>
+      <input type="hidden" name="ticket[price]" value="10.00">
+     <button>Purchase Ticket</button><br/>
+    </form>
+  <p>Ticket Count: <%= screening.tickets.count %></p>
+
+ 
+<% end %> 

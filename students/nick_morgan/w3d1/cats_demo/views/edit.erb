@@ -1,0 +1,10 @@
+<form method='post' action="/cats/<%= @cat["id"] %>">
+  <label for="">Name:</label>
+  <input type="text" name="name" value="<%= @cat["name"] %>">
+  <label for ="">Photo URL:</label>
+  <input type="text" name="photo" value="<%= @cat["photo"] %>">
+  <label>Breed</label>
+  <input type="text" name="breed" value="<%= @cat["breed"] %>">
+  <button>Update Cat</button>
+
+</form>

@@ -1,0 +1,35 @@
+<h1> Calculate the number of Stations</h1>
+
+<form action="/enter_stations" method="get">
+
+<!-- Assign default values to all fields so that how_many_stops() doesn't bomb first run through -->
+
+<!-- get them to select the Line we are starting from -->
+<select name ="LineStart">
+	<option value = "N">N - Line</option>
+	<option value = "L">L - Line</option>
+	<option value = "S">S - Line</option>
+</select>
+
+<!-- allow the user to enter a text station name -->
+<label for "StFr">Station From</label>
+<input type="text" name="StationStart">
+
+<!-- get them to select the Line we are ending at -->
+<select name ="LineFinish">
+	<option value = "N">N - Line</option>
+	<option value = "L">L - Line</option>
+	<option value = "S">S - Line</option>
+</select>
+
+<!-- allow the user to enter a text station name -->
+<label for "StTo">Station To</label>
+<input type="text" name="StationFinish">
+
+
+
+<button>Calculate Dat shiz</button>
+
+</form>
+
+<p>The answer happens to be <%= @result %> stations</p>

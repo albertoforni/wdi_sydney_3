@@ -1,0 +1,38 @@
+<div id="wrapper">
+
+  <h1>GA Movie Database</h1>
+  <h3>A humble cove for movie lovers...</h3>
+
+  <form id="searchform" action="/" method="get">
+    <!-- <label for="i">IMDB Movie ID:</label>
+    <input type="text" id="i" name="id" placeholder="Enter a valid IMDB Movie ID">  -->
+
+    <label for="t">Title:</label>
+    <input type="text" id="title" name="title" placeholder="Enter a movie title"> 
+
+    <input type="submit" value="SUBMIT" id="submit">
+  </form>
+
+  <% if @list.present? %>
+
+    <% @list.each do |movie| %>
+      <p><a <%= "href='movies/#{movie["Title"]}'" %> ><%= movie["Title"] %></a></p>
+    <% end %>
+  <% elsif @movie.present? %>
+
+    <% source = @movie["Poster"]%>
+      <img src=<%="#{source}"%>>
+
+      <ul>
+        
+      <% @movie.each do |key, value| %>
+      <li><%= "#{key} : #{value}" %></li>
+      <% end %>
+
+
+      </ul>
+  
+  <% end %>
+
+</div>
+

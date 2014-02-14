@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @author.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @author.bio %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <img src="<%= @author.image %>">
+</p>
+
+<%= link_to 'Edit', edit_author_path(@author) %> |
+<%= link_to 'Authors', authors_path %>
+
+<% @books.each do |book| %>
+  <p>
+    <strong>Title:</strong>
+    
+    <%= link_to book.title, book %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+  </p>
+  <%= image_tag book.image, width: '450' %>
+
+<% end %><br/>
+
+<%= link_to 'Create a new book', new_book_path %>

@@ -1,0 +1,23 @@
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" value="put" name="_method">
+    <label for="title">Post Title:</label><br />
+    <input type="text" name="post[title]" value="<%= @post.title %>"><br /><br />
+
+    <!-- post tagline -->
+    <label for="tagline">Tagline:</label><br />
+    <input type="text" name="post[tagline]" value="<%= @post.tagline %>"><br /><br />
+
+
+    <!-- post body -->
+    <label for="postbody">Post Content:</label><br />
+    <input type="text" name="post[postbody]" value="<%= @post.postbody %>"><br /><br />
+
+
+    <!-- post author -->
+    <label for="author">Post Content:</label><br />
+    <input type="text" name="post[author]" value="<%= @post.author %>"><br /><br />
+
+
+    <button>Update</button>
+
+</form>

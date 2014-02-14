@@ -1,0 +1,39 @@
+<% content_for :title, "Show Artist"%> 
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @artist.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @artist.image %>
+</p>
+
+<% if @albums.present? %>
+        <p><%= link_to 'Albums', artist_albums_path(@artist) %></p>
+<% end %>
+
+<% if @artist %>
+  <p>
+    <%= link_to 'New Album', new_artist_album_path(@artist) %>
+  </p>
+<% end %>
+
+<% if @songs.present? %>
+        <p><%= link_to 'Songs', artist_songs_path(@artist) %></p>
+<% end %>
+
+<% if @artist %>
+  <p>
+    <%= link_to 'New Song', new_artist_song_path(@artist) %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

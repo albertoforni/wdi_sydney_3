@@ -139,20 +139,11 @@ how_many_stops(lineStart, stationStart, lineFinish, stationFinish)
 	#once the method is done let the user decide if they wanna do another or quit
 	puts "Want to calculate another trip?"
 	puts "(Y)es (N)o"
-	continue = gets.chomp
+	continue = gets.chomp.upcase
 
 
+	contnue_trains = true unless continue != "Y"
 
-	if continue == "Y"
-		continue_trains = true
-
-	elsif continue == "N"
-		# contnue_trains = false
-		exit
-	else
-		"You entered something I didn't get. Try again!"
-
-	end
 
 end
 

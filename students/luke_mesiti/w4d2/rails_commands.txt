@@ -1,0 +1,61 @@
+psql moma_app_development
+
+rails new app_name --database=postgresql
+cd /app_name
+
+subl .
+
+modify database.yml file by commenting out username and password
+
+rake db:create
+
+rake db:drop
+
+rails generate migration create_artists
+or
+rails g scaffold Course title:string description:text max_capacity:integer
+rails g scaffold Student given_name:string family_name:string age:integer course:references
+rails g scaffold Subject title:string course:references
+rails g scaffold Result value:integer student:references subject:references
+
+
+(fill in methods then run the below command to create tables.)
+rake db:migrate
+
+rails generate controller artists
+
+rake db:seed <-- gets info out of seed file and inputs into created tables
+
+rails generate model Artist -> generates migration and model. Can be done manually.
+
+
+rails server
+rails console
+
+form_for
+t.text_field
+t.text_area
+t.number_field
+t.password_field
+t.submit
+
+
+
+
+creating join tables
+
+rails g migration CreateJoinTableCourseStudent <!-- this creates the appropriate join table.
+<!-- remember to remove foreign keys when creating join table.
+
+class CreateJoinTableCourseStudent < ActiveRecord::Migration
+    def change
+        create_join_table :courses, :students do |t|
+        t.index [:course_id, :student_id]
+        t.index [:student_id, :course_id]
+        end
+    end
+end
+
+
+
+

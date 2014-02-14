@@ -1,0 +1,31 @@
+<h1>Attractions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Destination</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attractions.each do |attraction| %>
+      <tr>
+        <td><%= attraction.name %></td>
+        <td><%= image_tag attraction.image, width: '300' %></td>
+        <td><%= attraction.destination %></td>
+        <td><%= link_to 'Show', [@destination, attraction] %></td>
+        <td><%= link_to 'Edit', edit_destination_attraction_path(@destination, attraction) %></td>
+        <td><%= link_to 'Destroy', [@destination, attraction], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attraction', new_destination_attraction_path(@destination) %>

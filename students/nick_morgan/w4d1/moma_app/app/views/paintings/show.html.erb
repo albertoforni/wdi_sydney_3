@@ -1,0 +1,9 @@
+<p>Title: <%= @painting.title %></p>
+
+<p><%= image_tag @painting.image %></p>
+
+<%= link_to 'delete', @painting, :method => :delete, :confirm => 'You sure you want to delete this?' %>
+
+<%= link_to 'edit', edit_painting_path(@painting) %><br/><br/>
+
+<%= link_to 'Home', paintings_path %>

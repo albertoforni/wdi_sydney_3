@@ -1,0 +1,19 @@
+<form action="/" method="get">
+    <input type="text" name="movie" autofocus>
+    <button>Get Movie</button>
+</form>
+
+<% @result.each do |x,y| %>
+        <p><%= x %>: </p> <!-- x is the key for the first hash -->
+        <% y.each do |n,m| %> <!-- y is an array of hashes-->
+            <% n.each do |o,l| %> <!-- n is the hash inside y -->
+                <% if o == "Title" %>
+                <%  movie = return_movie(l) %>
+                <p><%= o %>: <a href="/movie/<%=l%>"><%= l %></a></p> <!-- o and l are the key,value pairs of the n hash -->
+                <%end%>
+            <%end%>  
+        <%end%>
+<%end%>
+
+
+ 

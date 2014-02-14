@@ -1,0 +1,50 @@
+Create a Rails app to model books
+
+Models:
+
+    An Author has a name, bio, image, etc.
+    A Book has a title, description, genre, image, ISBN, etc
+
+    Author has_many books
+
+This should be a full CRUD (create, read, update, delete) app for both models.
+
+
+On the author show page, include images of all their book titles (linked to their show pages)
+On the book show page, include a picture of the author (which is linked to the author show page)
+
+On any list page, render the colection with a partial.  Instead of a table - use divs.
+
+eg for the main '/books' page, inside the div, put the title and author name, and show the book's image. Then make the whole div a clickable link to the book's show page
+
+You can use lorem-pixel for book images if you like (or google for book images and use them) eg
+http://lorempixel.com/100/120
+
+Note: if you remove the edit/destroy buttons from the list pages - you must make them available from some other page (eg the show page)
+
+
+Put a common header and footer on all the pages.
+In the footer, put placeholders for the standard website pages: about_us, contact_us, privacy, Terms&Conds etc
+
+In the header, put a logo and some code for showing any flash messages
+
+
+
+create a navigator (either left or right side of the page) that will show a list of all the books (just names) as links to individual books
+Make it show up for all pages
+
+Update the controllers so that it doesn't explode if you can't find the book/author asked-for. Instead redirect back to the list-page and show an alert to the user that what they asked for doesn't exist and to try again.
+
+
+Extra Credit:
+
+Make the "redirect to list if not found" method work on *all* the actions
+that fetch out a single instance eg the show/edit/update/destroy methods for
+each controller
+
+Update the navigator so that for all author pages, it shows a list of
+authors instead of books
+
+Update the header so that you can put the page-title (h1) beside the logo
+instead of directly onto the page (hint: use @title)
+Update the main layout to use an html title to also display the @title

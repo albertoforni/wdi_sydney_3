@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HappiRails</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<nav>
+	<%= link_to 'All Animals', animals_path %>
+	<%= link_to 'Browse by Shelter', shelters_path %>
+	<%= link_to 'All Clients', clients_path %>
+	<!-- insert partial yield here for specific sub-navs -->
+	</nav>
+<%= yield %>
+
+</body>
+</html>

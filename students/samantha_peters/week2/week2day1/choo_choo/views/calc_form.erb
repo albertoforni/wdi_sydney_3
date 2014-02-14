@@ -1,0 +1,26 @@
+<h1> Calc Dat Banana Sandwich! </h1>
+
+<form action="/calc_form" method="get">
+
+<!-- allow the user to insert a number -->
+<label for "first">First number</label>
+<input type="text" name="first">
+
+
+<!-- get them to select from what operation they want to apply to it -->
+<select name ="operation">
+	<option>sum</option>
+	<option>subtraction</option>
+	<option>product</option>
+	<option>division</option>
+</select>
+
+<!-- now the second number -->
+<label for "second">Second number</label>
+<input type="text" name ="second">
+
+<button>Calculate Dat shiz</button>
+
+</form>
+
+<p>The <%= @operation %> of <%= @first %> and <%= @second %> happens to be <%= @result %> WOOP WOOP</p>

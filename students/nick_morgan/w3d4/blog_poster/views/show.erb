@@ -1,0 +1,30 @@
+<% if (@blog['updated_at']).present? %>
+  <%  time = @blog['created_at']  %>
+  <% else %>
+  <%  time = @blog['updated_at']  %>
+  <% end %>
+
+
+
+<p><%= @blog['id'] %><%= @blog['title'] %><%= @blog['description'] %><%= @blog['body'] %><%= @blog['author'] %><%= time %><a href="/">Home</a>
+
+  <form action="/posts/<%= @blog['id'] %>" method ="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>Delete</button>
+  </form>
+
+</p>
+
+<p><% @comments.each do |comment|%>
+    <%= comment.body %> by <%= comment.author %> <form action="/posts/<%= @blog['id'] %>/comments/<%= comment.id %>" method ="post"><input type="hidden" name="_method" value="delete"><button>Delete</button></form>
+    <br/>
+    <% end %>
+</p>
+
+<form method='post' action="/posts/<%= @blog['id']%>/comments">
+  <input type="hidden" name="comment[blog_id]" value="<%= @blog['id'] %>">
+  Comment:<input type="text" name="comment[body]" value="<%= @comment.body %>">
+  
+  Author:<input type="text" name="comment[author]" value="<%= @comment.author %>">
+  <button>Post comment</button>
+</form>

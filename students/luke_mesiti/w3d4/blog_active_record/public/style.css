@@ -1,0 +1,151 @@
+/* Box Model Hack */
+* {
+     -moz-box-sizing: border-box; /* Firexfox */
+     -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+     box-sizing: border-box; /* IE */
+}
+
+html
+{
+    background-color: #dbdbdb;
+    font-family: 'Roboto', sans-serif;
+    /*font-family: Helvetica;*/
+    font-weight: 100;
+    font-style: normal;
+    color: #000000;
+    font-size: 15px;
+}
+
+a
+{
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover
+{
+    border-bottom: #000000 solid 2px;
+    /*color: #A0A0A0;*/
+}
+
+ul
+{
+    margin: 0;
+    padding: 20px;
+    font-size: 20px;
+
+}
+
+li 
+{
+    list-style-type: none;
+    padding: 5px 0;
+}
+
+p 
+{
+    margin: 0 0 10px 0;
+}
+
+/* MAIN CONTAINER */
+
+#container
+{
+    margin: 0 auto;
+    max-width: 810px;
+    padding: 25px 0 0 0;
+}
+
+/* NAVIGATIONAL MENU & ELEMENTS */
+
+#nav_menu
+{
+    width: 290px;
+    float: left;
+    display: inline;
+    background-color: #C5EAF8;
+    border-bottom: #8AD5F0 solid 3px;
+}
+
+#home_icon
+{
+    font-size: 50px;
+    padding: 20px 20px 0 20px;
+}
+
+/* MAIN CONTENT AREA & ELEMENTS */
+
+#main_content
+{
+    width: 500px;
+    padding: 20px;
+    float: right;
+    display: inline;
+    background-color: #FFFFFF;
+    border-bottom: #A0A0A0 solid 3px;
+}
+
+.med_head
+{
+    font-size: 30px;
+}
+
+.light_head
+{
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    display: inline;
+}
+
+.content
+{
+    display: inline;
+}
+
+.content_c
+{
+    padding: 0 0 10px 0;
+}
+
+.error_colour
+{
+    color: #D30A0A;
+}
+
+
+form > label
+{  
+    display: block;
+    padding: 10px 0;
+    font-size: 20px;
+}
+
+button
+{
+    display: block;
+    margin: 20px 0 0 0;
+    background-color: #dbdbdb;
+    border: none;
+    border-bottom: #A0A0A0 solid 3px;
+}
+
+button:hover
+{
+    border-bottom: #83B600 solid 3px;    
+}
+
+button:active
+{
+    background-color: #C5E26D;
+    border-bottom: #83B600 solid 3px; 
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}

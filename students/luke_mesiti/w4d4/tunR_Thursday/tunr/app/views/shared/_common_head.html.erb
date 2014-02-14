@@ -1,0 +1,11 @@
+<h1><%= link_to "TunR", artists_path %> <%= yield(:title) %> </h1>
+
+<p id="notice"><%= notice %></p>
+<p><%= alert %></p>
+
+<ul>
+    <li><%= link_to "Artists", artists_path %></li>
+    <li><%= link_to "Albums", albums_path %></li>
+    <li><%= link_to "Songs", songs_path %></li>
+    <li><%= link_to "Playlists", playlists_path %></li>
+</ul>

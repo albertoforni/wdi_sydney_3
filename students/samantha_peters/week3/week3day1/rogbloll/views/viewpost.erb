@@ -1,0 +1,49 @@
+<div class="post">
+
+<!-- Title of the post -->
+<h2><%= @post.title %></h2>
+
+<!-- Tagline of the post -->
+<h3><%= @post.tagline %></h3>
+
+<!-- Tagline of the post -->
+<p><%= @post.postbody %></p>
+
+<!-- Author of the post -->
+<h4>Created by <%= @post.author %> </h4>
+
+<div class="timestamps">
+<!-- Time created/ Updated -->
+<ul>
+<li>Created on <%= @post.created_at %></li>
+<li>Created on <%= @post.updated_at %> </li>
+</ul> 
+</div>
+
+
+<h2> Comments for this post</h2>
+<div class="comments">
+<% @comments.each do |comment| %>
+<%= @comments %>
+<!-- Title of the post -->
+
+<h3><%= comment.author %></h2>
+  <p><%= comment.commentbody %></p>
+  <p><%= comment.created_at %></p>
+
+<% end %>
+</div>
+
+<div class="commentform">
+<form method="post" action="/posts/<%= @post.id %>/comments">
+<input type="hidden" name="comment[post_id]" value="<%= @post.id %>" >
+
+<label for "author">Your name:</label><br />
+<input type="text" name="comment[author]">
+
+<label for "commentbody">Your Comment:</label><br />
+<input type="textarea" name="comment[commentbody]" placeholder="your comment here">
+
+<button>Post comment</button>
+  </form>
+</div>

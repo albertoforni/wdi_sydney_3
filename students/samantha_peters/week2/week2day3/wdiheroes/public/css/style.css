@@ -1,0 +1,177 @@
+body{
+  background-color: #000;
+  background-image: url('../images/dropbokeh.jpg');
+  background-repeat:no-repeat;  
+  background-size:cover;
+  font-family: "Helvetica", Arial, Verdana, Serif;
+}
+
+header {
+  margin: 0 auto;
+
+}
+
+#gif {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  font-color: #33000;
+}
+
+a:visited {
+  text-transform: small-caps;
+  font-size: 1.1em;
+}
+
+nav a{
+  text-shadow: 0 0 0.4em #F00;
+
+}
+
+nav a:hover{
+  text-shadow: 0 0 0.4em #0F0;
+
+}
+
+h1{
+  color: #000;
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+  font-size: 70px;
+  /*text-shadow: #f00 0 0 20px; */
+  margin: 0px;
+  padding: 0px;
+}
+
+#title {
+  padding-left: 20px;
+}
+
+header ul{
+  list-style: none;
+  padding-bottom: 20px;
+  padding-top: 10px;
+
+}
+
+header h2{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Julius Sans One', serif;
+  font-weight: bold;
+}
+
+header li{
+  padding: 20px;
+  display: inline;
+}
+
+aside{  
+  background: -webkit-linear-gradient(rgba(255,255,255,1), rgba(0,0,0,0)); /* For Safari */
+  background: -o-linear-gradient(rgba(255,255,255,1), rgba(0,0,0,0)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(255,255,255,1), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgba(255,255,255,1), rgba(0,0,0,0)); /* Standard syntax (must be last) */
+/*  position: fixed;*/
+/*  margin-top: 50%;*/
+  display: block;
+  float: right;
+  height: 400px;
+/*  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;*/
+  padding: 15px;
+  text-align: justify;
+}
+
+aside ul{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  line-height: 25px;
+}
+
+footer{
+  background-color: #FFF;
+  padding: 10px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+footer  ul{
+  list-style: none;
+  text-align: center;
+}
+
+footer li{
+  display: inline;
+  padding: 2px 30px;
+
+}
+
+#wrapper {
+  max-width: 900px;
+  /*  DEBUG: For identifcation;*/
+  margin: 0 auto;
+  background: -webkit-linear-gradient(rgba(255,255,255,1), rgba(0,0,0,0)); /* For Safari */
+  background: -o-linear-gradient(rgba(255,255,255,1), rgba(0,0,0,0)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(255,255,255,1), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgba(255,255,255,1), rgba(0,0,0,0)); /* Standard syntax (must be last) */
+
+}
+
+.profile{
+/*  DEBUG: For identifcation;*/
+  background-color: white;
+  padding: 0px 20px 20px 20px;
+  width: 75%;
+  margin: 0px;
+}
+
+.profile h3 {
+  text-transform: small-caps;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.hero {
+  margin: 0px;
+  padding: 0px;
+  z-index: -100;
+}
+
+.hero img {
+  width: 715px;
+  padding: 0px;
+  margin: 0px;
+
+
+}
+
+.nametitle {
+  width: 100%;
+  z-index: 100;
+  background-color: rbga(0,0,0,0.5);
+}
+
+
+.profile h2 {
+  font-family: 'Just Me Again Down Here', cursive;
+  font-size: 55px;
+  font-color: black;
+  margin: 0px 0px 0px 10px;
+}
+
+.splash{
+
+  margin: 0 auto;
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+
+.splash img {
+  height: 600px;
+}

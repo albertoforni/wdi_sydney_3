@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @song.name %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @song.length %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @song.description %>
+</p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @song.album %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @song.artist.name %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
+
+<h2>Artists</h2>
+
+
+  <p>
+    <strong>Artist:</strong>
+    <%= link_to @artist.name, @artist %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @artist.image, width: '350' %>
+  </p>
+
+
+<% if @album.present? %>
+      <h2>Albums</h2>
+
+      <p>
+        <strong>Album:</strong>
+        <%= link_to @album.name, @album %>
+      </p>
+
+      <p>
+        <strong>Cover:</strong>
+
+        <%= image_tag @album.cover_image, width: '350' %>
+
+      </p>
+<% end %>
+
+
+

@@ -1,0 +1,144 @@
+body {
+  background-image: url(../images/tablebokeh.jpg);
+  background-repeat:no-repeat;
+  background-color: #000;
+  background-size: cover !important;
+}
+
+p {
+  font-family: 'Helvetica', Arial, serif;
+  line-spacing: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+h4{
+    font-family: 'Spinnaker', sans-serif;
+    font-weight: bold;
+    margin-bottom: 0;
+    color: #ffa616;
+}
+
+h1 {
+  font-family: 'Spinnaker', sans-serif;
+  font-variant: small-caps;
+  color: #ffa616;
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
+h3 {
+  color: #152280;
+  font-family: 'Spinnaker', sans-serif;
+  font-size: 16px;
+}
+
+
+input {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 200px;
+    height: 25px;
+    font-size: 14px;
+  }
+
+button {
+  width: 100px;
+  height: 25px;
+  background-color: red;
+  color: #FFF;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  margin-left: 4px;
+
+}
+
+h1 .colourchange{
+  color: #F00;
+}
+
+.subtitle {
+  font-family: 'Poiret One', cursive;
+  color: #FFF;
+  margin-top: 0px;
+
+}
+
+.searchform {
+  margin-top: 15%;
+  margin-left: 45%;
+  margin-bottom: 15%;
+  margin-right: 20%;
+  max-width: 800px;
+  min-width: 200px;
+  padding: 30px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 10%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+}
+
+.searchagain {
+  float: right;
+}
+
+.moviewrapper {
+  background-color: #fff;
+  max-width: 960px;
+  overflow: auto;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  margin: 0 auto;
+  padding: 20px;
+
+
+}
+
+.resultswrapper
+{
+  background-color: #fff;
+  max-width: 50%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow: auto;
+  min-height: 200px;
+}
+
+.resultswrapper h2{
+    font-family: 'Poiret One', cursive;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.resultswrapper a {
+  padding: 0px 6px 0px 6px;
+  line-height: 26px;
+  text-decoration: none;
+
+}
+
+.movietitle {
+  font-size: 60px;
+  color: #000;
+  margin-top: 5px;
+}
+
+.movieyear{
+font-size: 30px;
+}
+
+.movieposter {
+  padding: 10px;
+  float: left;
+  margin: 10px;
+  border: 2px solid black;
+  width: 300px;
+}

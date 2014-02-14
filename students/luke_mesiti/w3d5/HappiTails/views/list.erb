@@ -1,0 +1,5 @@
+<ul>
+    <% @shelters.each do |shelter| %>
+        <li><a href="/shelters/<%= shelter.id %>"><%= shelter.name %></a></li>
+    <% end %>
+</ul>

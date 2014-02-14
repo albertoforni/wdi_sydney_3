@@ -1,0 +1,8 @@
+<% @rows.each do |row| %>
+  <p><%= row['id'] %><%= row['title'] %><%= row['description'] %><%= row['body'] %><%= row['author'] %><%= row['created_at'] %><button><a href="/blog/<%= row['id'] %>/show">view</a></button>
+
+  <form action="/blog/<%= row['id'] %>/delete" method ="post">
+    <button>Delete</button></form>
+
+  </p>
+<% end %>

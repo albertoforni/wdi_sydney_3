@@ -1,0 +1,28 @@
+<%= form_for @artist do |f| %>
+	<p>
+	<!-- name -->
+	<%= f.label :name %><br />
+	<%= f.text_field :name %>
+	</p>
+	<p>
+	<!-- nationality -->
+	<%= f.label :nationality %><br />
+	<%= f.text_field :nationality %>
+	</p>
+	<p>
+	<!-- DOB -->
+	<%= f.label :dob %><br />
+	<%= f.text_field :dob %>
+	</p>
+	<p>
+	<!-- Period -->
+	<%= f.label :period %><br />
+	<%= f.text_field :period %>
+	</p>
+	<p>
+	<!-- Image -->
+	<%= f.label :image %><br />
+	<%= f.text_field :image %>
+	</p>
+	<p><%= f.submit %>
+<% end %>

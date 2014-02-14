@@ -1,0 +1,5 @@
+<form method='post' action="/posts/<%= @blog.id %>">
+  <input type="hidden" name="_method" value="put"> 
+  <%= erb :form %>
+  <button>update</button>
+</form>

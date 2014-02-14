@@ -1,0 +1,90 @@
+<section id="post">
+    <div class="content_c">
+        <p class="light_head">TITLE - </p>
+        <p class="content"> <%= @blog_post["title"] %> </p>
+    </div>
+    <div class="content_c">
+        <p class="light_head">DESCRIPTION - </p>
+        <p class="content"><%= @blog_post["description"] %> </p>
+    </div>
+    <div class="content_c">
+        <p class="light_head">BODY - </p>
+        <p class="content"><%= @blog_post["body"] %> </p> 
+    </div>
+    <div class="content_c">
+        <p class="light_head">AUTHOR - </p>
+        <p class="content"><%= @blog_post["author"] %> </p>
+    </div>
+    <div class="content_c">
+        <p class="light_head">CREATED AT - </p>
+        <p class="content"><%= @blog_post["created_at"] %> </p>
+    </div>
+    <div class="content_c">
+        <p class="light_head">UPDATED AT - </p>
+        <p class="content"><%= @blog_post["updated_at"] %> </p>
+    </div>
+    <p>
+        <form method="get" action='/posts/<%= @blog_post["id"] %>/edit'>
+            <button>EDIT POST</button> 
+        </form>
+    </p>
+    <p>
+        <form method="post" action="/posts/<%= @blog_post['id'] %>">
+            <input type="hidden" name="_method" value="delete" />
+            <button>DELETE POST</button> 
+        </form>
+    </p>
+</section>
+
+<section id="comments">
+    <p class="med_head">COMMENTS</p>
+
+    <% if @new_comment != nil %>
+        <% @new_comment.errors.each do |x,y| %>
+            <p class="error_colour"><%=x.to_s + " " + y.to_s %></p>
+        <% end %>
+    <% end %>
+
+    <% if @c_records.present? %>
+        <% @c_records.each do |row| %>
+            <div class="content_c">
+                <p class="light_head">AUTHOR - </p>
+                <p class="content"><%= row['author'] %> </p>
+            </div>
+            <div class="content_c">
+                <p class="light_head">CREATED AT - </p>
+                <p class="content"><%= row['created_at'] %> </p>
+            </div>
+            <div class="content_c">
+                <p class="light_head">CONTENT - </p>
+                <p class="content"><%= row['content'] %> </p>
+            </div>
+            <div class="content_c">
+                <p class="light_head">ID - </p>
+                <p class="content"><%= row['id'] %> </p>
+            </div>
+            <p>
+                <form method="post" action="/posts/<%= @blog_post["id"] %>/comments/<%= row['id'] %>">
+                <input type="hidden" name="_method" value="delete" />
+                    <button>DELETE COMMENT</button> 
+                </form>
+            </p>
+            <br/>
+        <% end %>
+    <% end %>
+</section>
+
+<section id="add_comment">
+    <form method='post' action="/posts/<%= @blog_post["id"] %>/comments">
+
+        <label>AUTHOR</label>
+        <input type="text" name="comment[author]">
+
+        <input type="hidden" name="comment[post_id]" value="<%= @blog_post["id"] %>">
+
+        <label>CONTENT</label>
+        <textarea name="comment[content]"></textarea>
+
+        <button>CREATE COMMENT</button>
+    </form>
+<section>

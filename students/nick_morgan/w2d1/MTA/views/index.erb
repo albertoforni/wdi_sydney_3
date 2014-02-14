@@ -1,0 +1,92 @@
+<form action="/">
+	<div>
+		<label for="line_start">Which train line are you starting on?</label>
+		<select name="line_start">
+			<option value="N">N</option>
+			<option value="L">L</option>
+			<option value="6">6</option>
+		</select>
+		
+		<!-- <input type="text"> -->
+	</div>
+	<div>
+		<label for="start">Which station are you starting at?</label>
+		<input type="text" name="start">
+
+		<!-- <select name="start">
+			<optgroup label="N">
+				<option value="nts">Times Square</option>
+				<option value="n34">34th Street</option>
+				<option value="n28">28th Street</option>
+				<option value="n23">23rd Street</option>
+				<option value="unsq">Union Square</option>
+				<option value="n8">8th Street</option>
+			</optgroup>
+			<optgroup label="L">
+				<option value="l8">Eighth Avenue</option>
+				<option value="l6">Sixth Avenue</option>
+				<option value="unsq">Union Square</option>
+				<option value="l3">Third Avenue</option>
+				<option value="l1">First avenue</option>
+			</optgroup>
+			<optgroup label="6">
+				<option value="gc">Grand Central</option>
+				<option value="6_33">33rd Street</option>
+				<option value="6_28">28th Street</option>
+				<option value="6_23">23rd Street</option>
+				<option value="unsq">Union Square</option>
+				<option value="ap">Astor Place</option>
+			</optgroup>
+		</select> -->
+		
+		<!-- <input type="text"> -->
+	</div>
+	<div>
+		<label for="line_finish">Which train line are you finishing on?</label>
+		<select name="line_finish" id="">
+			<option value="N">N</option>
+			<option value="L">L</option>
+			<option value="6">6</option>
+		</select>
+		<label for=""></label>
+		<!-- <input type="text"> -->
+	</div>
+	<div>
+		<label for="finish">Which station are you finishing at?</label>
+		
+		<input type="text" name="finish">
+
+	<!-- <select name="finish">
+			<optgroup label="N">
+				<option value="nts">Times Square</option>
+				<option value="n34">34th Street</option>
+				<option value="n28">28th Street</option>
+				<option value="n23">23rd Street</option>
+				<option value="unsq">Union Square</option>
+				<option value="n8">8th Street</option>
+			</optgroup>
+			<optgroup label="L">
+				<option value="l8">Eighth Avenue</option>
+				<option value="l6">Sixth Avenue</option>
+				<option value="unsq">Union Square</option>
+				<option value="l3">Third Avenue</option>
+				<option value="l1">First avenue</option>
+			</optgroup>
+			<optgroup label="6">
+				<option value="gc">Grand Central</option>
+				<option value="6_33">33rd Street</option>
+				<option value="6_28">28th Street</option>
+				<option value="6_23">23rd Street</option>
+				<option value="unsq">Union Square</option>
+				<option value="ap">Astor Place</option>
+			</optgroup>
+		</select> -->
+
+
+		<label for=""></label>
+		<!-- <input type="text"> -->
+		<button>Give me route!</button>
+
+		<p>The stops covered on your trip are <%= @full_trip %> </p>
+	</div>
+</form>

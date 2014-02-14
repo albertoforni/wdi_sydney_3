@@ -1,0 +1,49 @@
+body {
+  /* set up a background image */
+  background-image:url('../images/scr-10.jpg');
+  /* the follow is the code to have the image display as a full page */
+  background-position: center;
+  background-attachment: fixed;
+  -webkit-background-size: cover; /* the next 3 lines are "browser prefixes", they are necessary to include for CSS3 techniques */
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  color: white;
+}
+
+#wrapper {
+  width: 960px;
+  margin: 0 auto;
+  min-height: 700px;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.7);
+
+  line-height: 1.6em;
+
+}
+
+#wrapper h1 {
+  font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 48px;
+  margin-bottom: 35px;
+}
+
+#wrapper h3 {
+  font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 23px;
+  margin-bottom: 65px;
+}
+
+#wrapper a {
+  color: white;
+  text-decoration: none;
+}
+
+#wrapper form {
+  margin-bottom: 40px;
+}

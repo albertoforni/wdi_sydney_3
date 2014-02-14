@@ -1,0 +1,9 @@
+<h1>Welcome to Happi-Rails!</h1>
+<h2>An Animal Adoption System built with Ruby-on-rails.</h2>
+
+<h3>Please select a shelter to start:</h3>
+
+<%= @shelters.each do |shelter| %>
+<h4><%= shelter.title %></h4>
+
+<%end%>

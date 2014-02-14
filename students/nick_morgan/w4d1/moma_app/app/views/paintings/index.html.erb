@@ -1,0 +1,12 @@
+<h1>Paintings!</h1>
+
+<a href="/paintings/new">New Painting</a>
+
+<% @paintings.each do |painting| %>
+  <p><%= link_to painting.title, painting %></p>
+  <p><%= painting.year %></p>
+  <p><%= painting.medium %></p>
+  <p><%= painting.style %></p>
+  <p><%= image_tag painting.image, width: "450" %></p>
+
+<% end %>

@@ -1,0 +1,5 @@
+1. refactor blog app to use active_record
+2. include validations on blog app.
+
+
+

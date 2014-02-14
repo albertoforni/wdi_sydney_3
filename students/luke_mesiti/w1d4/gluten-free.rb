@@ -12,15 +12,14 @@ class Person
 
 	def eat(food, ingredients)
 		begin
-			s = allergies & ingredients
+			#s = allergies & ingredients
 			# empty = "empty: #{p.empty?}"
 			# p empty
 			# puts "p = #{p}"
-			e = s.empty?
-			if !e
-				raise AllergyError, "You can't eat this silly!"
-			end
-		rescue Exception => e
+			
+			raise AllergyError, "You can't eat this silly!" if !(allergies & ingredients).empty?
+			
+		rescue AllergyError => e
 			puts e.message
 		else
 		 	stomach[food] = ingredients
@@ -33,8 +32,7 @@ class Person
 
 end
 
-class AllergyError < StandardError
-end
+class AllergyError < StandardError; end
 
 # Create a Person named Chris. Chris is allergic to gluten.
 # Create a Person named Beth. Beth is allergic to scallops.

@@ -1,0 +1,46 @@
+<h1>Welcome to MTA</h1>
+
+<form action="/mta" method="get">
+	<label for="user_on_line">User on line</label>
+	<input type="text" name="user_on_line">
+
+	<label for="user_on_stop">User on stop</label>
+	<input type="text" name="user_on_stop">
+
+	<label for="user_off_line">User off line</label>
+	<input type="text" name="user_off_line">
+
+	<label for="user_off_stop">User off stop</label>
+	<input type="text" name="user_off_stop">
+
+	<button>Calculate!</button>
+</form>
+
+<p>The path taken is: 
+
+		<%= @result %> 
+		<%= @result2 %>
+		<%= @result3 %>
+		<%= @result4 %> 
+		<%= @result5 %>
+		<%= @result6 %>
+</p>
+<p>
+	user_on_line = <%= @user_on_line %> ;
+</p>
+<p>
+	user_off_line = <%= @user_off_line %> ;
+</p>
+<p>
+	start_index = <%= @start_index %> ;
+</p>
+<p>
+	stop_index = <%= @stop_index %> ;
+</p>
+<p>
+	us_on_index = <%= @us_on_index %> ;
+</p>
+<p>
+	us_off_index = <%= @us_off_index %> ;
+</p>	
+		

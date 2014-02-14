@@ -1,0 +1,37 @@
+
+  <ul id="sortmenu">
+    <li><a href="/posts?sort=created_at">Sort by Latest</a></li>
+    <li><a href="/posts?sort=title">Sort by Title</a></li>
+    <li><a href="/posts?sort=updated_at">Sort by Updated</a></li>
+  </ul>
+
+
+<% @post.each do |post| %>
+<!-- Title of the post -->
+<div class="postlist">
+
+  <h3><%= post['title'] %></h2>
+    <ul>
+    <li>Created: <%= post['created_at'] %></li>
+    </ul>
+
+  <!-- Tagline of the post -->
+  <em><%= post['tagline'] %></em><br />
+  <a href="/posts/<%= post.id %>">Read more...</a>
+
+
+  <div class="controls">
+
+    <a href="/posts/<%= post.id %>/edit">Edit</a></li>
+
+    <form method="post" action="/posts/<%= post.id %>">
+        <input type="hidden" name="_method" value="delete">
+        <button class="button">Delete</button>
+      </form>
+
+
+
+   </div>
+</div>
+<% end %>
+

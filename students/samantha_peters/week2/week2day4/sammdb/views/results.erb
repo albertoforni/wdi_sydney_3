@@ -1,0 +1,18 @@
+
+  <div class="resultswrapper">
+  <h2>Results for "<%= @movie %>"</h2>
+
+  <% @searchlist["Search"].each do |movie|%>
+  <% @movieid = movie["imdbID"] %>
+    <p class="resultlinks">&#8594; <a href="/id/<%= @movieid.to_s %>"><%= movie["Title"] %></a></p>
+    <% end %>
+
+    <h4><a href="/">Home</a></h4>
+
+
+   
+  
+
+
+
+  </div>

@@ -1,0 +1,17 @@
+<div id="result">
+
+   <% if @movie.present? %>
+    
+      <% source = @movie["Poster"]%>
+      <img src=<%="#{source}"%>>
+
+      <ul>
+        
+      <% @movie.each do |key, value| %>
+      <li><%= "#{key} : #{value}" %></li>
+      <% end %>
+
+
+      </ul>
+
+  <% end %>

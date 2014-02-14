@@ -1,0 +1,17 @@
+<p>Name: <%= @artist.name %></p>
+
+<%= link_to 'delete', @artist, :method => :delete, :confirm => 'do you really want to do this???' %><br/><br/>
+
+<%= link_to 'edit', edit_artist_path(@artist) %><br/><br/>
+<!-- have to pass in @artist, which we've picked up from our artists-controller.rb file -->
+
+
+<%= link_to 'Home', artists_path %>
+<!-- artist_path(@artist) -> show -->
+
+<!-- link_to is just a method which gives you an anchor which has built in methods in rail
+for example, the :confirm method which creates a confirm dialogue box -->
+
+<% @paintings.each do |painting| %>
+  <p><%= painting.title %></p>
+<% end %>

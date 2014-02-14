@@ -1,0 +1,6 @@
+<h1><%= @animal.name %></h1>
+<h3><%= @animal.species %></h3>
+
+
+<%= link_to 'edit', edit_animal_path(@animal) %>
+<%= link_to 'delete', @artist, :method => :delete, :confirm => 'Are you sure you want to delete this?' %><br />

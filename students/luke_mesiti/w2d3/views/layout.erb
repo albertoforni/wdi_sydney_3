@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="description" content="Current students at GA Sydney">
+        <meta name="keywords" content="students GA WDI">
+        <title>WDI students 2014</title>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="mygradienttop">
+    <div id="c_container">
+        <div id="container" class="clearfix">
+            <div id="leftside" class="side">
+                <a href="/"><img src="/images/WDI_logo_web.png" id="home_logo"/></a>
+                <section class="wrapper">
+                    <ul>
+                        <li class="left_side_menu"><a href="/">Home</a></li>
+                        <li class="left_side_menu"><a href="/about">About</a></li>
+                        <li class="left_side_menu"><a href="/contact">Contact</a></li>
+                    </ul>
+                    <p> &copy; Luke Mesiti 2014</p>
+                </section>
+            </div> <!-- leftside -->
+            <div id="rightside" class="side">
+                <header class="wrapper">
+                    <ul>
+                        <li id="left_menu" ><a href="/students/alberto">Alberto</a></li>
+                        <li class="middle_menu" ><a href="/students/pranava">Pranava</a></li>
+                        <li class="middle_menu" ><a href="/students/emily">Emily</a></li>
+                        <li id="right_menu" ><a href="/students/luke">Luke</a></li>
+                    </ul>
+                </header>
+                <%= yield %>
+            </div> <!-- rightside -->
+        </div><!-- container -->
+    </div>
+</body>
+</html>

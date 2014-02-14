@@ -1,0 +1,17 @@
+<div>
+<h2><%= @artist.name %></h2>
+<p><%= @artist.period %><br />
+<%= @artist.nationality %><br />
+<%= @artist.dob %><br />
+<%= image_tag @artist.image, :width => 150 %></p>
+
+<h2>Paintings:</h2>
+<% @paintings.each do |painting| %>
+<p><%= link_to painting.title, painting_path(painting) %></p>
+<p><%= image_tag painting.image, :width => 150 %></p>
+<% end %>
+</div> 
+
+<%= link_to 'edit', edit_artist_path(@artist) %> <br />
+<%= link_to 'delete', @artist, :method => :delete, :confirm => 'Um. You sure mate?' %><br />
+<%= link_to 'Back to Artists', artists_path %>

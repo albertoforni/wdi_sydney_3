@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @destination.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+</p>
+<%= image_tag @destination.image, width: '300' %>
+
+<p>
+  <strong>Country:</strong>
+  <%= @destination.country %>
+</p>
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>

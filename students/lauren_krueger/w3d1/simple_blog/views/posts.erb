@@ -1,0 +1,42 @@
+  <p>
+    <h2><%= @post['title'] %></h2><br>
+    <%= @post['description'] %><br>
+    By:<%= @post['author'] %><br><br>
+    <%= @post['body_text'] %><br>
+    Created at: <%= @post['created_at'] %><br><br>
+    Updated at: <%= @post['updated_at'] %><br><br>
+
+    <a href="/posts/<%= @post['id'] %>/edit">Edit Post</a>
+
+    <form method="post" action="/posts/<%= @post['id'] %>/delete">
+      <button>Delete Post</button>
+    </form>
+  </p>
+
+  <p>
+    <h3>comments</h3>
+
+    <% @comments.each do |comment| %>
+      <p><%= comment['comment'] %>
+      <br>from: <%= comment['author'] %>
+      <br>created at: <%= comment['created_at'] %></p>
+    <% end %>
+
+
+    <form method="post" action="/posts/<%= @post['id'] %>/comments">
+
+      <label for="author">Author: </label>
+        <input type="text" id="author" name="author">
+
+      <label for="comment">Add comment here:</label>
+        <input type="text" id="comment" name="comment">
+
+      <input type="hidden" name="post_id" value="<%= params[:id] %>">
+
+      <button>Submit comment</button>
+    
+    </form>
+  </p>
+
+
+

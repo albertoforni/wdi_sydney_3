@@ -1,0 +1,22 @@
+<ul class="order">
+  <li><a href="/posts?sort=updated_at&sortdir=<%= @sortdir%>">List by date</a></li>
+  <li><a href="/posts?sort=title&sortdir=<%= @sortdir%>">List by title</a></li>
+</ul>
+
+<% @blogs.each do |row| %>
+  <% if row['updated_at'].present? %>
+  <%  time = row['updated_at']  %>
+  <% else %>
+  <%  time = row['created_at']  %>
+  <% end %>
+
+  <p><%= row['id'] %><%= row['title'] %><%= row['description'] %><%= row['body'] %><%= row['author'] %><%= time %><button><a href="/posts/<%= row['id'] %>">view</a></button><button><a href="/posts/<%= row['id'] %>/edit">edit</a></button>
+
+  <form action="/posts/<%= row['id'] %>" method ="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>Delete</button></form>
+
+  </p>
+<% end %>
+
+

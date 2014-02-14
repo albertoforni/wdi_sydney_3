@@ -10,20 +10,30 @@ require_relative 'shelter-prompt'
 
 
 
-# Default client is Sammyjo!
+# Default client is Sammyjo, Leslie and Harry Potter!
 @client_list = {}
 
 sammyjo = Client.new("Sammyjo", 0, 24, 120)
 @client_list[sammyjo.name] =  sammyjo
 
+leslie = Client.new("Leslie", 2, 50, 3)
+@client_list[leslie.name] =  leslie
 
-# default animals is Sally the dog...
+harrypotter = Client.new("Harry Potter", 0, 36, 1)
+@client_list[harrypotter.name] =  harrypotter
+
+# default animals is Sally the dog, Ellie the parrot and Lily the cat...
 @animal_list = {}
 
 
 sally = Animal.new("Sally", 9, "Female", "Dog", ["A rubber phone", "A chewed up duck", "A little stuffed monster"])
 @animal_list[sally.name] = sally
 
+ellie = Animal.new("Ellie", 1, "Female", "Parrot", ["Shiny Bell", "Mushed up Pomegranate", "Wooden ladder"])
+@animal_list[ellie.name] = ellie
+
+lily = Animal.new("Lily", 1, "Female", "Cat", ["Broken toy mouse", "Rubber ball", "Shabby scratching post"])
+@animal_list[lily.name] = lily
 
 #Happy_tails is the shelter we're at, that can list animals and clients.
 happy_tails = Shelter.new(@animal_list, @client_list)
@@ -105,9 +115,7 @@ end
 
 def list_all_clients
 	puts "\n Listing all clients:"
-		@client_list.each do |key, value|
-		puts "\n#{key.to_s}"
-		end
+		@client_list.map {|key,client| client.to_s}
 end
 
 
@@ -116,9 +124,7 @@ end
 
 def list_all_animals
 	puts "\n Listing all animals:"
-		@animal_list.each do |key, value|
-		puts "\n#{key.to_s}"
-		end
+		@animal_list.map {|key,pet| pet.to_s}
 end
 
 
@@ -130,21 +136,24 @@ def adopt_an_animal
 	puts "If you're already in the list of clients, enter your name."
 	puts "If you're new to Happy Tails, enter 'new'."
 	puts "otherwise, enter (back) to go back to the main menu..."
-	adopt_menu_input = gets.chomp.downcase
+	adopt_menu_input = gets.chomp
+	puts "DEBUG: You wrote #{adopt_menu_input}"
+
 
 
 		#not working, revisit
-		if client_list.name == adopt_menu_input
+		if @client_list.to_s.include? adopt_menu_input
 			puts "Pick an animal for adoption:"
 			@animal_list.each do |key, value|
 			puts "\n#{key.to_s}"
 			end
 			adopt_animal_choice = gets.chomp.to_s
+			puts "DEBUG: You picked #{adopt_animal_choice}"
 
-			if adopt_animal_choice.include?(@animal_list.key.to_s)
+			if @animal_list.to_s.include? adopt_animal_choice
 				@client_list[adopt_menu_input].currentAnimals += 1
 				puts "#{adopt_animal_choice} adopted. Congratulations!"
-				@animal_list.adopt_animal_choice.delete
+				@animal_list[adopt_animal_choice].delete
 			end
 
 			puts "Adopt another animal? (Y)es or (N)o - go back to main menu"
@@ -274,5 +283,13 @@ while main_menu_again == true
 end
 
 
+### TESTS
+
+# def adopt (animal)
+# animals = animals.delete(animal_name.to_sym)
+
+# client = clients[client_name.to_sym]
+
+# client.pets << animal
 
 

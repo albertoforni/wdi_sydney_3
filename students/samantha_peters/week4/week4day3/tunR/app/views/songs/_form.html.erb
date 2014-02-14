@@ -1,0 +1,44 @@
+<%= form_for @song, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :length, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :length, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :youtube, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :youtube, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :album_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :album_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :artist_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :artist_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :image, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :image, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                songs_path, :class => 'btn' %>
+  </div>
+<% end %>

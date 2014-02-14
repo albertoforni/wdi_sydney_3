@@ -1,0 +1,24 @@
+TO DO
+
+* about page - describe the course.
+
+* apply the DRY principal.
+
+extra credit
+
+* find out how to get sinatra to actually email somebody from your form.
+
+* user bootstrap to enhance the look of the page.
+
+DONE
+
+* contact page - include email subject. use appropiate html5 tags
+
+* contact page - make the form post to a separate sinatra end-point. Check that the person has filled in the important fields. if they haven't, redisplay the form with error messages, otherwise display thank you page.
+
+* add copyright message to footer.
+
+* figure out how to nicely handle a 404 to display a nicer page.
+
+* download a copy of the images for the students and make them files in an appropriate directory.
+

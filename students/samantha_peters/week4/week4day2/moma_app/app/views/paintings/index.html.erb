@@ -1,0 +1,14 @@
+<h1>MOMA - All Artworks</h1>
+
+<%= link_to 'Add an Artwork', new_painting_path %>
+
+<% @paintings.each do |painting|%>
+<div>
+<h2><%= link_to painting.title, painting %></h2>
+<p><%= painting.medium %><br />
+<%= painting.year %><br />
+<%= painting.style %><br />
+<%= image_tag painting.image, :width => 150 %></p>
+</div> 
+
+<% end %>

@@ -1,0 +1,8 @@
+1. manually add comments in database.
+2. create join which lists comments by post id
+3. create selection which lists comments by certain post id
+4. display comments at the end of each post
+5. add form at end of post page with allows users to comment on blog post.
+
+
+

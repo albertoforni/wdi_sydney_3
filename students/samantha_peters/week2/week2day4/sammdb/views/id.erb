@@ -1,0 +1,25 @@
+
+  <div class="moviewrapper">
+ <div class="searchagain">    
+
+  <form action="/results" method="get">
+  <input type="text" name="movie" autofocus placeholder="Search for another movie..." required>
+  <button>Search!</button>
+
+</div>
+  
+  <h1 class="movietitle"><%= @searchlist["Title"] %> <span class="movieyear">(<%= @searchlist["Year"] %>)</span></h1>
+  <img class="movieposter" src="<%= @searchlist["Poster"] %>" />
+  <h3><%= @searchlist["Genre"] %> | Released <%= @searchlist["Released"] %> | Rated <%= @searchlist["Rated"] %></h3>
+  <p><%= @searchlist["Plot"] %></p>
+  <h4>Director:</h4>
+  <p><%= @searchlist["Director"] %></p><br />
+  <h4>Writer(s):</h4>
+  <p><%= @searchlist["Writer"] %></p><br />
+  <h4>Cast:</h4>
+  <p><%= @searchlist["Actors"] %></p><br />
+  <br /><br /><h4><a href="/">Home</a></h4>
+
+
+
+  </div>

@@ -1,0 +1,90 @@
+body {
+  /* set up a background image */
+  background-image:url('../images/heic1007a.jpg');
+  /* the follow is the code to have the image display as a full page */
+  background-position: center;
+  background-attachment: fixed;
+  -webkit-background-size: cover; /* the next 3 lines are "browser prefixes", they are necessary to include for CSS3 techniques */
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#container {
+  width: 960px;
+  margin: 0 auto;
+  padding-top: 30px;
+  background-color: rgba(255,255,255,0.6);  
+
+}
+
+header {
+  display: block;
+  width: 920px;
+  padding: 0px 20px 0px 20px;
+  font-family:'Lobster', Sans-serif;
+  color: #000073;
+  font-size: 20px;
+  line-height: 1.2em;
+}
+
+nav {
+  display: block;
+  width: 960px;
+  height: 50px;
+  padding: 0px 0px 0px 0px;
+  /*background-color: #0F87E8;*/
+  /*background-color: #4E7678;*/
+  background-color: #000073;
+  margin: 0 auto;
+}
+
+nav a {
+  display: block;
+  width: 137px;
+  height: 50px;
+  color: white;
+  text-decoration: none;
+  line-height: 50px;
+  margin: 0 auto;
+  float: left;
+  text-align: center;
+
+}
+
+nav a:hover {
+  background-color: #4982FF;
+
+}
+
+#main {
+  display: block;
+  width: 920px;
+  padding: 0px 40px 35px 40px;
+}
+
+#main img {
+  width: 750px;
+  /*margin: 0px 65px 20px 65px;*/
+}
+
+#main h3 {
+  font-family: 'Bangers', cursive;
+}
+
+#home {
+  width: 750px;
+  margin: 0px 65px 0px 65px;
+  font-family: 'Bangers', cursive;
+  font-size: 24px;
+}
+
+
+
+
+.profile {
+  border: 2px solid black;
+  width: 800px;
+  margin: 20px 60px;
+  padding: 20px;
+}

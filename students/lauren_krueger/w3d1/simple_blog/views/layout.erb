@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>the simple blog</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+  <script type="text/javascript" src="//use.typekit.net/dmn1qti.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+<body>
+  <header>
+    <h1><a href="/">the simple blog</h1></a>
+  </header>
+
+  <div id="nav">
+    <ul>
+      <li><a href="/">home</a></li>
+      <li><a href="/posts/new">create new post</a></li>
+    </ul>
+  </div>
+
+  <%= yield %>
+
+</body>
+</html>

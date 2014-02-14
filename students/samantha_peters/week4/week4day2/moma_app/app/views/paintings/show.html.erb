@@ -1,0 +1,11 @@
+<div>
+<h2><%= @painting.title %></h2>
+<p><%= @painting.year %><br />
+<%= @painting.medium %><br />
+<%= @painting.style %><br />
+<%= image_tag @painting.image, :width => 150 %></p>
+</div> 
+
+<%= link_to 'edit', edit_painting_path(@painting) %> <br />
+<%= link_to 'delete', @painting, :method => :delete, :confirm => 'Um. You sure mate? That\'s an awful nice work.'%><br />
+<%= link_to 'Back to Artworks', paintings_path %>

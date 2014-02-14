@@ -1,0 +1,10 @@
+<% @rows.each do |row| %>
+  <p>
+    <a href="/posts/<%= row['id'] %>"><%= row['title'] %></a><br>
+    <%= row['description'] %><br>
+  </p>
+<% end %>
+
+<a href="/posts?sort=created_at">Sort posts by date</a><br>
+<a href="/posts?sort=title">Sort posts by title</a><br>
+<a href="/posts?sort=updated_at">Sort posts by most recently updated</a>

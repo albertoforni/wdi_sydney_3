@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WDI BLOG</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/normalize.css"/>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+    <div id="container" class="clearfix">
+        <div id="nav_menu">
+            <div id="home_icon">
+                <a href="/posts?sort=title">WDI BLOG</a>
+            </div>
+            <ul>
+                <li><a href="/posts/new">NEW POST</a></li>
+                <li><a href="/posts?sort=title">SORT BY TITLE</a></li>
+                <li><a href="/posts?sort=created_at">SORT BY DATE</a></li>
+                <li><a href="/posts?sort=updated_at">SORT BY EDIT</a></li>
+            </ul>
+        </div><!-- nav_menu -->
+        <div id="main_content">
+            <%= yield %>
+        </div><!-- main_content -->
+    </div><!-- container -->
+</body>
+</html>

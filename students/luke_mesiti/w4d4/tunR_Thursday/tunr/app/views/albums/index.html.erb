@@ -1,0 +1,41 @@
+<% content_for :title, "Listing Albums"%> 
+
+<% if @artist %>
+  <h3><%= "#{@artist.name}'s Albums" %></h3>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Cover image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @albums.each do |album| %>
+      <tr>
+        <td><%= album.name %></td>
+        <td><%= album.description %></td>
+        <td><%= album.cover_image %></td>
+        <td><%= link_to 'Show', album %></td>
+        <td><%= link_to 'Edit', edit_album_path(album) %></td>
+        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if @artist %>
+  <p>
+    <%= link_to 'New Album', new_artist_album_path(@artist) %>
+  </p>
+<% end %>
+
+<br>
+
+
