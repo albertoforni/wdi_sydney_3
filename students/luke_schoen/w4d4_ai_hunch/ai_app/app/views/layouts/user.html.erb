@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AiApp User</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+	
+	<div id="nav">
+
+  		<%= render partial:'/shared/nav' %>
+
+	</div>
+
+</header>
+
+<body>
+
+	<div>
+
+		<%= yield %>
+
+	</div>
+
+</body>
+
+
+</html>

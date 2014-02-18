@@ -1,0 +1,144 @@
+<%# content_for :content do %>
+
+<div id="display_content">
+    <h2>Post Details:</h2>
+
+	<p> 
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Abstract</th>
+				<th>Created Date</th>
+				<th>Details</th>
+			</tr>
+
+			<tr>
+				<td>
+		 	<%= @blog['id'] %>
+		 		</td>
+		 		<td class="table_desc_150"> 
+			<%= @blog['title'] %> 
+				</td>
+				<td class="table_desc_150">
+			<%= @blog['abstract'] %> 
+				</td>
+				<td class="table_desc_100">
+			<%= @blog['created_at'] %> 
+				</td>
+				<td>
+			<!--<form method='get' action="/">
+				<button>Hide</button>
+			</form>-->
+			<a href="/">Hide</a>
+				</td>
+				<td>
+			<a href="/posts/<%= @blog['id'] %>/edit">Edit</a>
+				</td>
+				<td>
+			<!--<a href="/posts/<%#= @blog['id'] %>/delete" data-method="post">Delete</a>-->
+	<form method='post' action="/posts/<%= @blog['id'] %>">
+			<input type="hidden" name="_method" value="delete">
+			<button class="btn btn-danger">Delete</button>
+	</form>
+				</td>
+
+			</tr>
+
+		</table>
+	</p>
+
+	<p>
+			<div id="dash_title" class="details2">
+				<h3>Post Body:</h3>
+			</div>
+			<div class="details2"><br>
+				<p>Author:</p>
+				<p>Updated:</p>
+			</div>
+			<div class="details3" id="text_limit_create3"><br>
+				<p><%= @blog['author'] %></p>
+				<p><%= @blog['updated_at'] %></p>
+			</div>
+			<div class="details" style="margin-left: 270px;">
+				
+				<div class="details">
+					<p>Text:<p>
+				</div>
+				<div class="details" class="text_limit_create2">
+					<p style="width: 250px;"><%= @blog['body_text'] %></p> 
+				</div>
+			</div>
+
+	</p>
+
+<%# display individual blog post details%>
+	<p class="p2">
+
+		<form method='post' action="/posts/<%= @blog['id'] %>/comments">
+			<div id="dash_title2">
+				<h3>New Comment:</h3>
+				<h4><%= @comment_errors %></h4>
+			</div>
+
+			<div>
+				<div class="details">
+					<p><label for="comment">Comment:</label><p>
+				</div>
+				<div id="text_limit" class="details">
+					<p><textarea id="text_limit_create2" name="comment" rows="1"></textarea></p> 
+				</div>
+			</div>
+			<div class="details" style="margin-left: 260px;">
+				<div class="details">
+					<p><label for="author">Author:</label></p>
+				</div>
+				<div class="details">
+					<p><input class="input_limit2" type="text" name="author"></p>
+				</div>
+				<div class="details">
+					<p><button type="submit" class="btn btn-success">Create</button></p>
+				</div>
+			</div>
+		</form>
+	</p>
+
+	<p>
+
+			<div style="display:inline; float: left;">
+				<h3>Existing Comments:</h3>
+			</div>
+	</p>
+
+	<p>
+		<table id="blogs">
+
+<% @comments.each do |comment| %>
+
+			<tr>
+				
+				<td>
+					<p><label for="author">Author:</label></p>
+					<p><label for="created_at">Date:</label></p>
+				</td>
+				<td>
+					<p><%= comment['author'] %></p> 
+					<p><%= comment['created_at'] %></p> 
+				</td>
+				<td>
+					<p><label for="body_text">Text:</label><p>
+				</td>
+				<td>
+					<p style="width: 210px;"><%= comment['comment'] %></p> 
+				</td>  
+			</tr>
+
+			<tr>
+				<td style="border: black; background-color: black;"></td>
+			</tr>
+
+<% end %>
+		</table>
+	</p>
+
+</div>

@@ -1,0 +1,84 @@
+<%# content_for :content do %>
+
+<div id="display_content">
+    <h2>Edit Post:</h2><br>
+
+	<p> 
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Abstract</th>
+				<th>Created Date</th>
+				<th>Details</th>
+			</tr>
+
+<form method='post' action="/posts/<%= @blog['id'] %>">
+			<tr>
+				<td>
+		 	<%= @blog['id'] %>
+		 		</td>
+		 		<td class="table_desc_150"> 
+			<%#= @blog['title'] %> 
+<input type="text" name="title" value="<%= @blog['title'] %>"> 
+				</td>
+				<td class="table_desc_150">
+			<%#= @blog['abstract'] %> 
+<!--<input type="text" name="abstract" value="<%#= @blog['abstract'] %>"> -->
+
+<textarea id="text_limit" name="abstract" rows="2"><%= @blog['abstract'] %></textarea>
+				</td>
+				<td class="table_desc_100">
+			<%= @blog['created_at'] %>
+				</td>
+				<td>
+			<!--<form method='get' action="/">
+				<button>Hide</button>
+			</form>-->
+			<a href="/">Hide</a>
+				</td>
+				<td>
+			<!--<a href="/posts/<%#= @blog['id'] %>/delete" data-method="post">Delete</a>-->
+	<!--<form method='get' action="/posts/<%#= @blog['id'] %>/edit">
+			<button class="btn btn-warning">Reset Fields</button>
+	</form>-->
+	<a href="/posts/<%= @blog['id'] %>/edit" data-method="get">Reset Fields</a>
+				</td>
+
+			</tr>
+
+		</table>
+	</p>
+
+<%# display individual blog post details%>
+	
+	<p>
+		<form method="get" action="/posts/<%= @blog['id'] %>">
+			<div class="details">
+				<p><label for="body_text">Body Text:</label></p>
+			</div>
+			<div class="details">
+				<%#= @blog['body_text'] %>
+
+<p><textarea id="text_limit" name="body_text" rows="2"><%= @blog['body_text'] %></textarea></p>
+  
+				<%#= @blog['author'] %>
+			</div>
+
+			<div class="details">
+				<p><label for="author">Author:</label></p>
+				<p><label>Updated:</label></p>
+			</div>
+
+			<div class="details">
+				<p><input type="text" name="author" value="<%= @blog['author'] %>"></p>
+				<p><%= @blog['updated_at'] %></p>
+			</div>
+			<div class="details">
+				<button class="btn btn-primary">Update Post</button>
+			</div>
+		</form>
+	</p>
+
+</div>
+		

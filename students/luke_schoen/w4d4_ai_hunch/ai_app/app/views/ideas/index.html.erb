@@ -1,0 +1,63 @@
+<h1>Listing ideas</h1>
+
+
+<% if !params[:robot_id].nil? %>
+<p style="border:4px solid purple; display: inline-block; clear: left;">
+<%= link_to 'New Idea', new_robot_idea_path %> |
+<%= link_to 'New Sense', new_robot_sense_path %> |
+<%= link_to 'Return to Robot', "#" %>
+<br></p>
+<% end %>
+
+
+<table style="border: 1px solid black; ">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <% if params[:robot_id].nil? %>
+	  <th>Assigned to Robot</th>
+	  <% end %>
+	  <th>Image</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td style="text-align:center"><%= idea.name %></td>
+        <td style="text-align:center"><%= idea.description %></td>
+
+<!-- ASSIGNED TO ROBOT ID -->
+			<% if params[:robot_id].nil? && !idea.robot_id.nil? %>  
+			<!-- i.e. only display in /ideas page, not /robot/id/ideas page -->
+				<% x = Robot.find_by_id(idea.robot_id) %>
+				<% if !x.blank? %>
+					<td style="text-align:center"><%= link_to idea.robot_id, robot_path(idea.robot_id) %></td>
+				<% elsif x.blank? %>
+					<td style="text-align:center"><%= link_to (idea.robot_id.to_s + ", but deleted!, reassign?"), edit_idea_path(idea) %></td>
+				<% end %>
+			<% end %>
+
+<!-- IMAGE -->
+        <td style="text-align:center">
+		    <% if !idea.robot_id.nil? %>
+		  	  <% robot = Robot.find_by_id(idea.robot_id) %>
+		  	  <% if !robot.nil? %>
+		  	  	<%= image_tag robot.image, title: robot.name, width: 50, height: 50 %>
+		  	  <% end %>
+		    <% end %>
+        </td>
+
+        <td><%= link_to 'Show', idea %></td>
+        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

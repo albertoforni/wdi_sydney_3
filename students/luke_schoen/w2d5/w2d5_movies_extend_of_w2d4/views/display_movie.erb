@@ -1,0 +1,11 @@
+<div>
+    <form action="/display_movie" method="post">
+        <input type="text" name="movie_name" autofocus>
+        <button>Get Movie and Display!</button>
+    </form>
+
+    <h1>Results</h1>
+    <p><h3>Movie Name:</h3> <%= @movie_name %></p>
+    <p><h3>Movie Year:</h3> <%= @movie_year %></p>
+    <p><h3>Movie Details (OMD):</h3> <%= @display_movie %></p>
+</div>

@@ -1,0 +1,35 @@
+        <div id="wrapper"><a name="Contact"></a>
+            <h3>Contact Group Member</h3>
+            <form id="contactform" action="/contact" method="get">
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address">
+            </p>
+            <p>
+                <label for="checkbox">Subscribe to Group Member News?:</label>
+                <input id="checkbox_1" name="checkbox_1" type="checkbox" value="1">
+            </p>
+            <p>
+                Please selection name to email from the following:
+
+                    <select name="recipient">
+                        <option>Luke</option>
+                        <option>Marcus</option>
+                        <option>Daniel</option>
+                        <option>Federico</option>
+                    </select>
+                    <br /><br />
+                    Please enter Subject of email text below:<br />
+                    <textarea id="email_subject" name="email_subject" /></textarea><br />
+                    <br /><br />
+                    Please enter Body of email text below:<br />
+                    <textarea id="email_message" name="email_message" placeholder="What do you want to tell us?" rows="6"></textarea>
+                    <br /><br>
+                    <input type="submit" value="Do email send!" id="submit"/><br>
+                    <button>Calculate!</button>
+                    <h1> Result </h1>
+                    <p>Based on the information entered <%= @recipient => will be sent an email.<br>
+                    We will also be providing your email address <%= @email =></p>
+                </form>
+            </p>
+        </div>

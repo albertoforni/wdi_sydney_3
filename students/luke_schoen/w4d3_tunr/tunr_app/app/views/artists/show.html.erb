@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @artist.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @artist.image, height: '64', width: '64' %>
+</p>
+
+<p>
+  <strong>Albums:</strong>
+<%= link_to 'List', artist_albums_path(@artist) %> 
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

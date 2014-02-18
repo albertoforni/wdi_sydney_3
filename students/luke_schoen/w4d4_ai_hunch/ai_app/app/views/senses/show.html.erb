@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sense.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sense.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @sense.image %>
+</p>
+
+<p>
+  <strong>Robot Image:</strong>
+  <% robot = Robot.find_by_id(@sense.robot_id) %>
+  <%= image_tag robot.image, title: robot.name, width: 100, height: 100 %>
+  <%#= x.inspect %>
+  <%# @sense.robot.image.to_s %>
+  <%#= image_tag image_url(sense.robot.image.to_s), title: robot.name, width: 100, height: 100 %>
+</p>
+
+<p>
+  <strong>Robot ID:</strong>
+  <%= @sense.robot_id %>
+</p>
+
+<%= link_to 'Edit', edit_sense_path(@sense) %> |
+<%= link_to 'Back', robot_senses_path(@sense.robot_id) %> |
+<%= link_to 'Admin', senses_path %>
+

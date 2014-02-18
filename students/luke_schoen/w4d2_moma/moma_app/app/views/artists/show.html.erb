@@ -1,0 +1,11 @@
+<p><%= @artist.name %></p>
+
+<p><%=  link_to 'delete', @artist, :method => :delete, :confirm => 'do you really want to do this?' %></p>
+
+<p><%= link_to 'edit', edit_artist_path(@artist) %></p>
+
+<p><%= link_to 'Home', artists_path %></p>
+
+<%= content_for :footer do %>
+ <h1>big footer</h1>
+<% end %>

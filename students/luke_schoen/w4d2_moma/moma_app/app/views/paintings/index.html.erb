@@ -1,0 +1,26 @@
+<h1>Selection</h1>
+
+
+
+	<div>
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Year</th>
+				<th>Medium</th>
+				<th>Style</th>
+				<th>Image</th>
+			</tr>
+<% @paintings.each do |painting| %>
+			<tr>
+				<td><%= painting.title %></td>
+				<td><%= painting.year %></td>
+				<td><%= painting.medium %></td>
+				<td><%= painting.style %></td>
+				<td><%= link_to 'Show Painting', painting %></td>
+			</tr>
+<% end %>
+		</table>
+	</div>
+
+<!-- <a href="/paintings/new">new painting</a>   USE HELPER INSTEAD BELOW-->

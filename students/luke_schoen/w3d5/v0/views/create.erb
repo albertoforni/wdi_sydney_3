@@ -1,0 +1,29 @@
+		<div id="display_content">
+        	<h2>Donate Pet:</h2><br>
+
+			<form method='post' action="/shelters/<%= @shelter.id %>/pets/create"> 
+				<div class="create">
+					<p><label for="">Name:</label></p>
+					<p><label for="">Type:</label></p>
+				</div>
+				<div class="create">
+
+					<p><input class="input_limit" type="text" name="name"></p>
+					<p>
+						<!--<input type="text" name="abstract">-->
+						<textarea id="text_limit_create" name="type" rows="1"></textarea>
+					</p>
+				
+				</div>
+				<br>
+				<div>
+					<p>
+						<button type="submit" class="btn btn-success">Create New Donation</button>
+					</p>
+				</div>
+				
+			</form>
+
+        </div>
+
+<%# end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @hunch.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @hunch.description %>
+</p>
+
+<%= link_to 'Edit', edit_hunch_path(@hunch) %> |
+<%= link_to 'Back', hunches_path %>

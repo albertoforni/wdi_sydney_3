@@ -1,0 +1,17 @@
+<div style="display: inline-block;">
+	<p>
+
+<%= link_to root_path do %>
+		<%= image_tag 'http://lorempixel.com/100/120', style: 'border: 2px solid #44ff55', title: 'my awesome logo!', alt: 'just another free logo', width: 200, height: 100 %>
+<% end %>
+	</p>
+
+	<% if flash[:alert].present? %>
+		<h1 style="color:red"><%= flash[:alert] %></h1>
+	<% end %>
+
+	<% if flash[:notice].present? %>
+		<h1 style="color:green"><%= flash[:notice] %></h1>
+	<% end %>
+</div>
+<hr>

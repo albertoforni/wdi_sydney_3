@@ -1,0 +1,40 @@
+
+ <% @albums = Album.all %>
+
+ <%#= form_for @albums, url: {action: "show"}, do |f| %>
+   
+   <div class="field">
+     <%#= f.label link_to :artist_id, album_path(@album.artist) %><br>
+     <%#= f.collection_select( :artist_id, Artist.all, :id, :name ) %>
+   </div>
+ 
+   <div class="actions">
+     <%#= f.submit %>
+   </div>
+
+<%# end %>
+
+
+<div style="border:4px solid purple; display: inline-block; clear: left;">
+	<strong>Menu</strong>
+	<%= link_to 'Artists', artists_path %> |
+	<%= link_to 'Albums', artist_albums_path(@albums.first) %> |
+	<%= link_to 'Songs', artist_songs_path(@albums.first) %> |
+	<%= link_to 'Playlist', playlists_path %>
+
+</div>
+
+
+<div style="border:4px solid purple; display: inline-block; float:right">
+		<p><strong>Top Artists:</strong></p>
+		<% Artist.all.each do |artist| %>
+
+			<%= link_to artist.name, artist_path(artist.id) %>
+			
+			<br><br>
+
+		<% end %>
+
+</div>
+
+

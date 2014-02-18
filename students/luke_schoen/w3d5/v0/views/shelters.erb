@@ -1,0 +1,22 @@
+<div>
+	<h1>Select Shelter</h1>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th></th>
+		</tr>
+
+		<%  @shelters.each do |shelter| %>
+
+		<tr>
+			<td><%=	shelter['id'] %></td>
+			<td><%=	shelter['name'] %></td>
+			<td><a href="/shelters/<%= shelter['id'] %>" data-method="get">Show Details</a></td>
+		</tr>
+				
+		<% end %>
+
+	</table>
+</div>

@@ -1,0 +1,16 @@
+"1) Create a person class that has name, age and gender
+2) Give it a to_s method
+3) instantiate a few people in your code, and use puts on a few of them to check it all works so far
+4) update your code so that at the end of the program, the person data is
+  saved to a file called database.txt. Lets say one person per line - print
+  out name, age, gender with commas in between"
+"and when you're done with that... work your way through the next steps:
+5) now update your code so that at the beginning of the program, you open the
+  file people.csv and read out the information. For each line in the file
+  - instantiate a new person
+6) try it out by removing the code from step 3 and just use your text-editor
+  to add a few people to the file. 
+7) make sure that you aren't just adding the same people back onto the end
+  of the database.txt over and over (oops - number 7 was of course about ""people.csv"" not ""database.txt"") As I said - 'database.txt' was a mistake - there's only one file: 'people.csv' you ar reading from that file and writing to the same one.
+8) now add a loop that lets the user enter a new person's data - and create
+a new person that gets saved into the db"

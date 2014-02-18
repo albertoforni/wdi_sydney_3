@@ -1,0 +1,9 @@
+<p><%= image_tag 'http://lorempixel.com/100/120', style: 'border: 2px solid #44ff55', title: 'my awesome logo!', alt: 'just another free logo', width: 200, height: 100 %></p>
+
+<% if flash[:alert].present? %>
+	<h1 style="color:red"><%= flash[:alert] %></h1>
+<% end %>
+
+<% if flash[:notice].present? %>
+	<h1 style="color:green"><%= flash[:notice] %></h1>
+<% end %>

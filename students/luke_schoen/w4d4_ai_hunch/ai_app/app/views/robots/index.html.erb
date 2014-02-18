@@ -1,0 +1,34 @@
+<h1>Listing robots</h1>
+
+
+
+<p style="border:4px solid purple; display: inline-block; clear: left;">
+<%= link_to 'New Robot', new_robot_path %></p>
+
+<table style="border: 1px solid black;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @robots.each do |robot| %>
+      <tr style="background-color:<%= cycle("#ffeeff", "#cceeff", name: "colors") -%>">
+        <td><%= robot.name %></td>
+
+<td><%= truncate(robot.description, length:30) { link_to "Continue", robot } %></td>
+        <td><%= image_tag robot.image, title: robot.name, width: 50, height: 50 %></td>
+        <td><%= link_to 'Show', robot %></td>
+        <td><%= link_to 'Edit', edit_robot_path(robot) %></td>
+        <td><%= link_to 'Destroy', robot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% reset_cycle("colors") %>
+  </tbody>
+</table>

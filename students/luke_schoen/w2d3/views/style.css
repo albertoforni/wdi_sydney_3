@@ -1,0 +1,30 @@
+.link_to_students {
+    background-color: blue;
+}
+
+div { border: solid pink 5px; 
+    padding: 30px;
+    margin: 10 auto; 
+    max-width: 600px;
+}
+
+* {
+    background-color: black;
+}
+
+.content {
+    text-align: center;
+    font-size: 20;
+}
+
+img {
+    
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    margin: 10px;
+}

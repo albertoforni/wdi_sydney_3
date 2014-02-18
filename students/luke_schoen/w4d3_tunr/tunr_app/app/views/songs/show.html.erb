@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @song.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @song.description %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @song.length %>
+  <iframe title="Video intro" <%= video_tag @song.url,  size: "560x340",poster: "home.jpg",controls: true, autobuffer: true %> frameborder="0"> </iframe>
+</p>
+
+<p>
+  <strong>Video URL:</strong>
+  <%= @song.url %>
+</p>
+
+<%= link_to artist_path(@song.artist) do %>
+<p style="background-color: #eedd66">
+  <strong>Artist Overview:</strong>
+  <%= @song.artist.description %>
+</p>
+<% end %>
+
+<% if @song.album.present? %>
+	<%= link_to album_path(@song.album) do %>
+	<p style="background-color: #eedd66">
+	  <strong>Album Overview:</strong>
+	  <%= @song.album.description %>
+	</p>
+	<% end %>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', artist_songs_path(@song.artist) %>
+
+
+
+		

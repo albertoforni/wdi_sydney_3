@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="General Assembly Web Development Immersive Group Page">
+        <meta name="keywords" content="General Assembly Web Development Immersive Luke Schoen Marcus Hoile Federico Tagliabue">
+        <title>WDI Group Site</title>
+        <!--normalise stylesheet -->
+        <link rel="stylesheet" href="../views/style.css">
+        <style>
+        a {
+            font-size: 20px
+        }
+
+        header {
+            min-width: 640px;
+        }
+
+        #link_to_students_img1 {
+            background: url(../luke.png);
+        }
+
+        #link_to_students_img2 {
+            background: url(../marcus.png);
+        }
+
+        #link_to_students_img2 {
+            background: url(federico.png);
+        }
+
+        #content1 {
+            background-color: yellow;
+            border: solid black 1px;
+            height: 240px;
+        }
+
+        #link_to_menu {
+            background-color: aqua;
+            padding: 15px;
+            width: 250px;
+            margin: 50px auto;
+            display: inline-block;
+            float: left;
+        }
+
+        #link_to_students {
+            background-color: aqua;
+            padding: 15px;
+            width: 300px;
+            margin: 25px auto;
+            display: inline-block;
+            float: right;
+        }
+
+        #link_to_info {
+            background-color: orange;
+            padding: 15px;
+            width: 300px;
+            margin: 50px auto;
+            display: inline-block;
+            float: right;
+        }
+        </style>
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Main Menu</h1>
+            <div id="content1">
+                <div id="link_to_menu">
+                    <a href="/index">Back to Homepage</a>
+                </div>
+
+                <div id="link_to_students">
+                    <h2>Group Member Pages:</h2><br>
+                    <a href="/lukeschoen"><img src="luke.png">Luke Schoen</a><br>
+                    <a href="/marcushoile"><img src="marcus.jpg">Marcus Hoile</a><br>
+                    <a href="/federicotagliabue"><img src="federico.png">Federico Tagliabue</a><br>
+                    <div id="link_to_students_img1"></div>
+                    <div id="link_to_students_img2"></div>
+                    <div id="link_to_students_img3"></div>
+                </div>
+
+            </div>
+        </header>
+
+    	<%= yield %>
+
+
+        <section>
+            <div id="footer">
+                <div id="link_to_info">
+                    <a href="/about">About</a><br>
+                    <a href="/contact">Contact Us</a><br>
+                    &copy; Copyright Our Group!
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

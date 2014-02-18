@@ -1,0 +1,23 @@
+<div>
+	<div style="display: inline-block; float: left; width:100px">Name</div>
+	<div style="display: inline-block; float: left; width:100px">Bio</div>
+	<div style="display: inline-block; float: left; width:100px">Image</div>
+	<div style="display: inline-block; float: left; width:100px">Link</div>
+	<div style="display: inline-block; float: left; width:100px">Link</div>
+	<div style="display: inline-block; float: left; width:100px">Link</div>
+</div>
+<br>
+<div style="border:1px solid green;">
+	<% @authors.each do |author| %>
+
+		<%= link_to author.name, author %> | 
+		<%= link_to author.bio, author %> |
+		<%= link_to author.image, author %> |
+		<%= link_to 'Show', author %> |
+		<%= link_to 'Edit', edit_author_path(author) %> |
+		<%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %>
+		
+	<br><br><br>
+
+	<% end %>
+</div>

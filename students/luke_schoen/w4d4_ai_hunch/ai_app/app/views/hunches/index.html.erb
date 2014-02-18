@@ -1,0 +1,100 @@
+<h1>Pick the most promising ideas!</h1>
+
+<div style="background-color:orange; width: 400px;" class="instructions">
+	<p>Which ideas do you think are trendy in 2014?</p>
+</div>
+
+<div>
+
+	<div class="sorting">
+		<p>Sort By: Selected | Unselected | All </p>
+
+	</div>
+	
+	<div style="display: inline-block;">
+		<table style="border:1px solid black;">
+		  <thead>
+		    <tr>
+		      <th style="text-align:center">Idea ID</th>
+		      <th style="text-align:center">Name</th>
+		      <th style="text-align:center">Description</th>
+		      <th style="text-align:center">Worthy?</th>
+		      
+		    </tr>
+		  </thead>
+
+		  <tbody>
+			  <%= form_tag '/', :method => 'get' do %>
+		  
+		  <% @ideas.each do |idea| %>
+		    
+		  <tr>
+
+	        <td style="text-align:center"><%= idea.id %></td>	
+	        <td><%= idea.name %></td> 
+	        <td><%= idea.description %></td> 
+	        <td style="text-align:center; vertical-align: top;">
+		          <%= label_tag :search %>
+		          <%= check_box_tag 'search[]', idea.id, false %>
+		          <%#= check_box(:accepted, 'false', selected:false) %>
+	        </td>
+
+	      </tr>
+				
+	          <%#= image_submit_tag("button.png") %>
+			<!-- , :name => nil, data: { confirm: "Are you sure?" } -->
+		  <% end %>
+				  <%= link_to 'Display All Ideas', '/', method: :get, data: { confirm: 'Are you sure?' } %>
+		          <%= image_submit_tag("button.png")  %>
+			   <% end %> 
+
+		  </tbody>
+		</table>
+	</div>
+	<div style="display: inline-block;">
+		<table>
+		  <tr>
+		    <td style="height: 100px !important;"> 
+		    <!-- vertical-align:top; height:40px; -->
+	        	<%#= submit_tag("Create Hunch!") %> <!-- , style: 100px -->
+	          
+	        </td>
+	      </tr>
+	    </table>
+	</div>
+	<div style="clear: left; background-color: #eeccff; width: 400px;"><br>
+		<span style="margin-left: 75px">Stage 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stage 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stage 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stage 4</span><br>
+		<strong>Progress</strong><%= range_field_tag(:progress, 10, :min => 0, :max => 100, disabled: true) %>
+	</div>
+</div>
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!--  <%# @hunches.each do |hunch| %>
+      <tr>
+        <td><%#= hunch.name %></td>
+        <td><%#= hunch.description %></td>
+        <td><%#= link_to 'Show', hunch %></td>
+        <td><%#= link_to 'Edit', edit_hunch_path(hunch) %></td>
+        <td><%#= link_to 'Destroy', hunch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%# end %> -->
+
+
+    <%#= link_to 'New Hunch', new_hunch_path %>

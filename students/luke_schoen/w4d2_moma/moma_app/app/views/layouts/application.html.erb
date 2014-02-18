@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MomaApp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<p>
+<%= link_to 'home', root_path %> |
+<%= link_to 'new artist', new_artist_path %> |
+<%= link_to 'new painting', new_painting_path %> |
+</p>
+
+<%= yield %>
+
+<%= yield :footer %>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+psql moma_app_development
+rails new app_name --database=postgresql
+cd /app_name
+rake db:create
+rake db:drop
+rake db:migrate
+rake db:seed
+
+rails generate model Artist -> generates migration and model
+rails generate migration create_artists -> i.e. if u just want a class without a database
+rails generate controller artists_controller
+
+
+rails server
+rails console

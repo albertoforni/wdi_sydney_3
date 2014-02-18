@@ -1,0 +1,8 @@
+<p><%= link_to 'Home', paintings_path %></p>
+
+<p><%=  link_to 'delete', @painting, :method => :delete, :confirm => 'do you really want to do this?' %></p>
+
+<p><%= link_to 'edit', edit_painting_path(@painting), :class => 'wow' %></p> <!-- integrate CSS using rails format -->
+
+<p><img src='<%= @painting.image %>'></p>
+

@@ -1,0 +1,95 @@
+/* HEADER */
+
+#top {
+     margin: 0 auto;
+     width: 1040px;
+     padding: 5px;
+     background-color: #bbccee;
+     height: 60px;
+     padding: 5px 0px 0px 30px; 
+
+     top:0px;
+     z-index: -1;
+     margin: 0;
+}
+ 
+#title_text h1 {
+	 margin-top: -70px;
+   	 transform:skew(10deg,-10deg);
+	-ms-transform:skew(10deg,-10deg); /* IE 9 */
+	-webkit-transform:skew(10deg,-10deg);/* Safari and Chrome */
+	 color: #eeeeff;
+	 font-family: 'Damion', cursive;
+}
+
+/* MENU BAR */
+
+#top_left {
+     background-color: black;
+	 color: white;
+     padding: 15px;
+     width: 240px;
+     height: 320px;
+     margin: 15px 0px 15px 15px;
+     display: inline-block;
+     float: left;
+}
+
+#menu {
+     padding: 15px;
+     width: 200px;
+     margin: 15px auto;
+}
+
+.nav {
+	list-style: none;
+}
+
+.nav ul li {
+	display: inline-block; /* displays menu horizontally instead of vertically */
+}
+
+/* BODY */
+
+#top_right {
+     background-color: black;
+	 color: white;
+     padding: 15px;
+     width: 750px;
+     max-height: 480px;
+     margin: 15px 0px 15px 15px;
+     display: inline-block;
+     float: left;
+     overflow-y: scroll;
+     /*overflow-y: hidden;*/
+}
+
+th {
+	text-align: center;
+}
+
+tr td {
+	border: 4px solid white;
+	background-color: #44bbee;
+	border-radius: 5px;
+	padding: 10px;
+	border-spacing: 10px;
+}
+
+/* FOOTER */
+
+#footer {
+	 margin: 0 auto;
+	 width: 1040px;
+     padding: 15px;
+     background-color: #bbccee;
+	 color: white;
+     display: inline-block;
+     float: left;
+}
+
+
+     
+
+
+

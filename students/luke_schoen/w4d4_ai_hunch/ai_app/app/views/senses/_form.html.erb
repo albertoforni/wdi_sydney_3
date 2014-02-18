@@ -1,0 +1,55 @@
+<%= form_for(@sense) do |f| %>
+  <% if @sense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sense.errors.count, "error") %> prohibited this sense from being saved:</h2>
+
+      <ul>
+      <% @sense.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+
+<!-- ATTEMPT TO MAKE DROP DOWN SELECT OF DIFFERENT SENSE TYPES -->
+	<%# my_types = Hash.new %>
+	<%# my_types = { :a => 1, :b => 2 } %>
+    <%#= f.label :robot_id %><br>
+    <%#= f.collection_select :robot_id, my_types, :id, :name, {prompt: true, :include_blank=>true} %>
+
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :robotimages %><br>
+
+    <% r = Robot.find_by_id(@sense.robot_id) %>
+	<%=	@sense.robotimages = {"#{params[:robot_id]}"=>r.image} %><br>
+	<%= image_tag r.image, title: r.name, width: 50, height: 50 %>
+
+	<%= f.text_field :robotimages %>
+	</div>
+
+  <div class="field">
+  	
+    <%= f.label :robot_id %><br>
+    <%= f.collection_select :robot_id, Robot.all, :id, :name, {prompt: true} %>
+    <%#= f.collection_select :robot_id, Robot.all, :id, :name, {prompt: true, :include_blank=>true} %>
+    <%#= f.text_field :robot_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

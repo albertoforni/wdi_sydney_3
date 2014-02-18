@@ -1,0 +1,58 @@
+
+<div>
+	<p><h1>Showing Details of Shelter: <%= @shelter.name %></h1></p>
+
+		<table>
+			<h2>Shelter</h2>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+			</tr>
+
+			<tr>
+				<td><%=	@shelter.id %></td>
+				<td><%=	@shelter.name %></td>
+				<td>
+					<a href="/shelters/<%= @shelter.id %>/pets" data-method="get">Donate a Pet</a>
+					<!--<form method="post" action="/shelters/<%= @shelter.id %>/pets/donations/<%= @donation_name %>">
+						<input type="hidden" name="donation[name]" value="<%= @donation_name %>">
+
+						<button>Donate a Pet with Donation ID <%= @donation_name %></button>
+					</form>-->
+				</td>
+			</tr>
+					
+
+		</table>
+<!--
+		<table>
+			<h2>Pets</h2>
+			<tr>
+				<th>ID</th>
+				<th>Type</th>
+				<th>Name</th>
+				<th>Donation ID</th>
+				<th>Shelter ID</th>
+			</tr>
+
+			<%#  @shelter.pets.each do |pet| %>
+
+			<tr>
+				<td><%#=	pet['id'] %></td>
+				<td><%#=	pet['type_of'] %></td>
+				<td><%#=	pet['name'] %></td>
+				<td><%#=	pet['donation_id'] %></td>
+				<td><%#=	pet['shelter_id'] %></td>
+				<td>
+					<form method="post" action="/shelters/<%= @shelter.id %>/pets/<%#= @pet['id'] %>/adoption">
+						<input type="hidden" name="_method" value="delete">
+						<button>Adopt a Pet</button>
+					</form>
+				</td>
+			</tr>
+					
+			<%# end %>
+
+		</table>
+
+</div>

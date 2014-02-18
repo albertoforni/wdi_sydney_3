@@ -1,0 +1,31 @@
+<h1> MTA route! </h1>
+<form action"/mta_form" method="get"> 			<!-- path that it goes to -->
+	<br><br>
+	<h2>Please enter route details below:</h2>
+	<label for="line1">Start line:</label>
+	<input type="text" name="line1">
+	<br>
+	<label for="station1">Start stop:</label>
+	<input type="text" name="station1">
+	<br>
+	<label for="line2">Finish line:</label>
+	<input type="text" name="line2">
+	<br>
+	<label for="station2">Finish stop:</label>
+	<input type="text" name="station2">
+	<br>
+
+	<button>Count stops!</button>
+</form>
+
+<p>Total stops: <%= @journey_count %></p>
+
+<p>Testing:<br>
+	Intersection1 Index: <%= @intersection1 %><br>
+	Intersection2 Index: <%= @intersection2 %><br>
+	Journey1 Station1 Index: <%= @journey1_station1_index %><br>
+	Journey2 Station2 Index: <%= @journey2_station2_index %><br>
+	Journey1 Count: <%= @journey1_count %><br>
+	Journey2 Count: <%= @journey2_count %><br>
+
+</p>

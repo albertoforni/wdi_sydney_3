@@ -1,0 +1,33 @@
+- restructure tab indentation of html file
+- style.css margin 0px space between remove
+- style.css #container width change to max-width
+- style.css body font-size to 50%
+??- style.css #container min-height 100px
+- html change div "content" to imgleft instead of imgright
+- html create separate div for container, and new one for the text and call it 'statement'
+- html give 'statement' an id="beach"
+- style.css add #beach { and give width/height of 90%}
+- adjust #container max-width and #beach image width/height until text along right side of image
+- noticed that only one dash line in menu shown, checked style.css for code called text and ident 'nav' already has border-top and border-bottom with dashed, tried removing div id content and statement but still not shown, --> one of them must be hidden?
+- test if hidden dash by giving 'nav' a height like 25px... ---> bottom dash appears!!
+- need div statement not to shrink in width when make window smaller
+- added in style.css for identifying arrangement of divs --> div { border: solid black 1px;
+- recalled that #container and #statement in div's are blocks, and need to use for #statement --> display: inline-block; ---> fixes the problem and both shown on same line instead of wrapping (reducing width did not work)
+- changed #statement from width to max-width value so shrinks, but this causes it to wrap to next line when screen shrunk. need alternative. how about shrinking everything when max-width reached?
+- tried media queries, did not work
+/*
+body {  font-size: 15px; }
+@media (max-width: 1000px) { body { font-size: 1.3em; } }
+*/
+- tried javascript unsuccessfully as listener for screensize
+  <script>
+    window.addEventListener('resize', function(){
+    document.getElementById('container').style.zIndex = ''; 
+    }, false);
+    </script>
+ - tried adding .fluid { width: 90%; } with class="fluid" applied to the #container in html 
+
+
+- SKIP
+- removed top and bottom gaps in header from 20px to 15px
+

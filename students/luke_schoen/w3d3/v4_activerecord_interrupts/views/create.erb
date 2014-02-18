@@ -1,0 +1,40 @@
+<%# content_for :menu_sub do %>
+
+		<div id="display_content">
+        	<h2>Create Post:</h2><br>
+        	<%# modify data in database. shows the form and click create will go here to create database. anything with 'name' will be recognised by sinatra %>
+			<h4><%= @post_errors %></h4>
+
+			<form method='post' action="/posts"> <%# posts to main.rb post '/create' %>
+				<div class="create">
+					<p><label for="">Title:</label></p>
+					<p><label for="">Abstract:</label></p>
+					<p><label>Body Text:</label></p>
+					<p>&nbsp;</p><p>&nbsp;</p>
+					<p><label>Author:</label></p>
+				</div>
+				<div class="create">
+
+					<p><input class="input_limit" type="text" name="title"></p>
+					<p>
+						<!--<input type="text" name="abstract">-->
+						<textarea id="text_limit_create" name="abstract" rows="1"></textarea>
+					</p>
+					<p>
+						<!--<input type="text" name="body_text">-->
+						<textarea  id="text_limit_create1b" name="body_text" rows="3"></textarea>
+					</p>
+					<p><input class="input_limit" type="text" name="author"></p>
+				</div>
+				<br>
+				<div>
+					<p>
+						<button type="submit" class="btn btn-success">Create New Post</button>
+					</p>
+				</div>
+				
+			</form>
+
+        </div>
+
+<%# end %>

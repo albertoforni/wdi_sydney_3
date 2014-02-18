@@ -1,0 +1,116 @@
+<%# content_for :content do %>
+
+<div id="display_content">
+    <h2>Display Content and Comments:</h2><br>
+
+	<p> 
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Abstract</th>
+				<th>Created Date</th>
+				<th>Details</th>
+			</tr>
+
+			<tr>
+				<td>
+		 	<%= @blog['id'] %>
+		 		</td>
+		 		<td class="table_desc_150"> 
+			<%= @blog['title'] %> 
+				</td>
+				<td class="table_desc_150">
+			<%= @blog['abstract'] %> 
+				</td>
+				<td class="table_desc_100">
+			<%= @blog['created_at'] %> 
+				</td>
+				<td>
+			<!--<form method='get' action="/">
+				<button>Hide</button>
+			</form>-->
+			<a href="/">Hide</a>
+				</td>
+				<td>
+			<a href="/posts/<%= @blog['id'] %>/edit">Edit</a>
+				</td>
+				<td>
+			<!--<a href="/posts/<%#= @blog['id'] %>/delete" data-method="post">Delete</a>-->
+	<form method='post' action="/posts/<%= @blog['id'] %>">
+			<input type="hidden" name="_method" value="delete">
+			<button class="btn btn-danger">Delete</button>
+	</form>
+				</td>
+
+			</tr>
+
+		</table>
+	</p>
+
+<%# display individual blog post details%>
+	
+	<p>
+			<div class="details">
+				<div>
+				<div class="details">
+					<p>Body Text:<p>
+				</div>
+				<div id="text_limit" class="details" id="input_limit2">
+					<p><%= @blog['body_text'] %></p> 
+				</div>
+				<div class="details">
+					<p>Post Author:</p>
+					<p>Post Updated:</p>
+				</div>
+				<div class="details" id="input_limit2">
+					<p><%= @blog['author'] %></p>
+					<p><%= @blog['updated_at'] %></p>
+				</div>
+			</div>
+
+<% @comments.each do |comment| %>
+			<div class="details">
+				<div class="details">
+					<p><label for="body_text">Comment Text:</label><p>
+				</div>
+				<div id="text_limit" class="details" id="text" id="input_limit2">
+					<p><%= comment['c_comment'] %></p> 
+				</div>
+				<div class="details">
+					<p><label for="c_author">Comment Author:</label></p>
+					<p><label for="c_created_at">Comment Date:</label></p>
+				</div>
+				<div id="text_limit" class="details" id="text" id="input_limit2">
+					<p><%= comment['c_author'] %></p> 
+					<p><%= comment['c_created_at'] %></p> 
+				</div>
+			</div>
+		<% end %>
+	</p>
+
+	<p>
+		<form method='post' action="/posts/<%= @blog['id'] %>/comments">
+			<div class="details">
+				<p><label for="c_comment">Comment:</label><p>
+			</div>
+			<div id="text_limit" class="details">
+				<p><textarea id="text_limit_create2" name="c_comment" rows="1"></textarea></p> 
+			</div>
+			<div class="details">
+				<p><label for="c_author">Author:</label></p>
+			</div>
+			<div class="details">
+				<p><input class="input_limit2" type="text" name="c_author"></p>
+			</div>
+			<div>
+				<p><button type="submit" class="btn btn-success">Create New Comment</button></p>
+				</div>
+		</form>
+	</p>
+</div>
+
+
+
+
+

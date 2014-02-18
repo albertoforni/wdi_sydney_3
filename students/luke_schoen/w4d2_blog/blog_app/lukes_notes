@@ -1,0 +1,198 @@
+######################
+# DATABASE 
+######################
+
+	# http://guides.rubyonrails.org/getting_started.html
+
+rails new blog_app --database=postgresql
+cd blog_app/
+cd config/
+cat database.yml
+subl .
+
+	# subl . opens sublime tree structure!
+	# delete user/pass from development and test sections
+	# note that we are using the 'development' part, which is database 'blog_app_development'
+	# ruby on rails API in SDoc
+	# http://weblog.rubyonrails.org/2011/8/29/the-rails-api-switches-to-sdoc/
+	# http://edgeapi.rubyonrails.org/
+
+cd ..
+rake db:create
+
+	# creates empty database file for you using database.yml
+
+psql -l
+
+	# lists all databases including new empty ones created with the database.yml file
+	# now close terminal windows where previous rails server called from before next step otherwise error
+
+rails server
+
+	# now create tables in the db automatically with Rails, and migration name in /db/migrate
+	# this should be done for all 'resources' required
+
+######################
+# MODELS
+######################
+
+	# IF ONLY WANT TO GENERATE MIGRATION FILE, BUT NOT MODEL
+	# rails generate migration create_posts 
+    # rails generate migration create_comments
+
+	# IF WANT TO GENERATE MIGRATION FILE AND MODEL
+	# rails generate model Post title:string abstract:string body_text:string author:string
+	# rails generate model Comment comment:string author:string 
+
+
+	# ├── db
+	# │   ├── migrate
+	# │   │   ├── 20140128192818_create_posts.rb
+	# │   │   └── 20140128192839_create_comments.rb
+
+psql -d blog_app_development
+\d posts
+\d comments
+
+	# now CTRL+C in the terminal to stop the 'rails server'
+
+rake db:drop
+
+	# now we can modify the tables
+
+cd db/migrate
+subl 20140128192818_create_posts.rb 
+subl 20140128192839_create_comments.rb
+
+	# update the database migration tables similar to below
+	#            t.string :title		
+	#            t.string :abstract
+	#            t.string :body_text	
+	#            t.string :author
+
+rake db:create
+rake db:migrate
+
+	# check that correct tables and databases created
+
+psql -d blog_app_development
+\d
+\l
+rake routes
+
+######################
+# ROUTES
+######################
+
+# we need to add some routes!!
+
+cd config/routes.rb
+subl routes.rb
+
+	# BlogApp::Application.routes.draw do
+	#
+	# # setup routes with sub-resources
+	#
+	#    resources :posts do
+	#            resources :comments
+	#    end
+	#
+	#	 root :to => 'posts#index' #to controller for posts, and action goes to index
+	#
+	# end
+
+rake routes
+
+	# routes automatically generated in CRUD as shown below (equivalent to 7 OFF functions i.e. get, post, put, delete)
+	#           Prefix Verb   URI Pattern                                 Controller#Action
+	#    post_comments GET    /posts/:post_id/comments(.:format)          comments#index
+	#                  POST   /posts/:post_id/comments(.:format)          comments#create
+	# new_post_comment GET    /posts/:post_id/comments/new(.:format)      comments#new
+	#edit_post_comment GET    /posts/:post_id/comments/:id/edit(.:format) comments#edit
+	#     post_comment GET    /posts/:post_id/comments/:id(.:format)      comments#show
+	#                  PATCH  /posts/:post_id/comments/:id(.:format)      comments#update
+	#                  PUT    /posts/:post_id/comments/:id(.:format)      comments#update
+	#                  DELETE /posts/:post_id/comments/:id(.:format)      comments#destroy
+	#            posts GET    /posts(.:format)                            posts#index
+	#                  POST   /posts(.:format)                            posts#create
+	#         new_post GET    /posts/new(.:format)                        posts#new
+	#        edit_post GET    /posts/:id/edit(.:format)                   posts#edit
+	#             post GET    /posts/:id(.:format)                        posts#show
+	#                  PATCH  /posts/:id(.:format)                        posts#update
+	#                  PUT    /posts/:id(.:format)                        posts#update
+	#                  DELETE /posts/:id(.:format)                        posts#destroy
+
+######################
+# CONTROLLERS
+######################
+
+	# create in app/controller/ folder files for each 'resource'
+cd ..
+cd app/controllers
+rails generate controller posts
+rails generate controller comments
+
+	# this creates:
+	# app/controller/posts_controller.rb
+	# app/controller/comments_controller.rb
+	#
+	# now edit each file with the following structure:
+	#        def index
+	#        end
+	#
+	#        def show
+	#        end
+	#
+	#        def new
+	#        end
+	#
+	#        def create
+	#
+	#        def edit
+	#        end 
+	#        
+	#        def update
+	#        end
+	#
+	#        def destroy
+	#        end
+
+######################
+# VIEWS
+######################
+
+	# the controllers will look for an index file inside /views/ folder
+	# create view files
+cd ..
+cd /app/views/
+touch index.html.erb
+
+######################
+# MODELS
+######################
+
+	# if did not create models earlier, we need to go into /models/ folder
+    # create a file posts.rb 
+    # create a file comments.rb
+
+cd app/models
+touch posts.rb
+touch comments.rb
+
+	# class Post < ActiveRecord::Base
+	# end
+	#
+	# class Comment < ActiveRecord::Base
+	# end
+
+
+
+
+
+rails console
+Artists
+Artists.count
+
+
+
+

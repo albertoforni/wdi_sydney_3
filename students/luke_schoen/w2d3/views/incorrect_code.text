@@ -1,0 +1,62 @@
+
+    #@message = params[:message]
+
+
+    <% 
+
+                        #luke = (%w(L U K E)).sort! #arrays
+                        #marcus = %w(M A R C U S).sort!
+                        #federico = %w(F E D E R I C O).sort!
+                        #input_letters = []
+
+                        #('@A'..'@Z').each { |x| input_letters << x } # for each checked input letter name
+                        #input_letters.sort!
+                        #input_ready = input_letters.join!
+                        #if (input_ready == luke.join || marcus.join || federico.join) && (@submit)
+                        #    @fullname = input_ready
+                        #else
+                        #    @fullname = "gotoerrorpage"
+                        #end 
+                    %>
+
+                    <%= #@fullname %>
+
+                        <!--<form id="member_choice" action="" method="get">
+                            <label for="checkbox">Select letters in member name:</label>
+                              <input id="A" name="A" type="checkbox" value="1">A
+                              <input id="B" name="B" type="checkbox" value="1">B
+                              <input id="C" name="C" type="checkbox" value="1">C
+                              <input id="D" name="D" type="checkbox" value="1">D
+                              <input id="E" name="E" type="checkbox" value="1">E
+                              <input id="F" name="F" type="checkbox" value="1">F
+                              <input id="G" name="G" type="checkbox" value="1">G
+                              <input id="H" name="H" type="checkbox" value="1">H
+                              <input id="I" name="I" type="checkbox" value="1">I
+                              <input id="J" name="J" type="checkbox" value="1">J
+                              <input id="K" name="K" type="checkbox" value="1">K
+                              <input id="L" name="L" type="checkbox" value="1">L
+                              <input id="M" name="M" type="checkbox" value="1">M
+                              <input id="N" name="N" type="checkbox" value="1">N
+                              <input id="O" name="O" type="checkbox" value="1">O
+                              <input id="P" name="P" type="checkbox" value="1">P
+                              <input id="Q" name="Q" type="checkbox" value="1">Q
+                              <input id="R" name="R" type="checkbox" value="1">R
+                              <input id="S" name="S" type="checkbox" value="1">S
+                              <input id="T" name="T" type="checkbox" value="1">T
+                              <input id="U" name="U" type="checkbox" value="1">U
+                              <input id="V" name="V" type="checkbox" value="1">V
+                              <input id="W" name="W" type="checkbox" value="1">W
+                              <input id="X" name="X" type="checkbox" value="1">X
+                              <input id="Y" name="Y" type="checkbox" value="1">Y
+                              <input id="Z" name="Z" type="checkbox" value="1">Z
+                        </form>
+                    -->
+
+                    <%=
+                    #if (@message == "lukeschoen" || "marcushoile" || "federicotagliabue") && submit
+                    #end
+                    %>
+                    <%= #@message %>
+                    <%
+                    #end
+                    %>

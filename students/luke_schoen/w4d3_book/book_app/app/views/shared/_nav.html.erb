@@ -1,0 +1,10 @@
+<div style="border:4px solid purple; float: right; display: inline-block; position: fixed">
+		<% Book.all.each do |book| %>
+
+			<%= link_to book.title, book %>
+			
+			<br><br>
+
+		<% end %>
+
+</div>

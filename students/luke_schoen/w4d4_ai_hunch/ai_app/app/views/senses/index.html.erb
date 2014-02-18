@@ -1,0 +1,77 @@
+<%# require 'will_paginate' %>
+
+<h1>Listing senses</h1>
+
+<% if !params[:robot_id].nil? %>
+<p style="border:4px solid purple; display: inline-block; clear: left;">
+<%= link_to 'New Sense', new_robot_sense_path %> |
+<%= link_to 'New Idea', new_robot_idea_path %> |
+<%= link_to 'Return to Robot', "#" %> 
+<br></p>
+<% end %>
+
+
+<table style="border: 1px solid black;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <% if params[:robot_id].nil? %>
+	  <th>Assigned to Robot</th>
+	  <% end %>
+	  <th>Image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @senses.each do |sense| %>
+      <tr>
+        <td style="text-align:center"><%= sense.name %></td>
+        <td style="text-align:center"><%= sense.description %></td>
+
+<!-- ASSIGNED TO ROBOT ID -->
+			<% if params[:robot_id].nil? && !sense.robot_id.nil? %>
+				<% x = Robot.find_by_id(sense.robot_id) %>
+				<% if !x.blank? %>
+					<td style="text-align:center"><%= link_to sense.robot_id, robot_path(sense.robot_id) %></td>
+				<% elsif x.blank? %>
+					<td style="text-align:center"><%= link_to (sense.robot_id.to_s + ", but deleted!, reassign?"), edit_sense_path(sense) %></td>
+				<% end %>
+			<% end %>
+
+<!-- IMAGE -->
+        <td style="text-align:center">
+        	<%#= sense.image %>
+
+
+		    <% if !sense.robot_id.nil? %>
+		  	  <% robot = Robot.find_by_id(sense.robot_id) %>
+		  	  <% if !robot.nil? %>
+		  	  	<%= image_tag robot.image, title: robot.name, width: 50, height: 50 %>
+		  	  <% end %>
+		    <% end %>
+
+		    <!-- if !sense.robot_id.nil? 
+			sense.robotimages[
+
+			each { |n| hash[n] = read_attribute_for_serialization(n) }
+		    end 
+			http://apidock.com/rails/ActiveModel/Serialization/serializable_hash
+			-->
+
+        </td>
+
+<!-- SHOW EDIT DELETE -->
+        <td><%= link_to 'Show', sense %></td>
+        <td><%= link_to 'Edit', edit_sense_path(sense) %></td>
+        <td><%= link_to 'Destroy', sense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <%#= will_paginate @senses %>
+  </tbody>
+</table>
+
+

@@ -1,0 +1,98 @@
+<%# name the result rows in main.rb route go through each row of the result %>
+
+<%# content_for :menu_sub do %>
+
+
+
+<div id="display_content">
+
+	<div id="dash_title">
+		<h2>Post Dashboard:</h2>
+	</div>
+
+    <div>
+		<div class="order_by">
+			<a href="/posts?ordering=<%=@sort_type3a%>"><%= @sort_type3b %></a>
+		</div>
+		<div class="order_by">
+			<a href="/posts?ordering=<%=@sort_type2a%>"><%= @sort_type2b %></a>
+		</div>
+		<div class="order_by">
+			<a href="/posts?ordering=<%=@sort_type1a%>"><%= @sort_type1b %></a>
+		</div>
+		<div class="order_by">Order By: 
+		</div>
+	</div>
+	<!-- &#10225; http://ikreator.com/special-characters/ -->
+	
+
+	<div>
+		<table>
+			<tr>
+				<th>ID</th> 
+				<th>Title</th>
+				<th>Abstract</th>
+				<th><%= @sort_type_sw_date4b%></th>
+				<th>Details</th>
+				<th></th>
+				<th></th>
+				<th>Comments</th>
+			</tr>
+	<% @res.each do |row| %>
+			<tr>
+				<td>
+		 	<%= row['id'] %> 
+		 		</td>
+		 		<td class="table_desc_150"> 
+			<%= row['title'] %> 
+				</td>
+				<td class="table_desc_150">
+			<%= row['abstract'] %> 
+				</td>
+				<td class="table_desc_100">
+			<%= row[@sort_type_sw_date4a] %> 
+				</td>
+				<td>
+			<!--<form method='get' action="/posts/<%#= row['id'] %>">
+				<button>Show</button>
+			</form>-->
+			<a href="/posts/<%= row['id'] %>">Show</a>
+				</td>
+				<td>
+			<a href="/posts/<%= row['id'] %>/edit">Edit</a>
+				</td>
+				<td>
+			<!--<a href="/posts/<%#= row['id'] %>/delete" data-method="post">Delete</a>-->
+	<form method="post" action="/posts/<%= row['id'] %>">
+			<input type="hidden" name="_method" value="delete">
+			<button id="deletebtn" class="btn btn-danger">Delete</button> 
+
+			<!--DID NOT WORK IF IT SAID <BUTTON TYPE="BUTTON" ... WHY??? ==> MUST BE SUBMIT TYPE!-->
+	</form>
+		<!--<form method="post" action="/posts/<%#=row['id']%>/delete">
+				<button>Delete</button>
+		</form>-->
+				</td>
+				<td>
+				<%= row.comments.count %> <!--@show_count.find(row['id']).where("post_id = row['id']").count %>-->
+				</td>
+
+
+				
+
+			<!--<a href="http://example.com/profile" param1="value1" param2="value2" data-method="post" >Delete</a>-->
+			<!--<a href="/cats/<%#= row['id'] %>/edit">edit</a>-->
+			<!--<form method='post' action="/cats/<%#= row['id'] %>/delete">
+				<button>Details</button>
+			</form>-->
+			</tr>
+	<% end %>
+		</table>
+
+	</div>
+
+</div>
+
+<%# end %>
+
+

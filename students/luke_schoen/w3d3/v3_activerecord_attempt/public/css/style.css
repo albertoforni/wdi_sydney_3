@@ -1,0 +1,237 @@
+/* PROBLEMS
+ - #return_home and .menu background-color not working
+*/
+
+/*
+* {
+	border: 2px solid pink;
+}
+*/
+
+/*----------------------------------------------------------------------------- 
+=01 HEADER
+-----------------------------------------------------------------------------*/
+
+/** { 
+	border: 1px solid yellow;
+}*/
+
+#top {
+     margin: 0 auto; /*centers our container on the page */
+     width: 1040px;
+     padding: 5px;
+     background-color: #bbccee;
+     height: 60px;
+     padding: 5px 0px 0px 30px; 
+     /*position:relative;*/
+     /*left:-100px;*/
+     top:0px;
+     z-index: -1;
+     margin: 0;
+}
+
+/*#logo {
+	 background: url(http://s6.tinypic.com/281j6s_th.jpg) no-repeat;
+	 width: 150px;
+	 height: 75px;
+	 display: inline-block;
+	 margin: 25px 0px 0px 25px;
+}*/
+ 
+#title_text h1 {
+   	 /*text-indent: -99999em;   /* hides the H1 tag from the page, while semantically keeping it present in your HTML */
+	 margin-top: -70px;
+   	 transform:skew(10deg,-10deg);
+	-ms-transform:skew(10deg,-10deg); /* IE 9 */
+	-webkit-transform:skew(10deg,-10deg);/* Safari and Chrome */
+	 color: #eeeeff;
+	 font-family: 'Damion', cursive;
+}
+
+/*----------------------------------------------------------------------------- 
+=02 MENU BAR
+-----------------------------------------------------------------------------*/
+
+#top_left {
+     background-color: black;
+	 color: white;
+     padding: 15px;
+     width: 240px;
+     height: 320px;
+     margin: 15px 0px 15px 15px;
+     display: inline-block;
+     float: left;
+}
+
+#return_home {
+     padding: 15px;
+     width: 200px;
+     margin: 15px auto;
+}
+
+.menu {
+     padding: 15px;
+     width: 200px;
+     margin: 15px auto;
+}
+
+.nav {
+	list-style: none;
+}
+
+.nav ul li {
+	display: inline-block; /* displays menu horizontally instead of vertically */
+}
+
+/*----------------------------------------------------------------------------- 
+=02 DISPLAY BRIEF
+-----------------------------------------------------------------------------*/
+
+/*
+#display_content {
+	display: inline-block;
+	float: left;
+}*/
+
+#top_right {
+     background-color: black;
+	 color: white;
+     padding: 15px;
+     width: 750px;
+     max-height: 480px;
+     margin: 15px 0px 15px 15px;
+     display: inline-block;
+     float: left;
+     overflow-y: scroll;
+     /*overflow-y: hidden;*/
+}
+
+tr td {
+	border: 4px solid white;
+	background-color: #44bbee;
+	border-radius: 5px;
+	padding: 10px;
+	border-spacing: 10px;
+}
+
+.create {
+	display: inline-block;
+	float: left;
+	margin: 15px;
+}
+
+.input_limit {
+	width: 300px; /* <input .. width> */
+	min-width: 300px;
+}
+
+.input_limit2 {
+	width: 150px; /* <input .. width> */
+}
+
+.details {
+	display: inline-block;
+	float: left;
+	margin: 0px 15px 0px 15px;
+}
+
+.details2 {
+	display: inline-block;
+	float: left;
+	margin: 0px 0px 0px 0px;
+}
+
+.details3 {
+	display: inline-block;
+	float: left;
+	margin: 0px 0px 0px 30px;
+}
+
+#text_limit{
+	max-width: 300px;
+}
+
+#text_limit_create {
+	width: 300px;
+	max-width: 350px;
+	max-height: 25px;
+}
+
+#text_limit_create1b {
+	width: 300px;
+	max-width: 350px;
+	max-height: 85px;
+	height: 85px;
+}
+
+#text_limit_create2 {
+	width: 250px;
+	max-width: 250px;
+	max-height: 75px;
+}
+
+#text_limit_create3 {
+	width: 250px;
+	max-width: 250px;
+	max-height: 25px;
+}
+
+#dash_title {
+	display: inline-block;
+	float: left;
+	width: 260px;
+}
+
+#dash_title2 {
+	display: inline-block;
+	float: left;
+	width: 240px;
+}
+
+.order_by {
+	display: inline-block;
+	width: 95px;
+	margin: 5px;
+	float: right;
+	text-align: center;
+}
+
+.table_desc_150 {
+	width: 150px;
+}
+
+.table_desc_100 {
+	width: 100px;
+}
+
+h3 {
+	color: #aaaaaa;
+}
+
+#blogs {
+	margin: 15px 15px 15px 0px;
+	padding: 15px 15px 15px 0px;
+
+	display: inline-block;
+	float: left;
+}
+
+/*----------------------------------------------------------------------------- 
+=03 FOOTER
+-----------------------------------------------------------------------------*/
+
+#footer {
+	 margin: 0 auto;
+	 width: 1040px;
+     padding: 15px;
+     background-color: #bbccee;
+	 color: white;
+     display: inline-block;
+     float: left;
+}
+
+
+     
+
+
+

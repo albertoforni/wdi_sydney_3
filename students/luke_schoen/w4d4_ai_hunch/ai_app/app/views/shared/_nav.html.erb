@@ -1,0 +1,24 @@
+<h1>Menu</h1>
+
+<div style="border:4px solid purple; display: inline-block; clear: left;">
+	<strong>Menu</strong>
+
+	<% if controller.controller_name == "hunches" %>
+		<%= link_to 'Review Ideas', root_path %> |
+		<%= link_to 'Admin Only', robots_path %>
+	<% else %>
+		<%= link_to 'Robots', robots_path %> |
+		<%= link_to 'Senses', senses_path %> |
+		<%= link_to 'Ideas', ideas_path %> |
+		<%= link_to 'User Interface', root_path %>
+	<% end %>
+</div>
+
+
+<!-- <div style="border:4px solid purple; display: inline-block; float:right">
+		<p><strong>Top Ideas:</strong></p>
+		Test
+
+</div> -->
+
+

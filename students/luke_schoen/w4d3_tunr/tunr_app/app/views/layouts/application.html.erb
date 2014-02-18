@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TunrApp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<header>
+
+	<div>
+
+		<%= render partial:'/shared/header' %>
+
+	</div>
+
+	<div id="nav">
+
+  		<%= render partial:'/shared/nav' %>
+
+	</div>
+
+</header>
+
+<body>
+
+	<div>
+
+		<%= yield %>
+
+	</div>
+
+</body>
+
+<footer>
+
+	<%= render partial:'/shared/footer' %>
+
+</footer>
+</html>
