@@ -25,8 +25,8 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h3>Pending</h3>
-      <ul class="list-group" ng-repeat="item in pendingList">
-        <li class="list-group-item">
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="item in pendingList">
           <span class="body">{{ item.body }}</span>,
           <span class="createdAt">created at {{ item.createdAt }}</span>
           <span class="complete" ng-click="moveToCompleted(item)">complete</span>
@@ -39,8 +39,8 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h3>Completed</h3>
-      <ul class="list-group" ng-repeat="item in completedList">
-        <li class="list-group-item">
+      <ul class="list-group">
+        <li class="list-group-item completed" ng-repeat="item in completedList">
           <span class="body">{{ item.body }}</span>,
           <span class="createdAt">created at {{ item.createdAt }}</span>
           <span class="rollback" ng-click="moveToPending(item)">rollback</span>
