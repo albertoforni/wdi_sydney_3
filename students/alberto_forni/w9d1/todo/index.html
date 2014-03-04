@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1 class="center">Todos</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div id="newElement" class="col-md-6 col-md-offset-3">
+      <label for="newElementInput">Insert element</label>
+      <input id="newElementInput" type="text" placeholder="Insert element">
+      <button id="newElementButton">Add</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3>Pending</h3>
+      <ul id='items' class="list-group">
+      </ul>
+      <script type="text/template" id="itemTemplate">
+        <span class="body"><%= body %></span>,
+        <span class="createdAt">created at <%= createdAt %></span>
+        <span class="complete">complete</span>
+        <span class="rollback" style="display: none">rollback</span>
+        <span class="close">X</span>
+      </script>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3>Completed</h3>
+      <ul id='completedItems' class="list-group">
+      </ul>
+    </div>
+  </div>
+
+</div>
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/backbone/jquery-2.1.0.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="js/backbone/underscore.js"></script>
+<script src="js/backbone/backbone.js"></script>
+<script src="js/backbone/app.js"></script>
+</body>
+</html>

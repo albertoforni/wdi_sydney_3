@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" ng-app="todoList">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<div class="container" ng-controller="todoListCtrl">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1 class="center">Todos</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <label for="newElementInput">Insert element</label>
+      <input ng-model='newItem' id="newElementInput" type="text" placeholder="Insert element">
+      <button ng-click="createItem()">Add</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3>Pending</h3>
+      <ul class="list-group" ng-repeat="item in pendingList">
+        <li class="list-group-item">
+          <span class="body">{{ item.body }}</span>,
+          <span class="createdAt">created at {{ item.createdAt }}</span>
+          <span class="complete" ng-click="moveToCompleted(item)">complete</span>
+          <span class="close" ng-click="removeItemFromPending(item)">X</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3>Completed</h3>
+      <ul class="list-group" ng-repeat="item in completedList">
+        <li class="list-group-item">
+          <span class="body">{{ item.body }}</span>,
+          <span class="createdAt">created at {{ item.createdAt }}</span>
+          <span class="rollback" ng-click="moveToPending(item)">rollback</span>
+          <span class="close" ng-click="removeItemFromCompleted(item)">X</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/backbone/jquery-2.1.0.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="js/backbone/underscore.js"></script>
+<script src="js/angular/angular.js"></script>
+<script src="js/angular/app.js"></script>
+<script src="js/angular/controllers/listController.js"></script>
+</body>
+</html>
